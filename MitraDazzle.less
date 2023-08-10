@@ -4,7 +4,6 @@
  * Variables representing every customizable color within TeamConnect.
  */
 :root {
-    --font-family:"Helvetica Neue", Calibri, Arial, sans-serif;
     --tc-accent: #0067D2; //primary accent color rgb(24, 144, 255)
     --anchor-color: #0067D2;
     --nav-hover-color: #F2F7FD; //rgba(24,144,255,0.1)
@@ -293,6 +292,12 @@ html,
 #ir-work-status-filter label,
 .dtree {
     font-family: var(--font-family) !important;
+}
+
+//DO NOT USE THESE VARIABLES
+html{
+    --font-family:"Helvetica Neue", Calibri, Arial, sans-serif;
+
 }
 
 body {
@@ -861,7 +866,7 @@ header#top-nav {
     .field-cell {
         padding: 6px 3px !important;
         width: 100% !important;
-        font-size: 1.4rem !important;
+        font-size: 16px !important;
         flex-flow: row nowrap !important;
 
         @media screen and (max-width: 1500px) {
