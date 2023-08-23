@@ -4,43 +4,32 @@
  * Variables representing every customizable color within TeamConnect.
  */
 :root {
-    --tc-accent: #0067D2; //primary accent color rgb(24, 144, 255)
     --anchor-color: #0067D2;
-    --nav-hover-color: #F2F7FD; //rgba(24,144,255,0.1)
-    --left-nav-icons-color: #0067D2; //left navigation icon colors, icons disabled in enhanced theme
+    --anchor-color-hover:#014073;
     --button-color: #C7D3DF; // fallback to primary accent or you can change to your preference
     --button-color-hover: #E3E9EF;
-    --button-border: none;
-    --button-disabled-color: #E3E9EF;
-    --button-shadow: none;
-    --button-radius: 0.5rem;
     --button-text-color: #242A30; //change here as well @button-text
-    --button-disabled-text-color: #8FA7BF;
-    // --button-icon-background: #6B7D8F;
     --background-color: #F9FAFC; //background color for TeamConnect
     --text-field-labels: #001A35; //text-fields labels color
     --text-field: #242A30; //text field colors
     --card-header: #fff; //card header color
     --card-header-text: #001A35;
     --card-body: #fff; //card body color
-    --card-shadow: 0px 2px 2px #E3E9EF; //card shadow color
     --card-border: #E3E9EF; //card border color
     --global-nav-color: #fff; //global navigation color
     --global-nav-icons: #6B7D8F; // global nav icons color
     --global-nav-icons-text: #47535F; //global nav icons text color
-    --global-nav-icons-text-show: display; //global nav icons text color
-    --global-search-width: 16vw;
     --global-search-bar-color: var(--background-color); //global search box background color
     --global-search-bar-border: #C7D3DF; //global search border color
     --global-search-button: #fff; // global search button color
     --global-search-bar-icon: #6B7D8F;
-    --global-search-border: 4px;
     --hamburger-icon: #fff; //hamburger menu icon color
     --top-nav-menu-border: #C7D3DF; // top nav menu border
     --top-nav-menu: #0067D2; //top nav menu color
     --top-nav-text: #fff; //top nav text color
     --top-nav-text-selected: #fff; //top nav text selected color
     --top-nav-bottom-border-selected: #fff; //top selected bottom border color
+    --top-nav-hover-color: #ffffff1a;
     --left-nav-border: #C7D3DF; //left navigation menu border
     --left-nav: #fff; //left navigation menu color
     --left-nav-text: #242A30; //left navigation menu parent text
@@ -60,29 +49,6 @@
     --table-header: #001A35; // table header text
     --page-header-color: #001A35; // page header color
     --scroll-bar-color: #E3E9EF; //scroll bar color
-    --body-text-color: #242A30; // base color of text across TeamConnect
-    --info-background: #BFDDD3; // info background color
-    --info-border: #00774E; // info border color
-    --warning-background: #FFCC8F; // warning background color
-    --warning-border: #FF991F; // warning border color
-    --error-background: #F2C7C9; // error background color
-    --error-border: #DA585D; // error border color;
-    --portal-pane-header-color: #001A35;
-    --portal-pane-header-font-size: 1.25em;
-    --portal-pane-header-font-weight: 400;
-    --portal-pane-padding: 1em;
-    --portal-pane-radius: 0.5rem;
-    --portal-pane-shadow: 0px 10px 20px rgba(18, 38, 63, 0.03);
-    --search-config-button-background: #E3E9EF;
-    --search-config-button-text-color: #242A30;
-    --search-config-button-background-hover: #ABBDCF;
-    --search-config-button-text-color-hover: #07080A;
-    --dropdown-background-color-hover: #F2F7FD;
-    --dropdown-border-color-hover: #ED5B3E;
-    --dropdown-textcolor-hover: #0067D2;
-    --dropdown-background-color: #fff;
-    --dropdown-border-color: #0067D2;
-
 }
 
 /*
@@ -188,7 +154,7 @@
  * Color of: 
  *	- hovered over anchors
  */
-@anchor-hover: #014073;
+@anchor-hover: var(--anchor-color-hover);
 
 /*
  *	Color of:
@@ -297,6 +263,38 @@ html,
 //DO NOT USE THESE VARIABLES
 html{
     --font-family:"Helvetica Neue", Calibri, Arial, sans-serif;
+    --left-nav-icons-color: #0067D2; //left navigation icon colors, icons disabled in enhanced theme
+    --button-radius: 8px;
+    --button-border: none;
+    --button-shadow: none;
+    --button-disabled-color: #E3E9EF;
+    --button-disabled-text-color: #8FA7BF;
+    --card-shadow: 0px 2px 2px #E3E9EF; //card shadow color
+    --global-nav-icons-text-show: display; //global nav icons text color
+    --global-search-border: 4px;
+    --global-search-width: 16vw;
+    --body-text-color: #242A30; // base color of text across TeamConnect
+    --info-background: #BFDDD3; // info background color
+    --info-border: #00774E; // info border color
+    --warning-background: #FFCC8F; // warning background color
+    --warning-border: #FF991F; // warning border color
+    --error-background: #F2C7C9; // error background color
+    --error-border: #DA585D; // error border color;
+    --portal-pane-header-color: #001A35;
+    --portal-pane-header-font-size: 1.25em;
+    --portal-pane-header-font-weight: 400;
+    --portal-pane-padding: .5em;
+    --portal-pane-radius: 8px;
+    --portal-pane-shadow: 0px 10px 20px rgba(18, 38, 63, 0.03);
+    --search-config-button-background: #E3E9EF;
+    --search-config-button-text-color: #242A30;
+    --search-config-button-background-hover: #ABBDCF;
+    --search-config-button-text-color-hover: #07080A;
+    --dropdown-background-color-hover: #F2F7FD;
+    --dropdown-border-color-hover: #ED5B3E;
+    --dropdown-textcolor-hover: #0067D2;
+    --dropdown-background-color: #fff;
+    --dropdown-border-color: #0067D2;
 
 }
 

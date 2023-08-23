@@ -1,4 +1,4 @@
-import styleArray from "./style-array.js";
+import styleArray from "./style-array-alt.js";
 // const rootStyle = document.querySelector(':root');
 
 // const styleSheet = document.styleSheets;
@@ -26,7 +26,6 @@ $('.container').append(styleArray.map((el,index) => {
 return `<div class="p-4">
 <h1>${index+1}. ${el.name.slice(2)}</h1>
 <h4>Default Value: <span class="code">${el.name}:${el.value}</span></h4>
-<h6>Type: ${createType(el.type)}</h6>
 <h5>${el.text}</h5>
 <h4>Example:</h4>
 </div>`
@@ -38,7 +37,6 @@ $('.table tbody').append(styleArray.map((el,index) => {
         <th>${index+1}</th>
         <td>${el.name}</td>
         <td><span class="code">${el.value}</span></td>
-        <td>${createType(el.type)}</td>
         <td>${el.text}</td>
         <td>Example</td>
     </tr>`
