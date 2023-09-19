@@ -269,12 +269,12 @@
 @global-search-border: 4px;
 @global-search-width: 16vw;
 @body-text-color: #242a30; // base color of text across TeamConnect
-@info-background: #bfddd3; // info background color
-@info-border: #00774e; // info border color
-@warning-background: #ffcc8f; // warning background color
-@warning-border: #ff991f; // warning border color
-@error-background: #f2c7c9; // error background color
-@error-border: #da585d; // error border color;
+@info-msg-bg: #bfddd3; // info background color
+@info-msg-border: #00774e; // info border color
+@warning-msg-bg: #ffcc8f; // warning background color
+@warning-msg-border: #ff991f; // warning border color
+@error-msg-bg: #f2c7c9; // error background color
+@error-msg-border: #da585d; // error border color;
 @portal-pane-header-color: #001a35;
 @portal-pane-header-font-size: 1.25em;
 @portal-pane-header-font-weight: 400;
@@ -372,24 +372,24 @@ table.list tr:nth-child(odd) {
   }
   //info message
   .infoMsgArea {
-    background-color: @info-background !important;
-    border-top: 4px solid @info-border !important;
+    background-color: @info-msg-bg !important;
+    border-top: 4px solid @info-msg-border !important;
   }
   //warning message
   .warnMsgArea {
-    background-color: @warning-background !important;
-    border-top: 4px solid @warning-border !important;
+    background-color: @warning-msg-bg !important;
+    border-top: 4px solid @warning-msg-border !important;
   }
   //error message
   .errorMsgArea {
-    background-color: @error-background !important;
-    border-top: 4px solid @error-border !important;
+    background-color: @error-msg-bg !important;
+    border-top: 4px solid @error-msg-border !important;
   }
   //system error
   .header {
     .error {
-      background-color: @error-background !important;
-      border-bottom: 1px solid @error-border !important;
+      background-color: @error-msg-bg !important;
+      border-bottom: 1px solid @error-msg-border !important;
     }
   }
 }
