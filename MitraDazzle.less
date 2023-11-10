@@ -661,6 +661,10 @@ header#top-nav {
   }
 
   .item {
+    li:has(.adhocSearch) {
+      padding: 6px 1px 6px 40px !important;
+    }
+
     li {
       padding: 6px 1px 6px 28px !important;
 
@@ -913,7 +917,7 @@ button .buttonbar-img {
     }
     .form-row {
       display: grid !important;
-      grid-template-columns: 1fr !important;
+      grid-template-columns: 1fr 1fr!important;
       .grid-50 {
         max-width: 100% !important;
       }
@@ -921,14 +925,18 @@ button .buttonbar-img {
         max-width: 100%;
       }
     }
-    .form-row:has(div+div) {
+    .column:only-child {
       /* -or- li:only-child { */
-      grid-template-columns: 1fr 1fr!important;
+     grid-column: span 2 !important;
     }
     @media screen and (max-width: 1200px) {
-      .form-row:has(div+div) {
+      .form-row {
         /* -or- li:only-child { */
         grid-template-columns: 1fr!important;
+      }
+      .column:only-child {
+        /* -or- li:only-child { */
+       grid-column: span 1 !important;
       }
     }
   }
