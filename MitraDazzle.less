@@ -235,7 +235,7 @@
  *  - block borders
  *  - table borders
  */
-@table-border: #eee;
+@table-border: var(--table-border-color);
 
 /*
  * Color of:
@@ -311,6 +311,10 @@ html,
 body {
   font-family: var(--font-family) !important;
   color: @body-text-color !important;
+}
+
+table.list{
+  border-color: var(--table-border-color) !important;
 }
 
 table.list td {
@@ -915,7 +919,7 @@ button .buttonbar-img {
     .row .grid-75 {
       max-width: 50% !important;
     }
-    .form-row {
+    .form-row,.row {
       display: grid !important;
       grid-template-columns: 1fr 1fr!important;
       .grid-50 {
@@ -930,7 +934,7 @@ button .buttonbar-img {
      grid-column: span 2 !important;
     }
     @media screen and (max-width: 1200px) {
-      .form-row {
+      .form-row, .row {
         /* -or- li:only-child { */
         grid-template-columns: 1fr!important;
       }
