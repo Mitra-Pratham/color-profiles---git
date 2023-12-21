@@ -260,10 +260,12 @@
 @left-nav-icons-color: #0067d2; //left navigation icon colors, icons disabled in enhanced theme
 @button-text: #242a30;
 @button-radius: 4px;
+@button-padding:.25rem .5rem;
 @button-border: none;
 @button-shadow: none;
 @button-disabled-color: #e3e9ef;
 @button-disabled-text-color: #8fa7bf;
+@card-radius: 0 0 4px 4px;
 @card-shadow: 0px 2px 2px #e3e9ef; //card shadow color
 @global-nav-icons-text-show: display; //global nav icons text color
 @global-search-border: 4px;
@@ -755,36 +757,22 @@ header#top-nav {
 }
 
 .btn-buttonbar,
-.button-group button {
+.button-group button, .btn-primary,
+.btn-default, .btn, .mainSearchBtn {
   color: var(--button-text-color) !important;
   height: auto !important;
   background: var(--button-color) !important;
-  padding: 0.5em 1em;
+  padding: @button-padding !important;
   border-radius: @button-radius !important;
   box-shadow: @button-shadow !important;
   border: @button-border !important;
-}
-
-.btn-primary,
-.btn-default {
-  color: var(--button-text-color) !important;
-  border-radius: @button-radius !important;
-  background: var(--button-color) !important;
-  box-shadow: @button-shadow !important;
-  border: @button-border !important;
   transition: 0.3s ease;
-}
-
-.btn {
-  color: var(--button-text-color) !important;
-  border: @button-border;
-  transition: 0.3s ease;
-  box-shadow: @button-shadow !important;
-  border: @button-border !important;
 }
 
 .btn:hover,
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-default:hover,
+.mainSearchBtn:hover, .button-group button:hover {
   background-color: var(--button-color-hover) !important;
   // padding-left: 1em !important;
   // padding-right: 1em !important;
@@ -858,6 +846,10 @@ button .buttonbar-img {
 //     border-top-left-radius: 4px !important;
 // }
 
+#adhocSearchBlockHeader{
+  margin-top: 0px !important;
+}
+
 // back, previous & next
 
 #iconTitleBar {
@@ -877,7 +869,7 @@ button .buttonbar-img {
 // cards block
 
 .tcblock,
-.blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
+.blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor), #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor), #objdef_CONT_block_Contact_PhoneFaxNumbers_block, #objdef_CONT_block_Contact_EmailWebAddresses_block {
   padding: 0.6em 1em;
 
   .bg_blockhdr {
@@ -895,7 +887,7 @@ button .buttonbar-img {
 
   .bg_blockcolor {
     box-shadow: @card-shadow !important;
-    border-radius: 0 0 4px 4px !important;
+    border-radius: @card-radius !important;
     margin-bottom: 0 !important;
     border: 1px solid var(--card-border);
     background-color: var(--card-body);
@@ -925,8 +917,11 @@ button .buttonbar-img {
       .grid-50 {
         max-width: 100% !important;
       }
+      .grid-33{
+        max-width: 100% !important;
+      }
       .grid-25 {
-        max-width: 100%;
+        max-width: 100% !important;
       }
     }
     .column:only-child {
@@ -960,7 +955,7 @@ button .buttonbar-img {
     //   flex-flow: column nowrap !important;
     // }
 
-    .label,
+    .label, 
     .memo_label,
     .texthdr {
       grid-column: 1;
@@ -1000,6 +995,23 @@ button .buttonbar-img {
       top: 0 !important;
       bottom: 0 !important;
     }
+  }
+}
+
+#adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor){
+  .bg_blockcolor + .bg_blockhdr{
+    margin-top:1.25rem !important;
+  }
+}
+
+.bg_blockcolor {
+  table td .texthdr{
+      text-transform: none !important;
+      font-size: inherit !important;
+      font-weight: 500 !important;
+      width: 10vw !important;
+      overflow-wrap: break-word;
+      color: var(--text-field-labels) !important;
   }
 }
 
@@ -1109,15 +1121,15 @@ button .buttonbar-img {
 
 #collectionSearchBlock input[type="button"] {
   background-color: @search-config-button-background !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: 0.5rem !important;
+  padding: @button-padding !important;
+  border-radius: @button-radius !important;
   color: @search-config-button-text-color !important;
 }
 
 #content-body input[type="button"] {
   background-color: @search-config-button-background !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: 0.5rem !important;
+  padding: @button-padding !important;
+  border-radius: @button-radius !important;
   color: @search-config-button-text-color !important;
 }
 
@@ -1127,7 +1139,8 @@ button .buttonbar-img {
   background-color: @search-config-button-background !important;
   text-decoration: none !important;
   margin-right: 0 !important;
-  padding: 0.5rem 1rem !important;
+  padding: @button-padding !important;
+  border-radius: @button-radius !important;
 }
 
 #collectionSearchBlock input[type="button"]:hover {
