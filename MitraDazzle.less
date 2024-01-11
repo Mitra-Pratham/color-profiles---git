@@ -458,14 +458,30 @@ table.list tr:nth-child(odd) {
 // global search menu css
 
 header#top-nav {
-  justify-content: unset !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
   background-color: var(--global-nav-color) !important;
+  @media screen and (max-width: 1280px) {
+    display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+    height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  @media screen and (max-width: 1200px) {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    
+  }
 
   //set nav-icons to the right
   #nav-icons {
     // order: 2;
     flex-grow: 1 !important;
     justify-content: flex-end !important;
+    @media screen and (max-width: 1200px) {
+      justify-content: flex-start !important;
+    }
 
     //nav link adjustments
     .navLink {
@@ -477,6 +493,9 @@ header#top-nav {
       align-items: center;
       padding: 0 1.5rem;
       color: var(--global-nav-icons-text) !important;
+      @media screen and (max-width: 1280px) {
+        flex-wrap: wrap !important;
+      }
     }
 
     .iconText {
