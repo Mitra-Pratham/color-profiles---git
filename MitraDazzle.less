@@ -966,6 +966,10 @@ button .buttonbar-img {
         grid-column: span 1 !important;
       }
     }
+    .budgetRow{
+      display: inline-grid !important;
+      grid-template-columns: 1fr 1fr !important;
+    }
   }
   .field-cell[style*="display: none;"] {
     display: none !important;
@@ -1043,7 +1047,7 @@ button .buttonbar-img {
   }
 }
 
-#mainContentDiv2 > .bg_blockhdr, #objdef_SYST_block_System_Region_block > .bg_blockhdr, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
+#mainContentDiv2 > .bg_blockhdr, #mainContentDiv3 > .bg_blockhdr, #objdef_SYST_block_System_Region_block > .bg_blockhdr, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
   margin: 0 1em 0 1em;
   background: var(--card-header) !important;
   border-bottom: none !important;
@@ -1056,7 +1060,7 @@ button .buttonbar-img {
   }
 }
 
-#mainContentDiv2 > .bg_blockcolor, #objdef_SYST_block_System_Region_block > .bg_blockcolor, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
+#mainContentDiv2 > .bg_blockcolor, #mainContentDiv3 > .bg_blockcolor,#objdef_SYST_block_System_Region_block > .bg_blockcolor, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
   margin: 0 1em 1.2em 1em;
 
   box-shadow: @card-shadow !important;
