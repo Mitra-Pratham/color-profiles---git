@@ -308,7 +308,15 @@ html,
   font-family: @font-family !important;
 }
 
-//DO NOT USE THESE VARIABLES
+
+.gwt-ScrollTable {
+  border: 0 !important;
+}
+
+.gwt-ScrollTable .dataTable td {
+  border-bottom: 0 !important;
+  border-right: 0 !important;
+}
 
 body {
   font-family: var(--font-family) !important;
@@ -326,7 +334,7 @@ table.list td {
   vertical-align: top;
 }
 
-table.list th {
+table.list th, .gwt-ScrollTable .headerTable tr:nth-child(2) > td {
   color: var(--table-header) !important;
   background: var(--table-background-color-header) !important;
   padding: 8px 6px !important;
@@ -338,16 +346,21 @@ table.list th {
   }
 }
 
-table.list th.order1 a {
+table.list th.order1 a{
   color: var(--table-header) !important;
 }
 
-table.list tr:nth-child(even) {
+table.list tr:nth-child(even), .gwt-ScrollTable .dataTable > tbody > tr:nth-child(even){
   background-color: var(--table-background-color-even) !important;
 }
 
-table.list tr:nth-child(odd) {
+table.list tr:nth-child(odd), .gwt-ScrollTable .dataTable > tbody > tr:nth-child(odd) {
   background-color: var(--table-background-color-odd) !important;
+}
+
+.gwt-ScrollTable .dataTable > tbody > tr > td{
+  border-right: 1px solid var(--table-border-color) !important;
+  border-bottom: 1px solid var(--table-border-color) !important;
 }
 
 .bootstrap-table .fixed-table-container .list th,
@@ -359,6 +372,22 @@ table.list tr:nth-child(odd) {
 .bootstrap-table .fixed-table-container .list thead tr th div.th-inner {
   color: var(--table-header) !important;
 }
+
+table.list td {
+  overflow-wrap: anywhere !important;
+}
+
+#designChangeItem.list td {
+  overflow-wrap: normal !important;
+}
+
+.minimalCenter{
+  background-color: var(--table-background-color-odd) !important;
+  td{
+    background-color: var(--table-background-color-odd) !important;
+  }
+}
+
 
 // error messages
 
@@ -894,6 +923,7 @@ button .buttonbar-img {
 .tcblock,
 .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
+#collectionSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #objdef_CONT_block_Contact_PhoneFaxNumbers_block,
 #objdef_CONT_block_Contact_EmailWebAddresses_block{
   padding: 0.6em 1em;
@@ -917,6 +947,7 @@ button .buttonbar-img {
     margin-bottom: 0 !important;
     border: 1px solid var(--card-border);
     background-color: var(--card-body);
+    overflow-wrap: break-word;
 
     .bg_blockcolor {
       box-shadow: none !important;
@@ -982,6 +1013,7 @@ button .buttonbar-img {
     grid-auto-columns: 1fr 7fr !important;
     gap: 6px !important;
     width: 100% !important;
+    overflow-wrap: anywhere;
 
     // @media screen and (max-width: 1500px) {
     //   flex-flow: column nowrap !important;
@@ -989,7 +1021,7 @@ button .buttonbar-img {
 
     .label,
     .memo_label,
-    .texthdr {
+    .texthdr, label {
       grid-column: 1;
       text-transform: none !important;
       font-size: inherit !important;
@@ -1030,6 +1062,15 @@ button .buttonbar-img {
   }
 }
 
+.labelcell{
+  color: var(--text-field-labels) !important;
+  font-weight: 500 !important;
+}
+
+// .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) .bg_blockcolor > #BatchDisplay0 {
+//   border: 0 !important;
+// }
+
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
   .bg_blockcolor + .bg_blockhdr {
     margin-top: 1.25rem !important;
@@ -1047,7 +1088,7 @@ button .buttonbar-img {
   }
 }
 
-#mainContentDiv2 > .bg_blockhdr, #mainContentDiv3 > .bg_blockhdr, #objdef_SYST_block_System_Region_block > .bg_blockhdr, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
+#mainContentDiv > .bg_blockhdr, #mainContentDiv2 > .bg_blockhdr, #mainContentDiv3 > .bg_blockhdr, #objdef_SYST_block_System_Region_block > .bg_blockhdr, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
   margin: 0 1em 0 1em;
   background: var(--card-header) !important;
   border-bottom: none !important;
@@ -1060,13 +1101,14 @@ button .buttonbar-img {
   }
 }
 
-#mainContentDiv2 > .bg_blockcolor, #mainContentDiv3 > .bg_blockcolor,#objdef_SYST_block_System_Region_block > .bg_blockcolor, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
+#mainContentDiv > .bg_blockcolor, #mainContentDiv2 > .bg_blockcolor, #mainContentDiv3 > .bg_blockcolor,#objdef_SYST_block_System_Region_block > .bg_blockcolor, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
   margin: 0 1em 1.2em 1em;
 
   box-shadow: @card-shadow !important;
   border-radius: @card-radius !important;
   border: 1px solid var(--card-border);
   background-color: var(--card-body);
+  overflow-wrap: break-word;
 
   .bg_blockcolor {
     box-shadow: none !important;
