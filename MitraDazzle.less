@@ -1067,9 +1067,7 @@ button .buttonbar-img {
   font-weight: 500 !important;
 }
 
-// .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) .bg_blockcolor > #BatchDisplay0 {
-//   border: 0 !important;
-// }
+
 
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
   .bg_blockcolor + .bg_blockhdr {
@@ -1085,6 +1083,12 @@ button .buttonbar-img {
     width: 10vw !important;
     overflow-wrap: break-word;
     color: var(--text-field-labels) !important;
+  }
+  .bg_blockcolor:has(#BatchDisplay0) {
+    border: 0 !important;
+    #BatchDisplay0{
+      border: 0 !important;
+    }
   }
 }
 
