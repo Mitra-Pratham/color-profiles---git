@@ -1002,9 +1002,14 @@ button .buttonbar-img {
       grid-template-columns: 1fr 1fr !important;
     }
   }
-  .field-cell[style*="display: none;"] {
-    display: none !important;
-  }
+  
+.form-row[style*="display: none"],.row[style*="display: none"], .column[style*="display: none"], .field-cell[style*="display: none"] {
+  display: none !important;
+}
+
+.form-row[style*="display:none"],.row[style*="display:none"], .column[style*="display:none"], .field-cell[style*="display:none"] {
+  display: none !important;
+}
 
   .field-cell {
     padding: 6px 3px !important;
@@ -1066,7 +1071,6 @@ button .buttonbar-img {
   color: var(--text-field-labels) !important;
   font-weight: 500 !important;
 }
-
 
 
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
