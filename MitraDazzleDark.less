@@ -4,40 +4,51 @@
  * Variables representing every customizable color within TeamConnect.
  */
 :root {
-  --anchor-color: #0067d2;
-  --anchor-color-hover: #014073;
-  --button-color: #c7d3df; // fallback to primary accent or you can change to your preference
-  --button-color-hover: #e3e9ef;
-  --button-text-color: #242a30; //change here as well @button-text
-  --background-color: #f9fafc; //background color for TeamConnect
-  --text-field-labels: #001a35; //text-fields labels color
-  --text-field: #242a30; //text field colors
-  --card-header: #fff; //card header color
-  --card-header-text: #001a35;
-  --card-body: #fff; //card body color
-  --card-border: #e3e9ef; //card border color
-  --global-nav-color: #fff; //global navigation color
-  --global-nav-icons: #6b7d8f; // global nav icons color
-  --global-nav-icons-text: #47535f; //global nav icons text color
+  --accent-color: #1890ff;
+  --anchor-color: var(--accent-color);
+  --anchor-color-hover: #48a4f9;
+  --button-color: var(
+    --accent-color
+  ); // fallback to primary accent or you can change to your preference
+  --button-color-hover: #1471c7;
+  --button-text-color: #fff; //change here as well @button-text
+  --background-color: #001a35; //background color for TeamConnect
+  --text-field-labels: #9faec5; //text-fields labels color
+  --text-field: #fff; //text field colors
+  --card-header: #172f47; //card header color
+  --card-header-text: #fff;
+  --card-body: #172f47; //card body color
+  --card-border: #3b536a; //card border color
+  --global-nav-color: #001a35; //global navigation color
+  --global-nav-icons: #ffffff; // global nav icons color
+  --global-nav-icons-text: var(
+    --global-nav-icons
+  ); //global nav icons text color
   --global-search-bar-color: var(
     --background-color
   ); //global search box background color
-  --global-search-bar-border: #c7d3df; //global search border color
-  --global-search-button: #fff; // global search button color
-  --global-search-bar-icon: #6b7d8f;
+  --global-search-bar-border: var(--card-border); //global search border color
+  --global-search-button: #172f47; // global search button color
+  --global-search-bar-icon: var(--accent-color);
   --hamburger-icon: #fff; //hamburger menu icon color
-  --top-nav-menu-border: #c7d3df; // top nav menu border
-  --top-nav-menu: #0067d2; //top nav menu color
+  --top-nav-menu-border: var(--card-border); // top nav menu border
+  --top-nav-menu: #172f47; //top nav menu color
   --top-nav-text: #fff; //top nav text color
-  --top-nav-text-selected: #fff; //top nav text selected color
-  --top-nav-bottom-border-selected: #fff; //top selected bottom border color
-  --top-nav-hover-color: #ffffff1a;
-  --left-nav-border: #c7d3df; //left navigation menu border
-  --left-nav: #fff; //left navigation menu color
-  --left-nav-text: #242a30; //left navigation menu parent text
-  --left-nav-text-selected: #003368; //left navigation menu parent text when selected/expanded
-  --left-nav-selected-background: #f2f7fd; //left navigation menu parent background when selected/expanded
-  --left-nav-selected-border: #ed5b3e; //left navigation selected border color
+  --top-nav-text-selected: var(--accent-color); //top nav text selected color
+  --top-nav-bottom-border-selected: var(
+    --accent-color
+  ); //top selected bottom border color
+  --top-nav-hover-color: #057dee80;
+  --left-nav-border: var(--card-border); //left navigation menu border
+  --left-nav: #172f47; //left navigation menu color
+  --left-nav-text: #9faec5; //left navigation menu parent text
+  --left-nav-text-selected: var(
+    --accent-color
+  ); //left navigation menu parent text when selected/expanded
+  --left-nav-selected-background: #057dee26; //left navigation menu parent background when selected/expanded
+  --left-nav-selected-border: var(
+    --accent-color
+  ); //left navigation selected border color
   --left-nav-hovered-background: var(
     --left-nav-selected-background
   ); //left navigation hovered background
@@ -50,72 +61,114 @@
   --left-nav-text-children-selected: var(
     --left-nav-text-selected
   ); //left navigation menu children text when selected
-  --left-nav-static-top-color: #fff;
-  --table-background-color-header: #e3e9ef;
-  --table-background-color-odd: #fff; //table background color for odd rows
-  --table-background-color-even: #f2f7fd; //table background color for even rows
-  --table-border-color: #c7d3df; //table border color
-  --table-text: #001a35; // text in the table
-  --table-header: #001a35; // table header text
-  --page-header-color: #001a35; // page header color
-  --scroll-bar-color: #e3e9ef; //scroll bar color
+  --left-nav-static-top-color: #172f47;
+  --table-background-color-header: #172f47;
+  --table-background-color-odd: #172f47; //table background color for odd rows
+  --table-background-color-even: #172f47; //table background color for even rows
+  --table-border-color: #4b627a; //table border color
+  --table-text: #fff; // text in the table
+  --table-header: #fff; // table header text
+  --page-header-color: #fff; // page header color
+  --scroll-bar-color: #4b627a; //scroll bar color
+  --scroll-bar-body:var(--background-color);
+  --font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
+  //dont use variables here
+  --left-nav-icons-color: var(
+    --accent-color
+  ); //left navigation icon colors, icons disabled in enhanced theme
+  --button-radius: 60px;
+  --button-padding: 0.25rem 0.5rem;
+  --button-border: none;
+  --button-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  --button-disabled-color: #4b627a;
+  --button-disabled-text-color: #172f47;
+  --card-radius: 0 0 4px 4px;
+  --card-shadow: 0px 2px 2px rgba(2, 13, 29, 0.1); //card shadow color
+  --global-nav-icons-text-show: display; //global nav icons text color
+  --global-search-border: 4px;
+  --global-search-width: 16vw;
+  --body-text-color: var(--text-field); // base color of text across TeamConnect
+  --info-msg-bg: #1d4f9e; // info background color
+  --info-msg-border: #113570; // info border color
+  --warning-msg-bg: #b67a0a; // warning background color
+  --warning-msg-border: #855b0c; // warning border color
+  --error-msg-bg: #a31414; // error background color
+  --error-msg-border: #800d0d; // error border color;
+  --portal-pane-header-color: var(--card-header-text);
+  --portal-pane-background: var(--card-body);
+  --portal-pane-border: transparent;
+  --portal-pane-header-font-size: 1.25em;
+  --portal-pane-header-font-weight: 400;
+  --portal-pane-padding: 0.5em;
+  --portal-pane-radius: 8px;
+  --portal-pane-shadow: var(--card-shadow);
+  --search-config-button-background: var(--background-color);
+  --search-config-button-text-color: var(--text-field);
+  --search-config-button-background-hover: #057dee80;
+  --search-config-button-text-color-hover: var(--text-field);
+  --dropdown-background-color-hover: #057dee80;
+  --dropdown-textcolor: var(--text-field);
+  --dropdown-textcolor-hover: #057dee80;
+  --dropdown-background-color: var(--background-color);
+  --dropdown-border-color: #53606d;
+  --dropdown-border-color-hover: var(--accent-color);
 }
 
 /*
- * color of: 
- *	- block header text and modal header text
- */
+   * color of: 
+   *	- block header text and modal header text
+   */
 @block-title: #000;
 
 /*
- * color of: 
- *	- left nav item text
- */
+   * color of: 
+   *	- left nav item text
+   */
 @left-nav-hover-text: #000;
 
 /*
- * color of: 
- *	- left nav item text
- */
+   * color of: 
+   *	- left nav item text
+   */
 @left-nav-text: #222;
 
 /*
- * background color of: 
- *	- left nav
- */
+   * background color of: 
+   *	- left nav
+   */
 @left-nav-background: #fff;
 
 /*
- * background color of: 
- *	- left nav item hover
- */
-@left-nav-hover: #dde7f4;
+   * background color of: 
+   *	- left nav item hover
+   */
+@left-nav-hover: var(--left-nav-hovered-background);
 
 /*
- * background color of: 
- *	- top nav
- *	- login page
- */
+   * background color of: 
+   *	- top nav
+   *	- login page
+   */
 @top-nav-background: #ffffff;
 
 /*
- * background color of: 
- *	- top nav tab hover
- */
+   * background color of: 
+   *	- top nav tab hover
+   */
 @top-nav-hover-background: var(--top-nav-hover-color);
 
 @top-nav-hover-text: #444;
 
 /*
- * color of: 
- *	- top nav unselected tab text
- */
+   * color of: 
+   *	- top nav unselected tab text
+   */
 @top-nav-text: #444;
 
 /*
- * color of: 
- *	- top nav selected tab text
- */
+   * color of: 
+   *	- top nav selected tab text
+   */
 @top-nav-selected-text: #fff;
 
 @top-nav-selected-background: #ffffff00;
@@ -125,174 +178,138 @@
 @top-nav-accent-size: 3px;
 
 /*
- * background color of:
- *	- left nav selected tab
- */
-@nav-selected: #dee5f0;
+   * background color of:
+   *	- left nav selected tab
+   */
+@nav-selected: var(--left-nav-selected-background);
 
 /*
- * Border color of: 
- *	- tabs selected within the top navigation bar
- *	- header elements selected within the left navigation bar
- *	- header elements selected within the recent items drop down
- */
+   * Border color of: 
+   *	- tabs selected within the top navigation bar
+   *	- header elements selected within the left navigation bar
+   *	- header elements selected within the recent items drop down
+   */
 @selected-border: #0070d5;
 
 /*
- * Border color of: 
- *	- hovered over tabs within the top navigation bar
- *	- hovered over header elements within the left navigation bar
- *	- hovered over header elements within the recent items drop down
- */
+   * Border color of: 
+   *	- hovered over tabs within the top navigation bar
+   *	- hovered over header elements within the left navigation bar
+   *	- hovered over header elements within the recent items drop down
+   */
 @hover-border: #0070d5;
 
 /*
- * Border color of: 
- *	- top navigation bar
- *	- hovered over contact cards
- *	- main calendar in calendar view, hour panel 
- */
+   * Border color of: 
+   *	- top navigation bar
+   *	- hovered over contact cards
+   *	- main calendar in calendar view, hour panel 
+   */
 @main-border: #5e6e82;
 
 /*
- * Color of:
- *	- anchors
- */
+   * Color of:
+   *	- anchors
+   */
 @anchor-text: var(--anchor-color);
 
 /* 
- * Color of: 
- *	- hovered over anchors
- */
+   * Color of: 
+   *	- hovered over anchors
+   */
 @anchor-hover: var(--anchor-color-hover);
 
 /*
- *	Color of:
- *	- modal headers
- *	- block headers
- *	- the calendar view appointment header
- *	- day picker in scheduler
- */
+   *	Color of:
+   *	- modal headers
+   *	- block headers
+   *	- the calendar view appointment header
+   *	- day picker in scheduler
+   */
 @block-header: #fff;
 
 /*
- * Color of:
- *	- modal bodies
- *	- block bodies
- *	- duplicate contact cards
- *	- months within date pickers
- *	- previously selected day within date pickers
- */
+   * Color of:
+   *	- modal bodies
+   *	- block bodies
+   *	- duplicate contact cards
+   *	- months within date pickers
+   *	- previously selected day within date pickers
+   */
 @block-body: #fff;
 
 /*
- * Color of:
- *  - block header edit icon
- */
+   * Color of:
+   *  - block header edit icon
+   */
 @block-edit-icon: #0070d5;
 
 /*
- * Color of:
- *	- table header with "sorted by" active
- */
-@table-highlight: #dee5f0;
+   * Color of:
+   *	- table header with "sorted by" active
+   */
+@table-highlight: var(--left-nav-selected-background);
 
 /*
- * Color of:
- *	- buttons on page
- *	- button bar buttons
- *	- buttons within the left navigation bar
- *  - icons above the top navigation bar
- *  - edit icons within search view result tables
- */
+   * Color of:
+   *	- buttons on page
+   *	- button bar buttons
+   *	- buttons within the left navigation bar
+   *  - icons above the top navigation bar
+   *  - edit icons within search view result tables
+   */
 @button-background: #0070d5;
 
 /* 
- * Color of:
- *	- hovered over buttons
- *  - hovered over icons above the top navigation bar
- *  - hovered over edit icons within search view result tables
- *	- "today" anchor within calendar view
- */
+   * Color of:
+   *	- hovered over buttons
+   *  - hovered over icons above the top navigation bar
+   *  - hovered over edit icons within search view result tables
+   *	- "today" anchor within calendar view
+   */
 @button-background-hover: #0070d5;
 
 /*
- * Color of:
- *  - select field text
- *  - multi-value field text
- *  - object link pop up text
- */
+   * Color of:
+   *  - select field text
+   *  - multi-value field text
+   *  - object link pop up text
+   */
 @field-text: #555;
 
 /*
- * Border color of:
- *  - block borders
- */
+   * Border color of:
+   *  - block borders
+   */
 @block-border: #eee;
 
 /*
- * Border color of:
- *  - block borders
- *  - table borders
- */
+   * Border color of:
+   *  - block borders
+   *  - table borders
+   */
 @table-border: var(--table-border-color);
 
 /*
- * Color of:
- *  - label text
- */
+   * Color of:
+   *  - label text
+   */
 @label-color: #666;
 
 /*
- * Color of:
- *  - icons within the left navigation bar
- *	- icons attached to fields (project search, date picker)
- *  - icons within the in-line/bulk adjustment screen
- *  - icons within tables under the users tab and group memberships tab
- *  - add and delete buttons for invoice line items
- *  - next and back buttons below search result tables
- *  - expand and collapse all buttons for category rights
- */
+   * Color of:
+   *  - icons within the left navigation bar
+   *	- icons attached to fields (project search, date picker)
+   *  - icons within the in-line/bulk adjustment screen
+   *  - icons within tables under the users tab and group memberships tab
+   *  - add and delete buttons for invoice line items
+   *  - next and back buttons below search result tables
+   *  - expand and collapse all buttons for category rights
+   */
 @left-nav-icon: #0070d5;
 
 // DO NOT USE THESE VARIABLES
-@font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
-@left-nav-icons-color: #0067d2; //left navigation icon colors, icons disabled in enhanced theme
-@button-text: #242a30;
-@button-radius: 4px;
-@button-padding:.25rem .5rem;
-@button-border: none;
-@button-shadow: none;
-@button-disabled-color: #e3e9ef;
-@button-disabled-text-color: #8fa7bf;
-@card-radius: 0 0 4px 4px;
-@card-shadow: 0px 2px 2px #e3e9ef; //card shadow color
-@global-nav-icons-text-show: display; //global nav icons text color
-@global-search-border: 4px;
-@global-search-width: 16vw;
-@body-text-color: #242a30; // base color of text across TeamConnect
-@info-msg-bg: #bfddd3; // info background color
-@info-msg-border: #00774e; // info border color
-@warning-msg-bg: #ffcc8f; // warning background color
-@warning-msg-border: #ff991f; // warning border color
-@error-msg-bg: #f2c7c9; // error background color
-@error-msg-border: #da585d; // error border color;
-@portal-pane-header-color: #001a35;
-@portal-pane-header-font-size: 1.25em;
-@portal-pane-header-font-weight: 400;
-@portal-pane-padding: 0.5em;
-@portal-pane-radius: 8px;
-@portal-pane-shadow: 0px 10px 20px rgba(18, 38, 63, 0.03);
-@search-config-button-background: #e3e9ef;
-@search-config-button-text-color: #242a30;
-@search-config-button-background-hover: #abbdcf;
-@search-config-button-text-color-hover: #07080a;
-@dropdown-background-color-hover: #f2f7fd;
-@dropdown-border-color: #e3e9ef;
-@dropdown-border-color-hover: #ed5b3e;
-@dropdown-textcolor: #07080a;
-@dropdown-textcolor-hover: #0067d2;
-@dropdown-background-color: #fff;
+@button-text: #fff; // base color of text across TeamConnect
 @darkened-border-color: #c0c0c0;
 @chart-border: #efefef;
 
@@ -306,9 +323,8 @@ html,
 .ir-button-style,
 #ir-work-status-filter label,
 .dtree {
-  font-family: @font-family !important;
+  font-family: var(--font-family) !important;
 }
-
 
 .gwt-ScrollTable {
   border: 0 !important;
@@ -321,7 +337,7 @@ html,
 
 body {
   font-family: var(--font-family) !important;
-  color: @body-text-color !important;
+  color: var(--body-text-color) !important;
 }
 
 table.list {
@@ -335,7 +351,8 @@ table.list td {
   vertical-align: top;
 }
 
-table.list th, .gwt-ScrollTable .headerTable tr:nth-child(2) > td {
+table.list th,
+.gwt-ScrollTable .headerTable tr:nth-child(2) > td {
   color: var(--table-header) !important;
   background: var(--table-background-color-header) !important;
   padding: 8px 6px !important;
@@ -347,19 +364,21 @@ table.list th, .gwt-ScrollTable .headerTable tr:nth-child(2) > td {
   }
 }
 
-table.list th.order1 a{
+table.list th.order1 a {
   color: var(--table-header) !important;
 }
 
-table.list tr:nth-child(even), .gwt-ScrollTable .dataTable > tbody > tr:nth-child(even){
+table.list tr:nth-child(even),
+.gwt-ScrollTable .dataTable > tbody > tr:nth-child(even) {
   background-color: var(--table-background-color-even) !important;
 }
 
-table.list tr:nth-child(odd), .gwt-ScrollTable .dataTable > tbody > tr:nth-child(odd) {
+table.list tr:nth-child(odd),
+.gwt-ScrollTable .dataTable > tbody > tr:nth-child(odd) {
   background-color: var(--table-background-color-odd) !important;
 }
 
-.gwt-ScrollTable .dataTable > tbody > tr > td{
+.gwt-ScrollTable .dataTable > tbody > tr > td {
   border-right: 1px solid var(--table-border-color) !important;
   border-bottom: 1px solid var(--table-border-color) !important;
 }
@@ -382,12 +401,11 @@ table.list td {
   overflow-wrap: normal !important;
 }
 
-#lineItemsViewDiv .minimalCenter tbody{
-  td{
+#lineItemsViewDiv .minimalCenter tbody {
+  td {
     background-color: var(--table-background-color-odd) !important;
   }
 }
-
 
 // error messages
 
@@ -407,24 +425,24 @@ table.list td {
   }
   //info message
   .infoMsgArea {
-    background-color: @info-msg-bg !important;
-    border-top: 4px solid @info-msg-border !important;
+    background-color: var(--info-msg-bg) !important;
+    border-top: 4px solid var(--info-msg-border) !important;
   }
   //warning message
   .warnMsgArea {
-    background-color: @warning-msg-bg !important;
-    border-top: 4px solid @warning-msg-border !important;
+    background-color: var(--warning-msg-bg) !important;
+    border-top: 4px solid var(--warning-msg-border) !important;
   }
   //error message
   .errorMsgArea {
-    background-color: @error-msg-bg !important;
-    border-top: 4px solid @error-msg-border !important;
+    background-color: var(--error-msg-bg) !important;
+    border-top: 4px solid var(--error-msg-border) !important;
   }
   //system error
   .header {
     .error {
-      background-color: @error-msg-bg !important;
-      border-bottom: 1px solid @error-msg-border !important;
+      background-color: var(--error-msg-bg) !important;
+      border-bottom: 1px solid var(--error-msg-border) !important;
     }
   }
 }
@@ -438,7 +456,7 @@ table.list td {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: #f2f7fd !important;
+  background-color: var(--scroll-bar-body) !important;
 }
 
 /* Handle */
@@ -465,23 +483,50 @@ table.list td {
 .gwtapps-DockableWidget {
   margin-left: 5px !important;
   margin-right: 5px !important;
-  box-shadow: @portal-pane-shadow !important;
+  box-shadow: var(--portal-pane-shadow) !important;
 }
 
 .bg_portlet {
-  padding: @portal-pane-padding !important;
-  border-radius: @portal-pane-radius !important;
+  background-color: var(--portal-pane-background) !important;
+  padding: var(--portal-pane-padding) !important;
+  border-radius: var(--portal-pane-radius) !important;
+  h3{
+    color: var(--portal-pane-header-color) !important;
+  }
 }
 
 .titlehdrPortlet {
   h1 {
-    font-size: @portal-pane-header-font-size !important;
-    font-weight: @portal-pane-header-font-weight !important;
+    font-size: var(--portal-pane-header-font-size) !important;
+    font-weight: var(--portal-pane-header-font-weight) !important;
   }
 }
 
 .plPaneContent {
   border: 0 !important;
+}
+
+.portal-pane-content {
+  * {
+    border-color: var(--portal-pane-border) !important;
+  }
+  .dip-title,
+  .rli-title {
+    color: var(--portal-pane-header-color) !important;
+  }
+  .dip-content-title,.dip-content-subtitle{
+    color: var(--text-field-labels) !important; 
+  }
+}
+
+.bg_portlet_edit {
+  background-color: var(--portal-pane-background) !important;
+  label{
+    color: var(--text-field-labels) !important;
+  }
+  .gwt-Label{
+    color: var(--text-field) !important;
+  }
 }
 
 // global search menu css
@@ -492,7 +537,7 @@ header#top-nav {
   background-color: var(--global-nav-color) !important;
   @media screen and (max-width: 1280px) {
     display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
     height: auto !important;
     height: auto !important;
     max-height: none !important;
@@ -500,7 +545,6 @@ header#top-nav {
   @media screen and (max-width: 1200px) {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    
   }
 
   //set nav-icons to the right
@@ -530,7 +574,7 @@ header#top-nav {
     .iconText {
       margin-top: 0px !important;
       margin-left: 6px;
-      display: @global-nav-icons-text-show !important;
+      display: var(--global-nav-icons-text-show) !important;
     }
 
     a
@@ -580,20 +624,21 @@ header#top-nav {
         width: inherit !important;
 
         .chosen-single {
-          border-radius: @global-search-border 0px 0px @global-search-border !important;
+          border-radius: var(--global-search-border) 0px 0px
+            var(--global-search-border) !important;
           border: 1px solid var(--global-search-bar-border) !important;
           border-right: 0 !important;
           background-color: var(--global-search-button) !important;
         }
 
         .chosen-drop {
-          width: @global-search-width !important;
+          width: var(--global-search-width) !important;
         }
       }
     }
 
     #globalSearchText {
-      width: @global-search-width !important;
+      width: var(--global-search-width) !important;
       border: 1px solid var(--global-search-bar-border) !important;
       background: var(--global-search-bar-color) !important;
     }
@@ -604,7 +649,8 @@ header#top-nav {
       border-top: 1px solid var(--global-search-bar-border) !important;
       border-right: 1px solid var(--global-search-bar-border) !important;
       border-bottom: 1px solid var(--global-search-bar-border) !important;
-      border-radius: 0px @global-search-border @global-search-border 0px !important;
+      border-radius: 0px var(--global-search-border) var(--global-search-border)
+        0px !important;
 
       a {
         svg {
@@ -710,12 +756,13 @@ header#top-nav {
 
   .submenu.nav {
     li {
-      border-bottom: 1px solid var(--card-border) !important;
+      border-bottom: 1px solid var(--left-nav-border) !important;
     }
   }
 
   .item {
-    li[class=" adhocSearch"], li[class="adhocSearch"]{
+    li[class=" adhocSearch"],
+    li[class="adhocSearch"] {
       padding: 6px 1px 6px 46px !important;
     }
 
@@ -743,7 +790,7 @@ header#top-nav {
     }
 
     li:not(:last-child) {
-      border-bottom: 1px solid var(--card-border) !important;
+      border-bottom: 1px solid var(--left-nav-border) !important;
     }
   }
 }
@@ -813,10 +860,10 @@ header#top-nav {
   color: var(--button-text-color) !important;
   height: auto !important;
   background: var(--button-color) !important;
-  padding: @button-padding !important;
-  border-radius: @button-radius !important;
-  box-shadow: @button-shadow !important;
-  border: @button-border !important;
+  padding: var(--button-padding) !important;
+  border-radius: var(--button-radius) !important;
+  box-shadow: var(--button-shadow) !important;
+  border: var(--button-border) !important;
   transition: 0.3s ease;
 }
 
@@ -831,13 +878,13 @@ header#top-nav {
 }
 
 .btn[disabled] {
-  background-color: @button-disabled-color !important;
-  color: @button-disabled-text-color !important;
+  background-color: var(--button-disabled-color) !important;
+  color: var(--button-disabled-text-color) !important;
 }
 
 .btn[disabled]:hover {
-  background-color: @button-disabled-color !important;
-  color: @button-disabled-text-color !important;
+  background-color: var(--button-disabled-color) !important;
+  color: var(--button-disabled-text-color) !important;
 }
 
 .btn-group {
@@ -845,13 +892,13 @@ header#top-nav {
     border-radius: 0 !important;
 
     &:first-of-type {
-      border-top-left-radius: @button-radius !important;
-      border-bottom-left-radius: @button-radius !important;
+      border-top-left-radius: var(--button-radius) !important;
+      border-bottom-left-radius: var(--button-radius) !important;
     }
 
     &:last-of-type {
-      border-top-right-radius: @button-radius !important;
-      border-bottom-right-radius: @button-radius !important;
+      border-top-right-radius: var(--button-radius) !important;
+      border-bottom-right-radius: var(--button-radius) !important;
     }
   }
 }
@@ -859,8 +906,8 @@ header#top-nav {
 .btn-buttonbar:disabled,
 .button:disabled,
 .ir-button-style:disabled {
-  color: @button-disabled-text-color !important;
-  background-color: @button-disabled-color !important;
+  color: var(--button-disabled-text-color) !important;
+  background-color: var(--button-disabled-color) !important;
 }
 
 button .buttonbar-img {
@@ -880,11 +927,11 @@ button .buttonbar-img {
   text-decoration: underline !important;
 }
 .btn-link.disabled {
-  color: @button-disabled-text-color !important;
+  color: var(--button-disabled-text-color) !important;
   cursor: not-allowed !important;
 }
 .btn-link.disabled:hover {
-  color: @button-disabled-text-color !important;
+  color: var(--button-disabled-text-color) !important;
   cursor: not-allowed !important;
   text-decoration: none !important;
 }
@@ -925,7 +972,7 @@ button .buttonbar-img {
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #collectionSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #objdef_CONT_block_Contact_PhoneFaxNumbers_block,
-#objdef_CONT_block_Contact_EmailWebAddresses_block{
+#objdef_CONT_block_Contact_EmailWebAddresses_block {
   padding: 0.6em 1em;
 
   .bg_blockhdr {
@@ -942,8 +989,8 @@ button .buttonbar-img {
   }
 
   .bg_blockcolor {
-    box-shadow: @card-shadow !important;
-    border-radius: @card-radius !important;
+    box-shadow: var(--card-shadow) !important;
+    border-radius: var(--card-radius) !important;
     margin-bottom: 0 !important;
     border: 1px solid var(--card-border);
     background-color: var(--card-body);
@@ -997,19 +1044,25 @@ button .buttonbar-img {
         grid-column: span 1 !important;
       }
     }
-    .budgetRow{
+    .budgetRow {
       display: inline-grid !important;
       grid-template-columns: 1fr 1fr !important;
     }
   }
-  
-.form-row[style*="display: none"],.row[style*="display: none"], .column[style*="display: none"], .field-cell[style*="display: none"] {
-  display: none !important;
-}
 
-.form-row[style*="display:none"],.row[style*="display:none"], .column[style*="display:none"], .field-cell[style*="display:none"] {
-  display: none !important;
-}
+  .form-row[style*="display: none"],
+  .row[style*="display: none"],
+  .column[style*="display: none"],
+  .field-cell[style*="display: none"] {
+    display: none !important;
+  }
+
+  .form-row[style*="display:none"],
+  .row[style*="display:none"],
+  .column[style*="display:none"],
+  .field-cell[style*="display:none"] {
+    display: none !important;
+  }
 
   .field-cell {
     padding: 6px 3px !important;
@@ -1026,7 +1079,8 @@ button .buttonbar-img {
 
     .label,
     .memo_label,
-    .texthdr, label {
+    .texthdr,
+    label {
       grid-column: 1;
       text-transform: none !important;
       font-size: inherit !important;
@@ -1067,11 +1121,12 @@ button .buttonbar-img {
   }
 }
 
-.labelcell{
+.labelcell,
+.texthdr, .bg_blockhdr h3,.tdlabel2 label, #footer, .dynamic-chart header h3 {
   color: var(--text-field-labels) !important;
   font-weight: 500 !important;
+  border-color: var(--card-border) !important;
 }
-
 
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
   .bg_blockcolor + .bg_blockhdr {
@@ -1090,13 +1145,17 @@ button .buttonbar-img {
   }
   .bg_blockcolor:has(#BatchDisplay0) {
     border: 0 !important;
-    #BatchDisplay0{
+    #BatchDisplay0 {
       border: 0 !important;
     }
   }
 }
 
-#mainContentDiv > .bg_blockhdr, #mainContentDiv2 > .bg_blockhdr, #mainContentDiv3 > .bg_blockhdr, #objdef_SYST_block_System_Region_block > .bg_blockhdr, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
+#mainContentDiv > .bg_blockhdr,
+#mainContentDiv2 > .bg_blockhdr,
+#mainContentDiv3 > .bg_blockhdr,
+#objdef_SYST_block_System_Region_block > .bg_blockhdr,
+#objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
   margin: 0 1em 0 1em;
   background: var(--card-header) !important;
   border-bottom: none !important;
@@ -1109,11 +1168,15 @@ button .buttonbar-img {
   }
 }
 
-#mainContentDiv > .bg_blockcolor, #mainContentDiv2 > .bg_blockcolor, #mainContentDiv3 > .bg_blockcolor,#objdef_SYST_block_System_Region_block > .bg_blockcolor, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
+#mainContentDiv > .bg_blockcolor,
+#mainContentDiv2 > .bg_blockcolor,
+#mainContentDiv3 > .bg_blockcolor,
+#objdef_SYST_block_System_Region_block > .bg_blockcolor,
+#objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
   margin: 0 1em 1.2em 1em;
 
-  box-shadow: @card-shadow !important;
-  border-radius: @card-radius !important;
+  box-shadow: var(--card-shadow) !important;
+  border-radius: var(--card-radius) !important;
   border: 1px solid var(--card-border);
   background-color: var(--card-body);
   overflow-wrap: break-word;
@@ -1176,21 +1239,21 @@ button .buttonbar-img {
       gap: 10px !important;
 
       .label,
-    .memo_label,
-    .texthdr {
-      grid-column: auto;
-      grid-row:auto;
-      width: 100% !important;
-    }
-  
+      .memo_label,
+      .texthdr {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100% !important;
+      }
+
       .field,
       .memo_field {
         grid-column: 1;
-        grid-row:1;
+        grid-row: 1;
       }
     }
   }
-} 
+}
 
 // .row .grid-100{
 //   .field-cell{
@@ -1234,6 +1297,24 @@ button .buttonbar-img {
   z-index: 101 !important;
 }
 
+//invoice review stuff
+#ir-work-status-filter{
+  label{
+    color: var(--text-field-labels) !important;
+  }
+  .status-radio{
+    color: var(--text-field) !important;
+  }
+}
+.dynamic-charts-block .dynamic-chart{
+  background-color: var(--card-body) !important;
+  border-radius: var(--portal-pane-radius) !important;
+  border: 1px solid var(--card-border) !important;
+}
+.dynamic-charts-block .dynamic-chart .dynamic-chart-container > canvas {
+  background-color: var(--card-body) !important;
+}
+
 // #ir-pager .slick-pager {
 //     height: auto !important;
 //     border: 1px solid transparent !important;
@@ -1272,69 +1353,158 @@ button .buttonbar-img {
 // }
 
 .buttonbar-dropdown-icon {
-  color: #242a30 !important;
+  color: var(--button-text-color) !important;
 }
 
 //Dropdowns
 
 .dropdown-menu li > a:hover,
 .dropdown-menu li .btn-content a:hover {
-  background-color: @dropdown-background-color-hover !important;
-  border-color: @dropdown-border-color-hover !important;
-  color: @dropdown-textcolor-hover !important;
+  background-color: var(--dropdown-background-color-hover) !important;
+  border-color: var(--dropdown-border-color-hover) !important;
+  color: var(--dropdown-textcolor-hover) !important;
 }
 
 .dropdown-menu > li + li {
-  border-bottom: @dropdown-border-color 1px solid !important;
+  border-bottom: var(--dropdown-border-color) 1px solid !important;
   border-top: none !important;
 }
 
 .dropdown-menu {
-  background-color: @dropdown-background-color !important;
-  color: @dropdown-textcolor !important;
+  background-color: var(--dropdown-background-color) !important;
+  color: var(--dropdown-textcolor) !important;
+}
+
+.form-control {
+  background-color: var(--background-color) !important;
+  border: 0 !important;
+  color: var(--body-text-color) !important;
+}
+
+form {
+  input {
+    background-color: var(--background-color) !important;
+    border: 0 !important;
+    color: var(--body-text-color) !important;
+  }
+  select {
+    background-color: var(--background-color) !important;
+    border: 0 !important;
+    color: var(--body-text-color) !important;
+  }
+}
+
+.bootstrap-table .fixed-table-toolbar .search-input:first-child{
+  background-color: var(--card-body) !important;
+  border: 1px solid var(--card-border) !important;
+}
+
+.chosen-container-single {
+  background-color: var(--background-color) !important;
+  border: 0 !important;
+  color: var(--body-text-color) !important;
+  .chosen-single{
+    background-color: var(--background-color) !important;
+    border-color: transparent !important;
+    color: var(--body-text-color) !important;
+  }
+  .chosen-search {
+    background-color: var(--background-color) !important;
+    border: 0 !important;
+    color: var(--body-text-color) !important;
+    input[type="text"] {
+      background-color: var(--background-color) !important;
+      border: 0 !important;
+      color: var(--body-text-color) !important;
+    }
+  }
 }
 
 //custom search and search view operation buttons
 
 #collectionSearchBlock input[type="button"] {
-  background-color: @search-config-button-background !important;
-  padding: @button-padding !important;
-  border-radius: @button-radius !important;
-  color: @search-config-button-text-color !important;
+  background-color: var(--search-config-button-background) !important;
+  padding: var(--button-padding) !important;
+  border-radius: var(--button-radius) !important;
+  color: var(--search-config-button-text-color) !important;
 }
 
 #content-body input[type="button"] {
-  background-color: @search-config-button-background !important;
-  padding: @button-padding !important;
-  border-radius: @button-radius !important;
-  color: @search-config-button-text-color !important;
+  background-color: var(--search-config-button-background) !important;
+  padding: var(--button-padding) !important;
+  border-radius: var(--button-radius) !important;
+  color: var(--search-config-button-text-color) !important;
 }
 
 .ftrgwtdate-topPanelContainer button[type="button"],
 .functionlinks3 {
-  color: @search-config-button-text-color !important;
-  background-color: @search-config-button-background !important;
+  color: var(--search-config-button-text-color) !important;
+  background-color: var(--search-config-button-background) !important;
   text-decoration: none !important;
   margin-right: 0 !important;
-  padding: @button-padding !important;
-  border-radius: @button-radius !important;
+  padding: var(--button-padding) !important;
+  border-radius: var(--button-radius) !important;
 }
 
 #collectionSearchBlock input[type="button"]:hover {
-  color: @search-config-button-text-color-hover !important;
-  background-color: @search-config-button-background-hover !important;
+  color: var(--search-config-button-text-color-hover) !important;
+  background-color: var(--search-config-button-background-hover) !important;
   text-decoration: none;
 }
 
 #content-body input[type="button"]:hover {
-  color: @search-config-button-text-color-hover !important;
-  background-color: @search-config-button-background-hover !important;
+  color: var(--search-config-button-text-color-hover) !important;
+  background-color: var(--search-config-button-background-hover) !important;
   text-decoration: none !important;
 }
 
 .ftrgwtdate-topPanelContainer button[type="button"]:hover,
 .functionlinks3:hover {
-  color: @search-config-button-text-color-hover !important;
-  background-color: @search-config-button-background-hover !important;
+  color: var(--search-config-button-text-color-hover) !important;
+  background-color: var(--search-config-button-background-hover) !important;
   text-decoration: none !important;
+}
+
+//modal & stuff
+#commonDialog, #confirmationDialog {
+  border-radius: var(--portal-pane-radius) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  .hd,
+  .bd,
+  .ft {
+    background-color: var(--card-body) !important;
+    border: 1px solid var(--card-border);
+    color: var(--card-header-text) !important;
+  }
+  .hd {
+    border-radius: var(--portal-pane-radius) var(--portal-pane-radius) 0 0 !important;
+    font-size: 1.5em !important;
+  }
+  .ft {
+    border-radius: 0 0 var(--portal-pane-radius) var(--portal-pane-radius) !important;
+    .button-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+//modal backdrop
+.yui-skin-sam {
+  .mask {
+    background-color: var(--background-color) !important;
+    opacity: 0.65 !important;
+  }
+
+  .yui-panel-container.shadow {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    overflow: hidden !important;
+  }
 }

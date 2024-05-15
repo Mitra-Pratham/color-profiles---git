@@ -1,0 +1,16 @@
+<TeamConnectRequest>
+    <Authentication>
+        <Username>ps</Username>
+        <Password>ps4</Password>
+    </Authentication>
+    <Contact op="update" Name="Sethi"
+        OverrideDuplicateCheck="true">
+        
+        <!-- <DefaultRate>
+            <RateAmount>75</RateAmount>
+            <EffectiveFrom>2005-01-01</EffectiveFrom>
+            <EffectiveTo>2005-06-30</EffectiveTo>
+        </DefaultRate> -->
+                <DefaultRateValue>100.00</DefaultRateValue>
+    </Contact>
+</TeamConnectRequest>

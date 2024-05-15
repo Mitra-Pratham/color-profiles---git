@@ -1,0 +1,789 @@
+/*
+ * CustomVariables:
+ * 
+ * Variables representing every customizable color within TeamConnect.
+ */
+ :root {
+    --tc-accent: #1890ff;
+    --anchor-color:#1890ff;
+    --nav-hover-color: #1890ff1a;
+    --left-nav-icons-color: #1890ff;
+    --global-nav-color: #001a35;
+    --global-nav-icons-color: #ffffff;
+    --global-nav-icons-text: var(--global-nav-icons-color);
+    --button-color: #1890ff;
+    --button-gradient: #1890ff;
+    --button-color-hover: #1471c7;
+    --button-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    --button-radius: 60px;
+    --block-header-color: #fff;
+    --background-color: #001a35;
+    --text-field-labels: #8695ab;
+    --text-field: #fff;
+    --card-header: #172f47;
+    --card-header-text:#fff;
+    --card-body: #172f47;
+    --card-shadow: 0px 2px 2px rgba(2, 13, 29, 0.1);
+    --card-border: rgba(0, 0, 0, 0);
+    --global-search-width: 16vw;
+    --global-search-bar-color: #172f47;
+    --global-search-bar-border: transparent;
+    --global-search-button: #172f47;
+    --global-nav-icons-text: #fff;
+    --global-search-bar-icon: #1890ff;
+    --global-nav-icons: #fff;
+    --gloabl-search-border: 4px;
+    --hamburger-icon: #fff;
+    --top-nav-menu-border: transparent;
+    --top-nav-menu: #172f47;
+    --top-nav-text: #fff;
+    --top-nav-text-selected: #1890ff;
+    --top-nav-bottom-border-selected: #1890ff;
+    --left-nav-border: transparent;
+    --left-nav: #172f47;
+    --left-nav-text: #8695ab;
+    --left-nav-text-selected: #1890ff;
+    --left-nav-selected-background: transparent;
+    --left-nav-selected-border: #1890ff;
+    --left-nav-hovered-background: var(--left-nav-selected-background);
+    --left-nav-hovered-border: var(--left-nav-selected-border);
+    --left-nav-text-children: var(--left-nav-text);
+    --left-nav-text-children-selected: var(--left-nav-text-selected);
+    --left-nav-static-top-color: #172f47;
+    --table-background-color-odd: #172f47;
+    --table-background-color-even: #001a35;
+    --table-border-color: #4b627a;
+    --table-text:#fff;
+    --table-header:#fff;
+    --page-header-color: #fff;
+    --scroll-bar-color: #4b627a;
+    --body-text-color:white;
+    --info-background: #004AC1;
+    --warning-background: #004AC1;
+    --error-background: #004AC1;
+}
+
+/*
+ * color of: 
+ *	- block header text and modal header text
+ */
+@block-title: #000;
+
+/*
+ * color of: 
+ *	- left nav item text
+ */
+@left-nav-hover-text: #000;
+
+/*
+ * color of: 
+ *	- left nav item text
+ */
+@left-nav-text: #222;
+
+/*
+ * background color of: 
+ *	- left nav
+ */
+@left-nav-background: #fff;
+
+/*
+ * background color of: 
+ *	- left nav item hover
+ */
+@left-nav-hover: #dde7f4;
+
+/*
+ * background color of: 
+ *	- top nav
+ *	- login page
+ */
+@top-nav-background: #ffffff;
+
+/*
+ * background color of: 
+ *	- top nav tab hover
+ */
+@top-nav-hover-background: var(--nav-hover-color);
+
+@top-nav-hover-text: #444;
+
+/*
+ * color of: 
+ *	- top nav unselected tab text
+ */
+@top-nav-text: #444;
+
+/*
+ * color of: 
+ *	- top nav selected tab text
+ */
+@top-nav-selected-text: #fff;
+
+@top-nav-selected-background: #ffffff00;
+
+@top-nav-selected-accent: #fff;
+
+@top-nav-accent-size: 3px;
+
+/*
+ * background color of:
+ *	- left nav selected tab
+ */
+@nav-selected: #dee5f0;
+
+/*
+ * Border color of: 
+ *	- tabs selected within the top navigation bar
+ *	- header elements selected within the left navigation bar
+ *	- header elements selected within the recent items drop down
+ */
+@selected-border: #0070D5;
+
+/*
+ * Border color of: 
+ *	- hovered over tabs within the top navigation bar
+ *	- hovered over header elements within the left navigation bar
+ *	- hovered over header elements within the recent items drop down
+ */
+@hover-border: #338fb4;
+
+/*
+ * Border color of: 
+ *	- top navigation bar
+ *	- hovered over contact cards
+ *	- main calendar in calendar view, hour panel 
+ */
+@main-border: #5e6e82;
+
+/*
+ * Color of:
+ *	- anchors
+ */
+@anchor-text: var(--anchor-color);
+
+/* 
+ * Color of: 
+ *	- hovered over anchors
+ */
+@anchor-hover: #014073;
+
+/*
+ *	Color of:
+ *	- modal headers
+ *	- block headers
+ *	- the calendar view appointment header
+ *	- day picker in scheduler
+ */
+@block-header: #fff;
+
+/*
+ * Color of:
+ *	- modal bodies
+ *	- block bodies
+ *	- duplicate contact cards
+ *	- months within date pickers
+ *	- previously selected day within date pickers
+ */
+@block-body: #fff;
+
+/*
+ * Color of:
+ *  - block header edit icon
+ */
+@block-edit-icon: #0070D5;
+
+/*
+ * Color of:
+ *	- table header with "sorted by" active
+ */
+@table-highlight: #dee5f0;
+
+/*
+ * Color of:
+ *	- buttons on page
+ *	- button bar buttons
+ *	- buttons within the left navigation bar
+ *  - icons above the top navigation bar
+ *  - edit icons within search view result tables
+ */
+@button-background: #0070D5;
+
+/* 
+ * Color of:
+ *	- hovered over buttons
+ *  - hovered over icons above the top navigation bar
+ *  - hovered over edit icons within search view result tables
+ *	- "today" anchor within calendar view
+ */
+@button-background-hover: #0070D5;
+
+/*
+ * Color of:
+ *  - select field text
+ *  - multi-value field text
+ *  - object link pop up text
+ */
+@field-text: #555;
+
+/*
+ * Border color of:
+ *  - block borders
+ */
+@block-border: #eee;
+
+/*
+ * Border color of:
+ *  - block borders
+ *  - table borders
+ */
+@table-border: #eee;
+
+/*
+ * Color of:
+ *  - label text
+ */
+@label-color: #666;
+
+/*
+ * Color of:
+ *  - icons within the left navigation bar
+ *	- icons attached to fields (project search, date picker)
+ *  - icons within the in-line/bulk adjustment screen
+ *  - icons within tables under the users tab and group memberships tab
+ *  - add and delete buttons for invoice line items
+ *  - next and back buttons below search result tables
+ *  - expand and collapse all buttons for category rights
+ */
+@left-nav-icon: #0070D5;
+
+
+body{
+    color: var(--body-text-color) !important;
+}
+
+table.list td {
+    color: var(--table-text) !important;
+    padding: 8px 6px !important;
+    border: 1px solid var(--table-border-color) !important;
+}
+
+table.list th{
+    color: var(--table-header) !important;
+    background: var(--table-background-color-odd) !important;
+    padding: 8px 6px !important;
+    border-right: 1px solid var(--table-border-color) !important;
+    border-bottom: 1px solid var(--table-border-color) !important;
+    a{
+        color: var(--table-header) !important;
+    }
+}
+
+table.list th.order1 a{
+    color: var(--table-header) !important;
+}
+
+table.list tr:nth-child(even) {
+    background-color: var(--table-background-color-even) !important;
+}
+
+table.list tr:nth-child(odd) {
+    background-color: var(--table-background-color-odd)!important;
+}
+
+.bootstrap-table .fixed-table-container .list th, .bootstrap-table .fixed-table-container .list td {
+    color: var(--table-text) !important;
+    border: 1px solid var(--table-border-color) !important;
+}
+
+.bootstrap-table .fixed-table-container .list thead tr th div.th-inner{
+    color: var(--table-header) !important;
+}
+
+// error messages
+
+//info message
+.msgArea .infoMsgArea {
+    background-color: var(--info-background) !important;
+    border: solid 1px #042c6b !important;
+}
+
+//warning message
+.msgArea .warnMsgArea {
+    background-color: var(--warning-background) !important;
+    border-bottom: 1px solid #042c6b !important;
+}
+
+//error message
+.msgArea .errorMsgArea {
+    background-color: var(--error-background) !important;
+    border: solid 1px #042c6b !important;
+}
+
+//system error
+.sysMsgArea .header.error {
+    background-color: var(--error-background) !important;
+    border-bottom: 1px solid #042c6b !important;
+}
+
+//scroll bar
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-bar-color) !important;
+    border-radius: 10px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-bar-color) !important;
+}
+
+// global search menu css
+
+header#top-nav {
+    justify-content: unset !important;
+    background-color: var(--global-nav-color) !important;
+
+    //set nav-icons to the right
+    #nav-icons {
+        // order: 2;
+        flex-grow: 1 !important;
+        justify-content: flex-end !important;
+
+        //nav link adjustments
+        .navLink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap !important;
+            flex-direction: row !important;
+            align-items: center;
+            padding: 0 10px;
+            color: var(--global-nav-icons-text) !important;
+        }
+
+        a .navIcon *[fill]:not([fill="none"]):not([fill="#FFFFFF"]):not([fill="#ffffff"]),
+        button .navIcon *[fill]:not([fill="none"]):not([fill="#FFFFFF"]):not([fill="#ffffff"]) {
+            fill: var(--global-nav-icons) !important;
+        }
+    }
+
+    a .navIcon *[stroke]:not([stroke="none"]):not([stroke="#FFFFFF"]):not([stroke="#ffffff"]),
+    button .navIcon *[stroke]:not([stroke="none"]):not([stroke="#FFFFFF"]):not([stroke="#ffffff"]) {
+        stroke: var(--global-nav-icons) !important;
+    }
+
+    a .navIcon *[fill]:not([fill="none"]):not([fill="#FFFFFF"]):not([fill="#ffffff"]), button .navIcon *[fill]:not([fill="none"]):not([fill="#FFFFFF"]):not([fill="#ffffff"]) {
+        fill: var(--global-nav-icons) !important;
+    }
+
+    //logo size
+    .logo img,
+    .logo svg {
+        object-fit: contain;
+        height: 30px;
+    }
+
+    //global search
+    .global-search {
+        // order: 3;
+        #gs-dropdown {
+            .chosen-container {
+                width: inherit !important;
+
+                .chosen-single {
+                    border-radius: var(--gloabl-search-border) 0px 0px var(--gloabl-search-border) !important;
+                    border: 1px solid var(--global-search-bar-border) !important;
+                    border-right: 0 !important;
+                    background-color: var(--global-search-button) !important;
+                }
+
+                .chosen-drop {
+                    width: var(--global-search-width) !important;
+                }
+            }
+        }
+
+        #globalSearchText {
+            width: var(--global-search-width) !important;
+            border: 1px solid var(--global-search-bar-border) !important;
+            background: var(--global-search-bar-color) !important;
+        }
+
+        //search button
+        #globalSearchExecute {
+            background-color: var(--global-search-button);
+            border-top: 1px solid var(--global-search-bar-border) !important;
+            border-right: 1px solid var(--global-search-bar-border) !important;
+            border-bottom: 1px solid var(--global-search-bar-border) !important;
+            border-radius: 0px var(--gloabl-search-border) var(--gloabl-search-border) 0px !important;
+            a{
+                svg{
+                    g{
+                        path{
+                            fill: var(--global-search-bar-icon) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.iconText {
+    margin-top: 0px !important;
+    margin-left: 6px;
+}
+
+//header navigation items
+
+#header {
+    border-top: var(--top-nav-menu-border) 1px solid !important;
+    border-bottom: var(--top-nav-menu-border) 1px solid !important;
+    background-color: var(--top-nav-menu) !important;
+    font-size: 15px !important;
+
+    #menuList {
+        .menuListItem {
+            a{
+                color: var(--top-nav-text) !important;
+            }
+            .leftNavToggleBtn>svg {
+                height: 18px !important;
+                width: 18px !important;
+
+                path {
+                    fill: var(--hamburger-icon) !important;
+                }
+            }
+        }
+        li.selected{
+            border-bottom: 3px solid var(--top-nav-bottom-border-selected) !important;
+            a{
+                color: var(--top-nav-text-selected) !important;
+            }
+        }
+    }
+}
+
+// left navigation menu
+
+#leftNavStaticTop {
+    background-color: var(--left-nav-static-top-color) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--left-nav-border) !important;
+}
+
+#leftNavContainer {
+    box-shadow: none !important;
+    background-color: var(--left-nav) !important;
+    margin-right: 0 !important;
+    min-width: 12vw !important;
+    border-right: 1px solid var(--left-nav-border) !important;
+
+    #leftNavDiv {
+        background-color: var(--left-nav) !important;
+    }
+
+    .submenu {
+        div.header {
+            border-left: none !important;
+
+            div {
+                a {
+                    color: var(--left-nav-text) !important;
+                    font-weight: bold !important;
+                }
+            }
+        }
+
+        div.header.selected {
+            div {
+                a {
+                    color: var(--left-nav-text-selected) !important;
+                    font-weight: bold !important;
+                }
+            }
+        }
+
+        div.header.selected.expanded {
+            border-left-color: inherit !important;
+            background-color: var(--left-nav-selected-background) !important;
+        }
+    }
+
+    .submenu.nav {
+        li {
+            border-bottom: 1px solid var(--card-border) !important;
+        }
+    }
+
+    .item {
+        li {
+            padding: 6px 1px 6px 28px !important;
+
+            a {
+                color: var(--left-nav-text-children) !important;
+            }
+        }
+
+        li.selected {
+            border-left-color:var(--left-nav-selected-border) !important;
+            background-color: var(--left-nav-selected-background) !important;
+
+            a {
+                color: var(--left-nav-text-children-selected) !important;
+                font-weight: 500 !important;
+            }
+        }
+
+        li:hover {
+            border-left-color:var(--left-nav-hovered-border) !important;
+            background-color: var(--left-nav-hovered-background) !important;
+        }
+
+        li:not(:last-child) {
+            border-bottom: 1px solid var(--card-border) !important;
+        }
+    }
+}
+
+.leftDiv {
+    width: 38px !important;
+
+    a.lefticon {
+        .icon {
+            display: none !important;
+        }
+    }
+}
+
+// main content area css
+
+#content {
+    background: var(--background-color) !important;
+}
+
+//buttons
+
+.buttonListBar {
+    padding: 9px 26px !important;
+    background: transparent !important;
+    border-bottom: none !important;
+    background: transparent !important;
+    border-bottom: none !important;
+
+    * {
+        border-radius: 4px !important;
+    }
+
+    h1 {
+        color:var(--page-header-color);
+        font-weight: 600;
+        width: 100%;
+    }
+
+    h2.page-title {
+        color:var(--page-header-color);
+        font-weight: 600;
+        width: 100% !important;
+        padding: 12px 0 !important;
+    }
+}
+
+.content-header .buttonListBar>* {
+    margin-right: 0 !important;
+    margin-top: 10px !important;
+    margin-left: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.btn-buttonbar, .button-group button{
+    height: auto !important;
+    background-color: var(--button-color) !important;
+    background: var(--button-gradient) !important;
+    padding: 0.5em 1em;
+    border-radius: var(--button-radius) !important;
+    box-shadow: var(--button-shadow);
+}
+
+.btn-primary{
+    border-radius: var(--button-radius) !important;
+    box-shadow: var(--button-shadow);
+    background-color: var(--button-color) !important;
+    background: var(--button-gradient) !important;
+    transition: .3s ease;
+}
+
+.btn{
+    transition: .3s ease;
+}
+
+.btn:hover, .btn-primary:hover{
+    background-color: var(--button-color-hover) !important;
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+}
+
+// .btn-group>.btn:last-of-type {
+//     border-bottom-right-radius: 4px !important;
+//     border-top-right-radius: 4px !important;
+// }
+
+// .btn-group>.btn:first-of-type {
+//     border-bottom-left-radius: 4px !important;
+//     border-top-left-radius: 4px !important;
+// }
+
+// back, previous & next
+
+#iconTitleBar {
+    margin-top: 0px !important;
+    position: sticky !important;
+    top: 0 !important;
+    width: 87vw !important;
+    /* height: 30px; */
+    /* min-height: 30px; */
+    /* color: #885726; */
+    padding-top: 6px !important;
+    z-index: 100 !important;
+    background: var(--background-color) !important;
+}
+
+// cards block
+
+.tcblock, .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
+    padding: 0.6em 1em;
+
+    .bg_blockhdr {
+        background: var(--card-header) !important;
+        border-bottom: none !important;
+        border-radius: 4px 4px 0 0 !important;
+        border-left:1px solid var(--card-border) !important;
+        border-top:1px solid var(--card-border) !important;
+        border-right:1px solid var(--card-border) !important;
+        h3{
+            color:var(--card-header-text);
+        }
+    }
+
+    .bg_blockcolor {
+        box-shadow: var(--card-shadow) !important;
+        border-radius: 0 0 4px 4px !important;
+        margin-bottom: 0 !important;
+        border: 1px solid var(--card-border);
+        background-color: var(--card-body);
+
+        .bg_blockcolor {
+            box-shadow: none !important;
+            .texthdr {
+                text-transform: none !important;
+                font-size: inherit !important;
+                font-weight: 500 !important;
+                width: 10vw;
+                overflow-wrap: break-word;
+                color: var(--text-field-labels) !important;
+                @media screen and (max-width: 1500px) {
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .field-cell {
+        padding: 6px 3px !important;
+        width: 100% !important;
+        font-size: 16px !important;
+        flex-flow: row nowrap !important;
+        @media screen and (max-width: 1500px) {
+            flex-flow: column nowrap !important;
+        }
+
+        .label,
+        .memo_label,
+        .texthdr {
+            text-transform: none !important;
+            font-size: inherit !important;
+            font-weight: 500 !important;
+            width: 10vw;
+            overflow-wrap: break-word;
+            color: var(--text-field-labels) !important;
+            @media screen and (max-width: 1500px) {
+                width: auto;
+            }
+        }
+        .texthdr{
+            display: block !important;
+        }
+        .field{
+            color:var(--text-field) !important;
+        }
+    }
+}
+
+//invoice and interactive grid
+
+#tc-ir-block {
+    background: transparent !important;
+}
+
+#gs-help {
+    a {
+        svg {
+            path {
+                fill: #fff !important;
+            }
+        }
+    }
+}
+
+#moreList #collapsedTopNavDropdownToggle {
+    color: black !important;
+    font-weight: bold !important;
+    font-size: 1em !important;
+    flex-direction: row !important;
+    img{
+        filter: invert(1) !important;
+    }
+}
+
+.form-control{
+    background-color: var(--background-color) !important;
+    border:0 !important;
+    color:var(--body-text-color) !important;
+}
+
+// #ir-pager .slick-pager {
+//     height: auto !important;
+//     border: 1px solid transparent !important;
+//     border-bottom: 1px solid #D4D9E1 !important;
+//     background: white !important;
+// }
+
+// #ir-lineitems input, #tc-invc-approvals-grid input {
+//     border: 1px solid #D4D9E1 !important;
+//     border-radius: 4px !important;
+//     background-color: #f6f6f7;
+// }
+
+// #ir-lineitems .ui-state-default, #tc-invc-approvals-grid .ui-state-default {
+//     background: white !important;
+//     border: 1px solid #D4D9E1 !important;
+// }
+
+// .slick-cell, .slick-headerrow-column, .slick-footerrow-column {
+//     border-right: 1px solid #D4D9E1 !important;
+//     border-bottom-color: #D4D9E1 !important;
+// }
+
+// #ir-lineitems .dynamic-cell-detail, #tc-invc-approvals-grid .dynamic-cell-detail {
+//     border-color: #D4D9E1 !important;
+//     background-color: #f5f6f7 !important;
+// }
+

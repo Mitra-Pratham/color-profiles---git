@@ -1,0 +1,76 @@
+<tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
+    <tc:section category="DISP">
+        <tc:blockTemplate id="1654029926141">
+            <div class="row">
+                <div class="column grid-50">
+                    <div class="field-cell">
+                        <span class="label">
+                            <tc:label name="applicationEntity.idNumber" colon="true" label="Number"
+                                key="project.idNumber" /> ... </span>
+<span class="field">
+                            <tc:text name="applicationEntity.idNumber" /> ... </span> ... </div>
+<div
+                        class="field-cell">
+                        <span class="label">
+                            <tc:label name="applicationEntity.name" colon="true" key="project.name" />
+    ... </span>
+<span class="field">
+                            <tc:text name="applicationEntity.name" /> ... </span> ... </div> ... </div>
+<div
+                    class="column grid-50">
+                    <div class="field-cell">
+                        <span class="label">
+                            <tc:label name="applicationEntity.openedOn" colon="true"
+                                key="project.openedOn" /> ... </span>
+<span class="field">
+                            <tc:dateTime forceNotEditable="true" name="applicationEntity.openedOn" />
+    ... </span> ... </div>
+<div class="field-cell">
+                        <span class="label" />
+<span class="field">
+                            <tc:if test="${applicationEntity.closed}">
+                                <div numberOfColumns="2">
+                                    <div>
+                                        <tc:dateTime forceNotEditable="true"
+                                            name="applicationEntity.closedOn" /> ... </div>
+<div />
+    ... </div> ... </tc:if> ... </span> ... </div>
+<div class="field-cell">
+                        <span class="label">
+                            <tc:label name="applicationEntity.currentPhase" colon="true"
+                                key="project.currentPhase" /> ... </span>
+<span class="field">
+                            <tc:text phase="true" forceNotEditable="true"
+                                name="applicationEntity.currentPhase.name" /> ... </span> ... </div>
+    ... </div> ... </div>
+<div class="row">
+                <div class="column grid-50">
+                    <div class="field-cell">
+                        <span class="memo_label">
+                            <tc:label name="MatterDescriptionDI" colon="true" category="DISP"
+                                key="objdef.DISP.customfield.MatterDescriptionDI" /> ... </span>
+<span
+                            class="memo_field">
+                            <tc:note name="MatterDescriptionDI" category="DISP" /> ... </span> ... </div>
+    ... </div>
+<div class="column grid-50" /> ... </div>
+<div class="row">
+                <div class="column grid-50">
+                    <div class="field-cell">
+                        <span class="label">
+                            <tc:label name="SignificantMatterDI" colon="true" category="DISP"
+                                key="objdef.DISP.customfield.SignificantMatterDI" /> ... </span>
+<span
+                            class="field">
+                            <tc:field name="SignificantMatterDI" tableCode="YSNO" category="DISP"
+                                onChange="interactions.required(this, '#command_categories\\[DISP\\]_customFields\\[SignificantReasonDI\\]_value', 'Yes', {func: function(a, b) {return a == b; }, required: true}, 'Significant Reason is required.'); interactions.visibility(this, '#command_categories\\[DISP\\]_customFields\\[SignificantReasonDI\\]_value', 'Yes', {func: function(a, b) {return a == b; }}); interactions.required(this, '#command_categories\\[DISP\\]_customFields\\[SignificantReasonDI\\]_value', 'Yes', {func: function(a, b) {return a != b; }, required: false}, 'Significant Reason is required.'); interactions.visibility(this, '#command_categories\\[DISP\\]_customFields\\[SignificantReasonDI\\]_value', 'Yes', {func: function(a, b) {return a != b; }, hideNotShow: true});" />
+    ... </span> ... </div> ... </div>
+<div class="column grid-50">
+                    <div class="field-cell">
+                        <span class="memo_label">
+                            <tc:label name="SignificantReasonDI" colon="true" category="DISP"
+                                key="objdef.DISP.customfield.SignificantReasonDI" /> ... </span>
+<span
+                            class="memo_field">
+                            <tc:note name="SignificantReasonDI" category="DISP" /> ... </span> ... </div>
+    ... </div> ... </div> ... </tc:blockTemplate> ... </tc:section> ... </tc:transform>
