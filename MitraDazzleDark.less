@@ -3,52 +3,43 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  */
-:root {
-  --accent-color: #1890ff;
-  --anchor-color: var(--accent-color);
-  --anchor-color-hover: #48a4f9;
-  --button-color: var(
-    --accent-color
-  ); // fallback to primary accent or you can change to your preference
-  --button-color-hover: #1471c7;
-  --button-text-color: #fff; //change here as well @button-text
-  --background-color: #001a35; //background color for TeamConnect
-  --text-field-labels: #9faec5; //text-fields labels color
-  --text-field: #fff; //text field colors
-  --card-header: #172f47; //card header color
-  --card-header-text: #fff;
-  --card-body: #172f47; //card body color
-  --card-border: #3b536a; //card border color
-  --global-nav-color: #001a35; //global navigation color
-  --global-nav-icons: #ffffff; // global nav icons color
-  --global-nav-icons-text: var(
-    --global-nav-icons
-  ); //global nav icons text color
+ @media (prefers-color-scheme: light) {
+  :root {
+    --accent-color: #0067d2;
+    --anchor-color: var(--accent-color);
+  --anchor-color-hover: #014073;
+  --button-color: #c7d3df; // fallback to primary accent or you can change to your preference
+  --button-color-hover: #e3e9ef;
+  --button-text-color: #242a30; //change here as well @button-text
+  --background-color: #f9fafc; //background color for TeamConnect
+  --text-field-labels: #001a35; //text-fields labels color
+  --text-field: #242a30; //text field colors
+  --card-header: #fff; //card header color
+  --card-header-text: #001a35;
+  --card-body: #fff; //card body color
+  --card-border: #e3e9ef; //card border color
+  --global-nav-color: #fff; //global navigation color
+  --global-nav-icons: #6b7d8f; // global nav icons color
+  --global-nav-icons-text: #47535f; //global nav icons text color
   --global-search-bar-color: var(
     --background-color
   ); //global search box background color
-  --global-search-bar-border: var(--card-border); //global search border color
-  --global-search-button: #172f47; // global search button color
-  --global-search-bar-icon: var(--accent-color);
+  --global-search-bar-border: #c7d3df; //global search border color
+  --global-search-button: #fff; // global search button color
+  --global-search-bar-icon: #6b7d8f;
   --hamburger-icon: #fff; //hamburger menu icon color
-  --top-nav-menu-border: var(--card-border); // top nav menu border
-  --top-nav-menu: #172f47; //top nav menu color
+  --top-nav-menu-border: #c7d3df; // top nav menu border
+  --top-nav-menu: var(--accent-color); //top nav menu color
   --top-nav-text: #fff; //top nav text color
-  --top-nav-text-selected: var(--accent-color); //top nav text selected color
-  --top-nav-bottom-border-selected: var(
-    --accent-color
-  ); //top selected bottom border color
-  --top-nav-hover-color: #057dee80;
-  --left-nav-border: var(--card-border); //left navigation menu border
-  --left-nav: #172f47; //left navigation menu color
-  --left-nav-text: #9faec5; //left navigation menu parent text
-  --left-nav-text-selected: var(
-    --accent-color
-  ); //left navigation menu parent text when selected/expanded
-  --left-nav-selected-background: #057dee26; //left navigation menu parent background when selected/expanded
-  --left-nav-selected-border: var(
-    --accent-color
-  ); //left navigation selected border color
+  --top-nav-text-selected: #fff; //top nav text selected color
+  --top-nav-bottom-border-selected: #fff; //top selected bottom border color
+  --top-nav-hover-color: #ffffff1a;
+  --left-nav-border: #c7d3df; //left navigation menu border
+  --left-nav: #fff; //left navigation menu color
+  --left-nav-text: #242a30; //left navigation menu parent text
+  --left-nav-text-selected: #003368; //left navigation menu parent text when selected/expanded
+  --left-nav-selected-background: #f2f7fd; //left navigation menu parent background when selected/expanded
+  --left-nav-selected-border: #ed5b3e; //left navigation selected border color
   --left-nav-hovered-background: var(
     --left-nav-selected-background
   ); //left navigation hovered background
@@ -61,57 +52,175 @@
   --left-nav-text-children-selected: var(
     --left-nav-text-selected
   ); //left navigation menu children text when selected
-  --left-nav-static-top-color: #172f47;
-  --table-background-color-header: #172f47;
-  --table-background-color-odd: #172f47; //table background color for odd rows
-  --table-background-color-even: #172f47; //table background color for even rows
-  --table-border-color: #4b627a; //table border color
-  --table-text: #fff; // text in the table
-  --table-header: #fff; // table header text
-  --page-header-color: #fff; // page header color
-  --scroll-bar-color: #4b627a; //scroll bar color
-  --scroll-bar-body:var(--background-color);
-  --font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
-  //dont use variables here
-  --left-nav-icons-color: var(
-    --accent-color
-  ); //left navigation icon colors, icons disabled in enhanced theme
-  --button-radius: 60px;
-  --button-padding: 0.25rem 0.5rem;
-  --button-border: none;
-  --button-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  --button-disabled-color: #4b627a;
-  --button-disabled-text-color: #172f47;
-  --card-radius: 0 0 4px 4px;
-  --card-shadow: 0px 2px 2px rgba(2, 13, 29, 0.1); //card shadow color
-  --global-nav-icons-text-show: display; //global nav icons text color
-  --global-search-border: 4px;
-  --global-search-width: 16vw;
-  --body-text-color: var(--text-field); // base color of text across TeamConnect
-  --info-msg-bg: #1d4f9e; // info background color
-  --info-msg-border: #113570; // info border color
-  --warning-msg-bg: #b67a0a; // warning background color
-  --warning-msg-border: #855b0c; // warning border color
-  --error-msg-bg: #a31414; // error background color
-  --error-msg-border: #800d0d; // error border color;
-  --portal-pane-header-color: var(--card-header-text);
-  --portal-pane-background: var(--card-body);
-  --portal-pane-border: transparent;
-  --portal-pane-header-font-size: 1.25em;
-  --portal-pane-header-font-weight: 400;
-  --portal-pane-padding: 0.5em;
-  --portal-pane-radius: 8px;
-  --portal-pane-shadow: var(--card-shadow);
-  --search-config-button-background: var(--background-color);
-  --search-config-button-text-color: var(--text-field);
-  --search-config-button-background-hover: #057dee80;
-  --search-config-button-text-color-hover: var(--text-field);
-  --dropdown-background-color-hover: #057dee80;
-  --dropdown-textcolor: var(--text-field);
-  --dropdown-textcolor-hover: #057dee80;
-  --dropdown-background-color: var(--background-color);
-  --dropdown-border-color: #53606d;
-  --dropdown-border-color-hover: var(--accent-color);
+  --left-nav-static-top-color: #fff;
+  --table-background-color-header: #e3e9ef;
+  --table-background-color-odd: #fff; //table background color for odd rows
+  --table-background-color-even: #f2f7fd; //table background color for even rows
+  --table-border-color: #c7d3df; //table border color
+  --table-text: #001a35; // text in the table
+  --table-header: #001a35; // table header text
+  --page-header-color: #001a35; // page header color
+  --scroll-bar-color: #e3e9ef;
+    //dont use variables here
+    --font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
+    --left-nav-icons-color: var(
+      --accent-color
+    ); //left navigation icon colors, icons disabled in enhanced theme
+    --button-radius: 4px;
+    --button-padding: 0.25rem 0.5rem;
+    --button-border: none;
+    --button-shadow: none;
+    --button-disabled-color: #e3e9ef;
+    --button-disabled-text-color: #8fa7bf;
+    --card-radius: 0 0 4px 4px;
+    --card-shadow: 0px 2px 2px #e3e9ef; //card shadow color
+    --global-nav-icons-text-show: display; //global nav icons text color
+    --global-search-border: 4px;
+    --global-search-width: 16vw;
+    --body-text-color: var(
+      --text-field
+    ); // base color of text across TeamConnect
+    --info-msg-bg: #bfddd3; // info background color
+    --info-msg-border: #00774e; // info border color
+    --warning-msg-bg: #ffcc8f; // warning background color
+    --warning-msg-border: #ff991f; // warning border color
+    --error-msg-bg: #f2c7c9; // error background color
+    --error-msg-border: #da585d; // error border color;
+    --portal-pane-header-color: var(--card-header-text);
+    --portal-pane-background: var(--card-body);
+    --portal-pane-border: transparent;
+    --portal-pane-header-font-size: 1.25em;
+    --portal-pane-header-font-weight: 400;
+    --portal-pane-padding: 0.5em;
+    --portal-pane-radius: 8px;
+    --portal-pane-shadow: var(--card-shadow);
+    --search-config-button-background: #e3e9ef;
+    --search-config-button-text-color: #242a30;
+    --search-config-button-background-hover: #abbdcf;
+    --search-config-button-text-color-hover: #07080a;
+    --dropdown-background-color-hover: #f2f7fd;
+    --dropdown-textcolor: var(--text-field);
+    --dropdown-textcolor-hover: #0067d2;
+    --dropdown-background-color: var(--background-color);
+    --dropdown-border-color: #e3e9ef;
+    --dropdown-border-color-hover: #ed5b3e;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-color: #579dff;
+    --anchor-color: var(--accent-color);
+    --anchor-color-hover: #579dff;
+    --button-color: var(
+      --accent-color
+    ); // fallback to primary accent or you can change to your preference
+    --button-color-hover: #85b8ff;
+    --button-text-color: #fff; //change here as well @button-text
+    --background-color: #1d2125; //background color for TeamConnect
+    --text-field-labels: #9fadbc; //text-fields labels color
+    --text-field: #b6c2cf; //text field colors
+    --card-header: #2c333a; //card header color
+    --card-header-text: #b6c2cf;
+    --card-body: #2c333a; //card body color
+    --card-border: #454f59; //card border color
+    --global-nav-color: var(--background-color); //global navigation color
+    --global-nav-icons: #b6c2cf; // global nav icons color
+    --global-nav-icons-text: var(
+      --global-nav-icons
+    ); //global nav icons text color
+    --global-search-bar-color: var(
+      --background-color
+    ); //global search box background color
+    --global-search-bar-border: var(--card-border); //global search border color
+    --global-search-button: #2c333a; // global search button color
+    --global-search-bar-icon: var(--accent-color);
+    --hamburger-icon: #b6c2cf; //hamburger menu icon color
+    --top-nav-menu-border: var(--card-border); // top nav menu border
+    --top-nav-menu: var(--background-color); //top nav menu color
+    --top-nav-text: #b6c2cf; //top nav text color
+    --top-nav-text-selected: var(--accent-color); //top nav text selected color
+    --top-nav-bottom-border-selected: var(
+      --accent-color
+    ); //top selected bottom border color
+    --top-nav-hover-color: #a6c5e229;
+    --left-nav-border: var(--card-border); //left navigation menu border
+    --left-nav: #2c333a; //left navigation menu color
+    --left-nav-text: #9faec5; //left navigation menu parent text
+    --left-nav-text-selected: var(
+      --accent-color
+    ); //left navigation menu parent text when selected/expanded
+    --left-nav-selected-background: var(
+      --top-nav-hover-color
+    ); //left navigation menu parent background when selected/expanded
+    --left-nav-selected-border: var(
+      --accent-color
+    ); //left navigation selected border color
+    --left-nav-hovered-background: var(
+      --left-nav-selected-background
+    ); //left navigation hovered background
+    --left-nav-hovered-border: var(
+      --left-nav-selected-border
+    ); //left navigation hovered border color
+    --left-nav-text-children: var(
+      --left-nav-text
+    ); //left navigation menu children text
+    --left-nav-text-children-selected: var(
+      --left-nav-text-selected
+    ); //left navigation menu children text when selected
+    --left-nav-static-top-color: #2c333a;
+    --table-background-color-header: #2c333a;
+    --table-background-color-odd: #2c333a; //table background color for odd rows
+    --table-background-color-even: #2c333a; //table background color for even rows
+    --table-border-color: #454f59; //table border color
+    --table-text: #b6c2cf; // text in the table
+    --table-header: #b6c2cf; // table header text
+    --page-header-color: #b6c2cf; // page header color
+    --scroll-bar-color: #454f59; //scroll bar color
+    --scroll-bar-body: var(--background-color);
+    //dont use variables here
+    --font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
+    --left-nav-icons-color: var(
+      --accent-color
+    ); //left navigation icon colors, icons disabled in enhanced theme
+    --button-radius: 4px;
+    --button-padding: 0.25rem 0.5rem;
+    --button-border: none;
+    --button-shadow: none;
+    --button-disabled-color: #4b627a;
+    --button-disabled-text-color: #2c333a;
+    --card-radius: 0 0 4px 4px;
+    --card-shadow: 0px 2px 2px rgba(2, 13, 29, 0.1); //card shadow color
+    --global-nav-icons-text-show: display; //global nav icons text color
+    --global-search-border: 4px;
+    --global-search-width: 16vw;
+    --body-text-color: var(
+      --text-field
+    ); // base color of text across TeamConnect
+    --info-msg-bg: #1d4f9e; // info background color
+    --info-msg-border: #113570; // info border color
+    --warning-msg-bg: #b67a0a; // warning background color
+    --warning-msg-border: #855b0c; // warning border color
+    --error-msg-bg: #a31414; // error background color
+    --error-msg-border: #800d0d; // error border color;
+    --portal-pane-header-color: var(--card-header-text);
+    --portal-pane-background: var(--card-body);
+    --portal-pane-border: transparent;
+    --portal-pane-header-font-size: 1.25em;
+    --portal-pane-header-font-weight: 400;
+    --portal-pane-padding: 0.5em;
+    --portal-pane-radius: 8px;
+    --portal-pane-shadow: var(--card-shadow);
+    --search-config-button-background: #a6c5e229;
+    --search-config-button-text-color: var(--anchor-color);
+    --search-config-button-background-hover: #057dee80;
+    --search-config-button-text-color-hover: var(--anchor-color-hover);
+    --dropdown-background-color-hover: #a6c5e229;
+    --dropdown-textcolor: var(--text-field);
+    --dropdown-textcolor-hover: #a6c5e229;
+    --dropdown-background-color: var(--background-color);
+    --dropdown-border-color: var(--card-border);
+    --dropdown-border-color-hover: var(--accent-color);
+  }
 }
 
 /*
@@ -242,7 +351,7 @@
    * Color of:
    *  - block header edit icon
    */
-@block-edit-icon: #0070d5;
+@block-edit-icon: var(--button-color);
 
 /*
    * Color of:
@@ -369,17 +478,24 @@ table.list th.order1 a {
 }
 
 table.list tr:nth-child(even),
+#AboutVersionTable tr.even,
 .gwt-ScrollTable .dataTable > tbody > tr:nth-child(even) {
   background-color: var(--table-background-color-even) !important;
 }
 
 table.list tr:nth-child(odd),
+#AboutVersionTable tr.odd,
 .gwt-ScrollTable .dataTable > tbody > tr:nth-child(odd) {
   background-color: var(--table-background-color-odd) !important;
 }
 
 .gwt-ScrollTable .dataTable > tbody > tr > td {
   border-right: 1px solid var(--table-border-color) !important;
+  border-bottom: 1px solid var(--table-border-color) !important;
+}
+
+#AboutVersionTable th,
+#AboutVersionTable td {
   border-bottom: 1px solid var(--table-border-color) !important;
 }
 
@@ -490,7 +606,7 @@ table.list td {
   background-color: var(--portal-pane-background) !important;
   padding: var(--portal-pane-padding) !important;
   border-radius: var(--portal-pane-radius) !important;
-  h3{
+  h3 {
     color: var(--portal-pane-header-color) !important;
   }
 }
@@ -514,17 +630,18 @@ table.list td {
   .rli-title {
     color: var(--portal-pane-header-color) !important;
   }
-  .dip-content-title,.dip-content-subtitle{
-    color: var(--text-field-labels) !important; 
+  .dip-content-title,
+  .dip-content-subtitle {
+    color: var(--text-field-labels) !important;
   }
 }
 
 .bg_portlet_edit {
   background-color: var(--portal-pane-background) !important;
-  label{
+  label {
     color: var(--text-field-labels) !important;
   }
-  .gwt-Label{
+  .gwt-Label {
     color: var(--text-field) !important;
   }
 }
@@ -1122,7 +1239,11 @@ button .buttonbar-img {
 }
 
 .labelcell,
-.texthdr, .bg_blockhdr h3,.tdlabel2 label, #footer, .dynamic-chart header h3 {
+.texthdr,
+.bg_blockhdr h3,
+.tdlabel2 label,
+#footer,
+.dynamic-chart header h3 {
   color: var(--text-field-labels) !important;
   font-weight: 500 !important;
   border-color: var(--card-border) !important;
@@ -1285,7 +1406,9 @@ button .buttonbar-img {
   background-color: transparent !important;
 
   img {
-    filter: invert(1) !important;
+    & when (luma(@button-text) < 50%) {
+      filter: invert(1);
+    }
   }
 }
 
@@ -1298,15 +1421,15 @@ button .buttonbar-img {
 }
 
 //invoice review stuff
-#ir-work-status-filter{
-  label{
+#ir-work-status-filter {
+  label {
     color: var(--text-field-labels) !important;
   }
-  .status-radio{
+  .status-radio {
     color: var(--text-field) !important;
   }
 }
-.dynamic-charts-block .dynamic-chart{
+.dynamic-charts-block .dynamic-chart {
   background-color: var(--card-body) !important;
   border-radius: var(--portal-pane-radius) !important;
   border: 1px solid var(--card-border) !important;
@@ -1358,7 +1481,8 @@ button .buttonbar-img {
 
 //Dropdowns
 
-.dropdown-menu li > a:hover,
+@media (prefers-color-scheme: dark) {
+  .dropdown-menu li > a:hover,
 .dropdown-menu li .btn-content a:hover {
   background-color: var(--dropdown-background-color-hover) !important;
   border-color: var(--dropdown-border-color-hover) !important;
@@ -1386,6 +1510,7 @@ form {
     background-color: var(--background-color) !important;
     border: 0 !important;
     color: var(--body-text-color) !important;
+    accent-color: var(--accent-color);
   }
   select {
     background-color: var(--background-color) !important;
@@ -1394,7 +1519,7 @@ form {
   }
 }
 
-.bootstrap-table .fixed-table-toolbar .search-input:first-child{
+.bootstrap-table .fixed-table-toolbar .search-input:first-child {
   background-color: var(--card-body) !important;
   border: 1px solid var(--card-border) !important;
 }
@@ -1403,7 +1528,7 @@ form {
   background-color: var(--background-color) !important;
   border: 0 !important;
   color: var(--body-text-color) !important;
-  .chosen-single{
+  .chosen-single {
     background-color: var(--background-color) !important;
     border-color: transparent !important;
     color: var(--body-text-color) !important;
@@ -1418,6 +1543,7 @@ form {
       color: var(--body-text-color) !important;
     }
   }
+}
 }
 
 //custom search and search view operation buttons
@@ -1466,7 +1592,8 @@ form {
 }
 
 //modal & stuff
-#commonDialog, #confirmationDialog {
+#commonDialog,
+#confirmationDialog {
   border-radius: var(--portal-pane-radius) !important;
   border-color: transparent !important;
   box-shadow: none !important;

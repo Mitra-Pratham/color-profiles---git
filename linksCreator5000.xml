@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
+    <script>
+        jQuery('#embeddedObject td:nth-child(5)').each(function(){
+            let tempName = jQuery(this).text();
+            let tempHTML= `<a href='https://google.com' target="_blank">${tempName}</a>`
+            jQuery(this).html(tempHTML);
+        });
+    </script>
+</tc:transform>
