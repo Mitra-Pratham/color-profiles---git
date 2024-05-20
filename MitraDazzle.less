@@ -570,6 +570,7 @@ header#top-nav {
   .logo svg {
     object-fit: contain;
     height: 30px;
+    width: auto;
   }
 
   //global search
@@ -967,6 +968,9 @@ button .buttonbar-img {
     }
     .row .grid-75 {
       max-width: 50% !important;
+    }
+    .form-row:has(> .bootstrap-table) {
+      grid-template-columns: 1fr !important;
     }
     .form-row,
     .row {

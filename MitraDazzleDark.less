@@ -756,6 +756,7 @@ header#top-nav {
     }
 
     #globalSearchText {
+      color: var(--text-field) !important;
       width: var(--global-search-width) !important;
       border: 1px solid var(--global-search-bar-border) !important;
       background: var(--global-search-bar-color) !important;
@@ -832,6 +833,31 @@ header#top-nav {
   background-color: var(--left-nav-static-top-color) !important;
   box-shadow: none !important;
   border-bottom: 1px solid var(--left-nav-border) !important;
+}
+
+#leftNavFloatContainer {
+  color: var(--text-field) !important;
+  background-color: var(--card-body) !important;
+  border-color: var(--card-border) !important;
+  #leftNavTitle {
+    background-color: transparent !important;
+  }
+  #leftNavButtons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    .functionlinks3.filtersAction{
+      .leftNavBtnContent{
+        justify-content: center !important;
+        img{
+          display: none !important;
+        }
+        span{
+          padding: 0 !important;
+        }
+      }
+    }
+  }
 }
 
 #leftNavContainer {
@@ -911,6 +937,28 @@ header#top-nav {
       border-bottom: 1px solid var(--left-nav-border) !important;
     }
   }
+  //global search filters
+  label, .ShowExactMatchesOnly a {
+    color: var(--text-field) !important;
+  }
+  .displayName {
+    color: var(--text-field-labels) !important;
+  }
+}
+
+.gs-label {
+  color:var(--text-field-labels) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gs-highlight {
+    color: black !important;
+  }
+}
+
+.resultIdentifier {
+  border-color: var(--card-border) !important;
+  color: var(--text-field-labels) !important;
 }
 
 .leftDiv {
@@ -1089,6 +1137,7 @@ button .buttonbar-img {
 .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #collectionSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
+#objectList:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #objdef_CONT_block_Contact_PhoneFaxNumbers_block,
 #objdef_CONT_block_Contact_EmailWebAddresses_block {
   padding: 0.6em 1em;
@@ -1504,7 +1553,7 @@ button .buttonbar-img {
     li:last-child {
       border: 0;
     }
-    li:hover{
+    li:hover {
       background-color: transparent !important;
     }
   }
@@ -1528,9 +1577,16 @@ button .buttonbar-img {
       color: var(--body-text-color) !important;
     }
   }
-  #pageSizeDropdown{
+  input {
+    background-color: var(--background-color) !important;
+    border: 0 !important;
+    color: var(--body-text-color) !important;
+    accent-color: var(--accent-color);
+  }
+  #pageSizeDropdown,
+  #perPageSelect,
+  #perPageSelectBottom {
     background-color: var(--card-body) !important;
-
   }
 
   .bootstrap-table .fixed-table-toolbar .search-input:first-child {
@@ -1617,10 +1673,10 @@ button .buttonbar-img {
     background-color: var(--card-body) !important;
     border: 1px solid var(--card-border);
     color: var(--card-header-text) !important;
-    label{
+    label {
       color: var(--text-field-labels) !important;
     }
-    .environment-scroll{
+    .environment-scroll {
       background-color: var(--background-color) !important;
       border-color: var(--card-border) !important;
       border-radius: var(--portal-pane-radius) !important;
