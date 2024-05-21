@@ -2,6 +2,8 @@
  * CustomVariables:
  * 
  * Variables representing every customizable color within TeamConnect.
+ *
+ * MitraDazzleDark v0.5 
  */
 @media (prefers-color-scheme: light) {
   :root {
@@ -458,6 +460,9 @@ table.list td {
   padding: 8px 6px !important;
   border: 1px solid var(--table-border-color) !important;
   vertical-align: top;
+  label{
+  color: var(--table-text) !important;
+  }
 }
 
 table.list th,
@@ -842,17 +847,17 @@ header#top-nav {
   #leftNavTitle {
     background-color: transparent !important;
   }
-  #leftNavButtons{
+  #leftNavButtons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    .functionlinks3.filtersAction{
-      .leftNavBtnContent{
+    .functionlinks3.filtersAction {
+      .leftNavBtnContent {
         justify-content: center !important;
-        img{
+        img {
           display: none !important;
         }
-        span{
+        span {
           padding: 0 !important;
         }
       }
@@ -938,7 +943,8 @@ header#top-nav {
     }
   }
   //global search filters
-  label, .ShowExactMatchesOnly a {
+  label,
+  .ShowExactMatchesOnly a {
     color: var(--text-field) !important;
   }
   .displayName {
@@ -947,7 +953,7 @@ header#top-nav {
 }
 
 .gs-label {
-  color:var(--text-field-labels) !important;
+  color: var(--text-field-labels) !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1531,6 +1537,13 @@ button .buttonbar-img {
 
 .buttonbar-dropdown-icon {
   color: var(--button-text-color) !important;
+}
+
+//documents
+.dropzone {
+  border: 2px dashed var(--card-border) !important;
+  background: var(--card-body) !important;
+  border-radius: var(--portal-pane-radius) !important;
 }
 
 //Dropdowns
