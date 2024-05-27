@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
-    <script>
-        jQuery('#embeddedObject td:nth-child(5)').each(function(){
-            let tempName = jQuery(this).text();
-            let tempHTML= `<a href='https://google.com' target="_blank">${tempName}</a>`
+
+<script xmlns="http://www.w3.org/1999/xhtml">
+    <![CDATA[ 
+    let auditIndex;
+
+    jQuery('#embeddedObject th').each(function () {
+        if(jQuery(this).text().includes('Audit')){
+            auditIndex = Number(jQuery(this).index())+1;
+        }
+    });
+    
+    
+    jQuery(`#embeddedObject td:nth-child(${auditIndex})`).each(function () {
+        let tempURL = jQuery(this).text();
+        if (tempURL.includes('https://')) {
+            let tempName = `Go to Audit Trail`;
+            let tempHREF = `href="${tempURL}"`;
+            let tempHTML = `<a ${tempHREF} target="_blank">${tempName}</a>`
             jQuery(this).html(tempHTML);
-        });
+        }
+    }); 
+    ]]>
     </script>
+   
 </tc:transform>

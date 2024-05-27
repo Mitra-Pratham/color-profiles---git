@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
+    <style>
+        #TOCDiv{
+        position: fixed;
+        right: 2rem;
+        bottom: 5rem;
+        display:grid;
+        padding: .65rem;
+        background: var(--background-color, white);
+        border: 1px solid;
+        border-color: var(--card-border, #ddd);
+        box-shadow: var(--card-shadow);
+        border-radius: var(--portal-pane-radius, 4px);
+        z-index:999;
+        }
+    </style>
+    <div id="TOCDiv">
+        <h4>Table of Contents</h4>
+    </div>
+
+    <script xmlns="http://www.w3.org/1999/xhtml">
+    <![CDATA[ 
+    jQuery('.bg_blockhdr h3').each(function () {
+        let header = jQuery(this).text();
+        let headerVal=header.replace(/ /g,'-')
+        jQuery(this).attr('id', `${headerVal}`);
+        let tocItem = `<a val=${headerVal} class="toc-item" href="#">${header}</a>`;
+        jQuery('#TOCDiv').append(tocItem);
+    });
+    
+    jQuery('#TOCDiv').on('click', '.toc-item', function () {
+        let scrollItem = jQuery(this).attr('val');
+        jQuery(`#${scrollItem}`)[0].scrollIntoView();
+    });
+    ]]>
+    </script>
+
+</tc:transform>

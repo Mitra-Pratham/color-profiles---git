@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
-    <tc:blockTemplate id="test">
+    <tc:blockTemplate id="UVT-Tracker">
         <div class="row">
             <div class="column grid-50">
                 <div class="field-cell">
                     <span class="label">
-                        <tc:label name="MemoField" category="CATR"
-                            key="objdef.CATR.customfield.MemoField" />
+                        <tc:label name="IssueType" category="UVTT"
+                            key="objdef.UVTT.customfield.IssueType" />
                     </span>
                     <span
                         class="field">
-                        <tc:note forceNotEditable="true" name="MemoField" category="CATR" richText="true"/>
+                        <tc:field tableCode="UVTT" name="IssueType" category="UVTT"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="column grid-50">
+            <div class="field-cell">
+                <span class="label">
+                    <tc:label name="IssueDesc" category="UVTT"
+                        key="objdef.UVTT.customfield.IssueDesc" />
+                </span>
+                <span
+                    class="field">
+                    <tc:note name="IssueDesc" category="UVTT" richText="true"/>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column grid-50">
+                <div class="field-cell">
+                    <span class="label">
+                        <tc:label name="Comments" category="UVTT"
+                            key="objdef.UVTT.customfield.Comments" />
+                    </span>
+                    <span
+                        class="field">
+                        <tc:note name="Comments" category="UVTT" richText="true"/>
                     </span>
                 </div>
             </div>

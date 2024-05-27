@@ -509,6 +509,7 @@ header#top-nav {
   #nav-icons {
     // order: 2;
     flex-grow: 1 !important;
+    align-items: center !important;
     justify-content: flex-end !important;
     @media screen and (max-width: 1200px) {
       justify-content: flex-start !important;
@@ -1343,4 +1344,33 @@ button .buttonbar-img {
   color: @search-config-button-text-color-hover !important;
   background-color: @search-config-button-background-hover !important;
   text-decoration: none !important;
+}
+
+//quick dropdown fixes for lookup increase
+
+option {
+  max-width: 100%;
+  overflow: hidden;
+  word-wrap: normal !important;
+  white-space: normal;
+}
+
+select[multiple]{
+  max-width: -webkit-fill-available !important;
+  max-width: -moz-available !important;
+  max-width: fill-available !important;
+}
+
+.chosen-container {
+  width: 100px;
+  max-width: -webkit-fill-available !important;
+  max-width: -moz-available !important;
+  max-width: fill-available !important;
+}
+
+.chosen-container .chosen-results li {
+  max-width: 100%;
+  overflow: hidden;
+  word-wrap: normal !important;
+  white-space: normal;
 }
