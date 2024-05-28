@@ -1060,6 +1060,7 @@ button .buttonbar-img {
       right: 0 !important;
       top: 0 !important;
       bottom: 0 !important;
+      width: 100% !important;
     }
     .field:only-child,
     .memo_field:only-child {
@@ -1070,6 +1071,7 @@ button .buttonbar-img {
       right: 0 !important;
       top: 0 !important;
       bottom: 0 !important;
+      width: 100% !important;
     }
   }
 }
@@ -1194,6 +1196,7 @@ button .buttonbar-img {
       .memo_field {
         grid-column: 1;
         grid-row:1;
+      width: 100% !important;
       }
     }
   }
@@ -1362,10 +1365,18 @@ select[multiple]{
 }
 
 .chosen-container {
-  width: 100px;
+  width: inherit !important;
   max-width: -webkit-fill-available !important;
   max-width: -moz-available !important;
   max-width: fill-available !important;
+}
+
+td{
+  .chosen-container {
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+    width: fill-available !important;
+  }
 }
 
 .chosen-container .chosen-results li {
