@@ -12,7 +12,7 @@
     --anchor-color-hover: #014073;
     --button-color: #c7d3df; // fallback to primary accent or you can change to your preference
     --button-color-hover: #e3e9ef;
-    --button-text-color: #242a30; //change here as well @button-text
+    --button-text-color: #242a30; //change here as well
     --background-color: #f9fafc; //background color for TeamConnect
     --text-field-labels: #001a35; //text-fields labels color
     --text-field: #242a30; //text field colors
@@ -120,7 +120,7 @@
       --accent-color
     ); // fallback to primary accent or you can change to your preference
     --button-color-hover: #85b8ff;
-    --button-text-color: #fff; //change here as well @button-text
+    --button-text-color: #1d2125; //change here as well
     --background-color: #1d2125; //background color for TeamConnect
     --text-field-labels: #9fadbc; //text-fields labels color
     --text-field: #b6c2cf; //text field colors
@@ -147,7 +147,7 @@
     --top-nav-bottom-border-selected: var(
       --accent-color
     ); //top selected bottom border color
-    --top-nav-hover-color: #a6c5e229;
+    --top-nav-hover-color: #00000045;
     --left-nav-border: var(--card-border); //left navigation menu border
     --left-nav: #2c333a; //left navigation menu color
     --left-nav-text: #9faec5; //left navigation menu parent text
@@ -216,17 +216,17 @@
     --portal-pane-padding: 0.5em;
     --portal-pane-radius: 8px;
     --portal-pane-shadow: var(--card-shadow);
-    --search-config-button-background: #a6c5e229;
+    --search-config-button-background: var(--top-nav-hover-color);
     --search-config-button-text-color: var(--anchor-color);
     --search-config-button-background-hover: #057dee80;
     --search-config-button-text-color-hover: var(--anchor-color-hover);
-    --dropdown-background-color-hover: #a6c5e229;
+    --dropdown-background-color-hover: var(--top-nav-hover-color);
     --dropdown-textcolor: var(--text-field);
     --dropdown-textcolor-hover: var(--dropdown-textcolor);
     --dropdown-background-color: var(--background-color);
     --dropdown-border-color: var(--card-border);
     --dropdown-border-color-hover: var(--accent-color);
-    --button-icon: invert(0);
+    --button-icon: invert(1);
     --image-filter: invert(1);
   }
 }
@@ -450,6 +450,7 @@ html,
 .gwt-ScrollTable .dataTable td {
   border-bottom: 0 !important;
   border-right: 0 !important;
+  color: var(--table-text) !important;
 }
 
 body {
@@ -816,6 +817,7 @@ header#top-nav {
 
   #menuList {
     #moreList {
+      height: inherit;
       .dropdown-menu.dropdown-menu-right {
         li {
           a {
@@ -823,6 +825,24 @@ header#top-nav {
           }
         }
       }
+      #collapsedTopNavDropdownToggle {
+        color:var(--top-nav-text) !important;
+        font-weight: bold !important;
+        font-size: 1em !important;
+        flex-direction: row !important;
+        background-color: transparent !important;
+      
+          img {
+            display: none !important;
+        }
+      }
+    }
+
+    #collapsedTopNavDropdownToggle::after{
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      color:var(--top-nav-text) !important;
+      content: '\\f0d7';
     }
     .menuListItem {
       a {
@@ -985,12 +1005,34 @@ header#top-nav {
 }
 
 .leftDiv {
-  width: 38px !important;
+  width: 2.25rem !important;
 
   a.lefticon {
     .icon {
       display: none !important;
     }
+  }
+
+  span.icon{
+    background-image: none !important;
+    display: flex;
+    align-items: center;
+    height: inherit;
+    font-size: 1rem;
+    margin-top:0 !important;
+  }
+
+  span.icon.collapse::before{
+    font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      color:var(--left-nav-text) !important;
+      content: '\\f0d7';
+  }
+  span.icon.expand::before{
+    font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      color:var(--left-nav-text) !important;
+      content: '\\f0da';
   }
 }
 
@@ -1183,6 +1225,10 @@ button .buttonbar-img {
     border: 1px solid var(--card-border);
     background-color: var(--card-body);
     overflow-wrap: break-word;
+
+    label{
+      color: var(--text-field-labels) !important;
+    }
 
     .bg_blockcolor {
       box-shadow: none !important;
@@ -1514,20 +1560,6 @@ button .buttonbar-img {
   }
 }
 
-#moreList #collapsedTopNavDropdownToggle {
-  color: black !important;
-  font-weight: bold !important;
-  font-size: 1em !important;
-  flex-direction: row !important;
-  background-color: transparent !important;
-
-  img {
-    & when (luma(@button-text) < 50%) {
-      filter: invert(1);
-    }
-  }
-}
-
 .yui-panel-container {
   z-index: 102 !important;
 }
@@ -1738,6 +1770,25 @@ textarea:focus {
   background-color: var(--card-body) !important;
 }
 
+@media screen and (max-width: 960px) {
+  form {
+    input {
+      width: auto;
+    }
+    select {
+      width: auto;
+
+    }
+  }
+  input,
+  textarea {
+    width: auto;
+  }
+  .form-control{
+    width: auto;
+  }
+}
+
 .bootstrap-table .fixed-table-toolbar .search-input:first-child {
   background-color: var(--card-body) !important;
   border: 1px solid var(--card-border) !important;
@@ -1761,6 +1812,14 @@ select[multiple] {
   max-width: -webkit-fill-available !important;
   max-width: -moz-available !important;
   max-width: fill-available !important;
+}
+
+td{
+  .chosen-container {
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+    width: fill-available !important;
+  }
 }
 
 .chosen-container .chosen-results li {
@@ -1941,4 +2000,49 @@ select[multiple] {
   h3 {
     color: var(--card-header-text) !important;
   }
+}
+
+
+//icons
+
+a:has(.actionIcon, #bookmarkDropdownIcon, #Layer.navIcon, #allItemsDropdownIcon, #tools-dropdown-icon, #global-help-icon, #setup-designer-icon)::before, #userDropdown a::before{
+  font-family: 'Font Awesome 5 Pro';
+  color:var(--anchor-color) !important;
+  font-weight: 900;
+}
+
+.actionIcon, #bookmarkDropdownIcon, #Layer.navIcon, #allItemsDropdownIcon, #tools-dropdown-icon, #global-help-icon,#setup-designer-icon, #userDropdown a svg{
+  display: none;
+}
+
+a:has(.actionIcon)::before{
+  content: '\\f05a';
+}
+
+a:has(#bookmarkDropdownIcon)::before{
+      content: '\\f005';
+}
+
+a:has(#Layer.navIcon)::before{
+  content: '\\f1da';
+}
+
+a:has(#allItemsDropdownIcon)::before{
+  content: '\\f07c';
+}
+
+a:has(#tools-dropdown-icon)::before{
+  content: '\\f0ad';
+}
+
+a:has(#global-help-icon)::before{
+  content: '\\f059';
+}
+
+a:has(#setup-designer-icon)::before{
+  content: '\\f013';
+}
+
+#userDropdown a::before {
+  content: '\\f007';
 }
