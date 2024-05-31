@@ -2180,7 +2180,10 @@ img[src="images/send-for-approval-icon.png"] + span::before,
 img[src="images/new-expense-icon.png"] + span::before,
 img[src="images/expense-entry-tool-icon.png"] + span::before,
 img[src="images/new-account-icon.png"] + span::before,
-img[src="images/mass-edit-icon.png"] + span::before {
+img[src="images/mass-edit-icon.png"] + span::before,
+img[src="images/upload-file-icon.png"] + span::before,
+img[src="images/new-folder-icon.png"] + span::before,
+img[src="images/new-url-icon.png"] + span::before {
   font-family: "Font Awesome 5 Pro";
   color: var(--button-text-color) !important;
   font-weight: 900;
@@ -2337,4 +2340,70 @@ img[src="images/mass-edit-icon.png"] {
 
 img[src="images/mass-edit-icon.png"] + span::before {
   content: "\\f044";
+}
+
+//upload file icon in button
+img[src="images/upload-file-icon.png"] {
+  display: none;
+}
+
+img[src="images/upload-file-icon.png"] + span::before {
+  content: "\\f574";
+}
+
+//new folder icon in button
+img[src="images/new-folder-icon.png"] {
+  display: none;
+}
+
+img[src="images/new-folder-icon.png"] + span::before {
+  content: "\\f65e";
+}
+
+//new URL icon in button
+img[src="images/new-url-icon.png"] {
+  display: none;
+}
+
+img[src="images/new-url-icon.png"] + span::before {
+  content: "\\f0c1";
+}
+
+//-------------------message icons-------------------
+
+//all button icons common
+img[src="images/notification-icon.png"] + .label::before,
+img[src="images/warning-icon.png"] + .label::before,
+img[src="images/error-icon.png"] + .label::before{
+  font-family: "Font Awesome 5 Pro";
+  color: var(--msg-text-color) !important;
+  font-weight: 900;
+  padding-right: 0.4rem;
+}
+
+//notification icon in button
+img[src="images/notification-icon.png"] {
+  display: none;
+}
+
+img[src="images/notification-icon.png"] + .label::before {
+  content: "\\f0f3";
+}
+
+//warning icon in button
+img[src="images/warning-icon.png"] {
+  display: none;
+}
+
+img[src="images/warning-icon.png"] + .label::before {
+  content: "\\f071";
+}
+
+//error icon in button
+img[src="images/error-icon.png"] {
+  display: none;
+}
+
+img[src="images/error-icon.png"] + .label::before {
+  content: "\\f06a";
 }
