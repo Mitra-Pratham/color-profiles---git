@@ -64,7 +64,7 @@
     --page-header-color: #001a35; // page header color
     --scroll-bar-color: #e3e9ef;
     //dont use variables here
-    --font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
+    --font-family: "Roboto", Calibri, Arial, sans-serif;
     --left-nav-icons-color: var(
       --accent-color
     ); //left navigation icon colors, icons disabled in enhanced theme
@@ -183,7 +183,7 @@
     --scroll-bar-color: #454f59; //scroll bar color
     --scroll-bar-body: var(--background-color);
     //dont use variables here
-    --font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
+    --font-family: "Roboto", Calibri, Arial, sans-serif;
     --left-nav-icons-color: var(
       --accent-color
     ); //left navigation icon colors, icons disabled in enhanced theme
@@ -359,7 +359,7 @@
    * Color of:
    *  - block header edit icon
    */
-@block-edit-icon: var(--button-color);
+@block-edit-icon: var(--accent-color);
 
 /*
    * Color of:
@@ -529,9 +529,12 @@ table.list td {
   overflow-wrap: normal !important;
 }
 
-#lineItemsViewDiv .minimalCenter tbody {
-  td {
+#lineItemsViewDiv tbody {
+  td.minimalCenter {
     background-color: var(--table-background-color-odd) !important;
+    a {
+      background-color: transparent !important;
+    }
   }
 }
 
@@ -778,6 +781,10 @@ header#top-nav {
       }
     }
 
+    #gs-help{
+      font-size: 1em !important;
+    }
+
     #globalSearchText {
       color: var(--text-field) !important;
       width: var(--global-search-width) !important;
@@ -826,23 +833,23 @@ header#top-nav {
         }
       }
       #collapsedTopNavDropdownToggle {
-        color:var(--top-nav-text) !important;
+        color: var(--top-nav-text) !important;
         font-weight: bold !important;
         font-size: 1em !important;
         flex-direction: row !important;
         background-color: transparent !important;
-      
-          img {
-            display: none !important;
+
+        img {
+          display: none !important;
         }
       }
     }
 
-    #collapsedTopNavDropdownToggle::after{
-      font-family: 'Font Awesome 5 Pro';
+    #collapsedTopNavDropdownToggle::after {
+      font-family: "Font Awesome 5 Pro";
       font-weight: 900;
-      color:var(--top-nav-text) !important;
-      content: '\\f0d7';
+      color: var(--top-nav-text) !important;
+      content: "\\f0d7";
     }
     .menuListItem {
       a {
@@ -908,6 +915,28 @@ header#top-nav {
   margin-right: 0 !important;
   min-width: 12vw !important;
   border-right: 1px solid var(--left-nav-border) !important;
+
+  span.icon {
+    background-image: none !important;
+    display: inline-flex;
+    align-items: center;
+    height: inherit;
+    font-size: 1rem;
+    margin-top: 0 !important;
+  }
+
+  span.icon.collapse::after {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    color: var(--left-nav-text) !important;
+    content: "\\f0d7";
+  }
+  span.icon.expand::after {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    color: var(--left-nav-text) !important;
+    content: "\\f0da";
+  }
 
   #leftNavDiv {
     background-color: var(--left-nav) !important;
@@ -1013,27 +1042,27 @@ header#top-nav {
     }
   }
 
-  span.icon{
-    background-image: none !important;
-    display: flex;
-    align-items: center;
-    height: inherit;
-    font-size: 1rem;
-    margin-top:0 !important;
-  }
+  // span.icon{
+  //   background-image: none !important;
+  //   display: inline-flex;
+  //   align-items: center;
+  //   height: inherit;
+  //   font-size: 1rem;
+  //   margin-top: 0 !important;
+  // }
 
-  span.icon.collapse::before{
-    font-family: 'Font Awesome 5 Pro';
-      font-weight: 900;
-      color:var(--left-nav-text) !important;
-      content: '\\f0d7';
-  }
-  span.icon.expand::before{
-    font-family: 'Font Awesome 5 Pro';
-      font-weight: 900;
-      color:var(--left-nav-text) !important;
-      content: '\\f0da';
-  }
+  // span.icon.collapse::before {
+  //   font-family: "Font Awesome 5 Pro";
+  //   font-weight: 900;
+  //   color: var(--left-nav-text) !important;
+  //   content: "\\f0d7";
+  // }
+  // span.icon.expand::before {
+  //   font-family: "Font Awesome 5 Pro";
+  //   font-weight: 900;
+  //   color: var(--left-nav-text) !important;
+  //   content: "\\f0da";
+  // }
 }
 
 .globalSearchLeftNavIcon {
@@ -1074,6 +1103,8 @@ header#top-nav {
     padding: 12px 0 !important;
   }
 }
+
+//buttons
 
 .content-header .buttonListBar > * {
   margin-right: 0 !important;
@@ -1119,6 +1150,7 @@ header#top-nav {
 }
 
 .btn-group {
+  display: inline-flex !important;
   .btn {
     border-radius: 0 !important;
 
@@ -1226,7 +1258,7 @@ button .buttonbar-img {
     background-color: var(--card-body);
     overflow-wrap: break-word;
 
-    label{
+    label {
       color: var(--text-field-labels) !important;
     }
 
@@ -1377,7 +1409,6 @@ button .buttonbar-img {
       }
     }
   }
-  
 }
 
 .labelcell,
@@ -1628,6 +1659,14 @@ button .buttonbar-img {
 //     background-color: #f5f6f7 !important;
 // }
 
+//CSM Stuff here
+
+.gwt-FastTreeItem .open,
+.gwt-FastTreeItem .closed,
+.gwt-FastTreeItem-leaf {
+  color: var(--text-field) !important;
+}
+
 //*****************New Classes (UI BRAND)*****************
 
 //Button Icons
@@ -1685,7 +1724,7 @@ img.icon.folder_closed16 {
   }
 }
 
-//Dropdowns
+//Dropdowns & Input fields
 
 .dropdown-menu {
   background-color: var(--dropdown-background-color) !important;
@@ -1712,6 +1751,10 @@ img.icon.folder_closed16 {
   }
 }
 
+.dropdown-toggle::after {
+  border-bottom-color: var(--card-body) !important;
+}
+
 .form-control {
   background-color: var(--background-color) !important;
   border-color: var(--card-border) !important;
@@ -1723,6 +1766,11 @@ img.icon.folder_closed16 {
 }
 .form-control:focus {
   border: 2px solid var(--accent-color) !important;
+}
+
+.input-group-addon {
+  background-color: var(--card-body) !important;
+  border: 1px solid var(--card-border) !important;
 }
 
 form {
@@ -1777,14 +1825,13 @@ textarea:focus {
     }
     select {
       width: auto;
-
     }
   }
   input,
   textarea {
     width: auto;
   }
-  .form-control{
+  .form-control {
     width: auto;
   }
 }
@@ -1814,7 +1861,7 @@ select[multiple] {
   max-width: fill-available !important;
 }
 
-td{
+td {
   .chosen-container {
     width: -webkit-fill-available !important;
     width: -moz-available !important;
@@ -1905,7 +1952,7 @@ td{
   text-decoration: none !important;
 }
 
-//modal & stuff
+//modals & stuff
 .yui-module.yui-overlay.yui-panel {
   min-width: 33vw !important;
   border-radius: var(--portal-pane-radius) !important;
@@ -1917,8 +1964,13 @@ td{
     background-color: var(--card-body) !important;
     border: 1px solid var(--card-border);
     color: var(--card-header-text) !important;
+    .gsModalTitle,
     label {
       color: var(--text-field-labels) !important;
+    }
+    #globalSearchModalHeader {
+      color: var(--text-field-labels) !important;
+      font-size: 1.5em !important;
     }
     .environment-scroll {
       background-color: var(--background-color) !important;
@@ -1937,6 +1989,39 @@ td{
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+//CSM Modal
+.moduleModal {
+  min-width: 33vw !important;
+  border-radius: var(--portal-pane-radius) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  .header,
+  .body,
+  .footer {
+    background-color: var(--card-body) !important;
+  }
+  .header {
+    border-radius: var(--portal-pane-radius) var(--portal-pane-radius) 0 0 !important;
+    border-bottom: 1px solid var(--card-border);
+    font-size: 1.5em !important;
+    h3 {
+      color: var(--card-header-text) !important;
+    }
+  }
+  .body {
+    border-radius: 0 0 var(--portal-pane-radius) var(--portal-pane-radius) !important;
+    .footer {
+      border-top: 1px solid var(--card-border);
+      .field {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }
@@ -2002,47 +2087,254 @@ td{
   }
 }
 
+//-------------------All Icons-------------------
 
-//icons
-
-a:has(.actionIcon, #bookmarkDropdownIcon, #Layer.navIcon, #allItemsDropdownIcon, #tools-dropdown-icon, #global-help-icon, #setup-designer-icon)::before, #userDropdown a::before{
-  font-family: 'Font Awesome 5 Pro';
-  color:var(--anchor-color) !important;
+//-------------------anchor icons-------------------
+a:has(
+    .actionIcon,
+    .editIcon,
+    .blockEditIcon,
+    #bookmarkDropdownIcon,
+    #Layer.navIcon,
+    #allItemsDropdownIcon,
+    #tools-dropdown-icon,
+    #global-help-icon,
+    #gs-help-icon,
+    #setup-designer-icon
+  )::before,
+#userDropdown a::before {
+  font-family: "Font Awesome 5 Pro";
+  color: var(--anchor-color) !important;
   font-weight: 900;
 }
 
-.actionIcon, #bookmarkDropdownIcon, #Layer.navIcon, #allItemsDropdownIcon, #tools-dropdown-icon, #global-help-icon,#setup-designer-icon, #userDropdown a svg{
+.actionIcon,
+.editIcon,
+.blockEditIcon,
+#bookmarkDropdownIcon,
+#Layer.navIcon,
+#allItemsDropdownIcon,
+#tools-dropdown-icon,
+#global-help-icon,
+#gs-help-icon,
+#setup-designer-icon,
+#userDropdown a svg {
   display: none;
 }
 
-a:has(.actionIcon)::before{
-  content: '\\f05a';
+//info icon
+a:has(.actionIcon)::before, a:has(#gs-help-icon)::before{
+  content: "\\f05a";
 }
 
-a:has(#bookmarkDropdownIcon)::before{
-      content: '\\f005';
+a:has(#bookmarkDropdownIcon)::before {
+  content: "\\f005";
 }
 
-a:has(#Layer.navIcon)::before{
-  content: '\\f1da';
+a:has(#Layer.navIcon)::before {
+  content: "\\f1da";
 }
 
-a:has(#allItemsDropdownIcon)::before{
-  content: '\\f07c';
+a:has(#allItemsDropdownIcon)::before {
+  content: "\\f07c";
 }
 
-a:has(#tools-dropdown-icon)::before{
-  content: '\\f0ad';
+a:has(#tools-dropdown-icon)::before {
+  content: "\\f0ad";
 }
 
-a:has(#global-help-icon)::before{
-  content: '\\f059';
+//help icon
+a:has(#global-help-icon)::before {
+  content: "\\f059";
 }
 
-a:has(#setup-designer-icon)::before{
-  content: '\\f013';
+a:has(#setup-designer-icon)::before {
+  content: "\\f013";
 }
 
 #userDropdown a::before {
-  content: '\\f007';
+  content: "\\f007";
+}
+
+//edit icon
+a:has(.editIcon)::before,
+a:has(.blockEditIcon)::before {
+  content: "\\f304";
+}
+
+//-------------------button icons-------------------
+//all button icons common
+img[src="images/help-icon.png"] + span::before,
+img[src="images/save-icon.png"] + span::before,
+img[src="images/new-dispute-icon.png"] + span::before,
+img[src="images/print-icon.png"] + span::before,
+img[src="images/edit-icon-buttonBar.png"] + span::before,
+img[src="images/create-copy-icon.png"] + span::before,
+img[src="images/delete-icon.png"] + span::before,
+img[src="images/share-icon.png"] + span::before,
+img[src="images/bookmark-icon.png"] + span::before,
+img[src="images/cancel-icon.png"] + span::before,
+img[src="images/approve-icon.png"] + span::before,
+img[src="images/reject-icon.png"] + span::before,
+img[src="images/send-for-approval-icon.png"] + span::before,
+img[src="images/new-expense-icon.png"] + span::before,
+img[src="images/expense-entry-tool-icon.png"] + span::before,
+img[src="images/new-account-icon.png"] + span::before,
+img[src="images/mass-edit-icon.png"] + span::before {
+  font-family: "Font Awesome 5 Pro";
+  color: var(--button-text-color) !important;
+  font-weight: 900;
+  padding-right: 0.4rem;
+}
+
+//help icon in button
+img[src="images/help-icon.png"] {
+  display: none;
+}
+img[src="images/help-icon.png"] + span::before {
+  content: "\\f059";
+}
+
+//save icon in button
+img[src="images/save-icon.png"] {
+  display: none;
+}
+
+img[src="images/save-icon.png"] + span::before {
+  content: "\\f0c7";
+}
+
+//new icon in button
+img[src="images/new-dispute-icon.png"] {
+  display: none;
+}
+
+img[src="images/new-dispute-icon.png"] + span::before {
+  content: "\\f055";
+}
+
+//print icon in button
+img[src="images/print-icon.png"] {
+  display: none;
+}
+
+img[src="images/print-icon.png"] + span::before {
+  content: "\\f02f";
+}
+
+//edit icon in button
+img[src="images/edit-icon-buttonBar.png"] {
+  display: none;
+}
+
+img[src="images/edit-icon-buttonBar.png"] + span::before {
+  content: "\\f304";
+}
+
+//copy icon in button
+img[src="images/create-copy-icon.png"] {
+  display: none;
+}
+
+img[src="images/create-copy-icon.png"] + span::before {
+  content: "\\f0c5";
+}
+
+//delete icon in button
+img[src="images/delete-icon.png"] {
+  display: none;
+}
+
+img[src="images/delete-icon.png"] + span::before {
+  content: "\\f2ed";
+}
+
+//share icon in button
+img[src="images/share-icon.png"] {
+  display: none;
+}
+
+img[src="images/share-icon.png"] + span::before {
+  content: "\\f1e0";
+}
+
+//bookmark icon in button
+img[src="images/bookmark-icon.png"] {
+  display: none;
+}
+
+img[src="images/bookmark-icon.png"] + span::before {
+  content: "\\f005";
+}
+
+//cancel icon in button
+img[src="images/cancel-icon.png"] {
+  display: none;
+}
+
+img[src="images/cancel-icon.png"] + span::before {
+  content: "\\f05e";
+}
+
+//approve icon in button
+img[src="images/approve-icon.png"] {
+  display: none;
+}
+
+img[src="images/approve-icon.png"] + span::before {
+  content: "\\f058";
+}
+
+//reject icon in button
+img[src="images/reject-icon.png"] {
+  display: none;
+}
+
+img[src="images/reject-icon.png"] + span::before {
+  content: "\\f057";
+}
+
+//send for approval icon in button
+img[src="images/send-for-approval-icon.png"] {
+  display: none;
+}
+
+img[src="images/send-for-approval-icon.png"] + span::before {
+  content: "\\f4fc";
+}
+
+//new expense icon in button
+img[src="images/new-expense-icon.png"] {
+  display: none;
+}
+
+img[src="images/new-expense-icon.png"] + span::before {
+  content: "\\f571";
+}
+
+//expense entry icon in button
+img[src="images/expense-entry-tool-icon.png"] {
+  display: none;
+}
+
+img[src="images/expense-entry-tool-icon.png"] + span::before {
+  content: "\\f4b9";
+}
+
+//new account icon in button
+img[src="images/new-account-icon.png"] {
+  display: none;
+}
+
+img[src="images/new-account-icon.png"] + span::before {
+  content: "\\f1ec";
+}
+
+//mass edit icon in button
+img[src="images/mass-edit-icon.png"] {
+  display: none;
+}
+
+img[src="images/mass-edit-icon.png"] + span::before {
+  content: "\\f044";
 }
