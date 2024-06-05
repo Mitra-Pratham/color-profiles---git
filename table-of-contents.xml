@@ -1,38 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
     <style>
-        #TOCDiv{
-        position: fixed;
-        right: 2rem;
-        bottom: 5rem;
-        display:grid;
-        padding: .65rem;
-        background: var(--background-color, white);
-        border: 1px solid;
-        border-color: var(--card-border, #ddd);
-        box-shadow: var(--card-shadow);
-        border-radius: var(--portal-pane-radius, 4px);
-        z-index:999;
+        #TOC-div{
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            display:grid;
+            padding: .65rem;
+            background: var(--background-color, white);
+            border: 1px solid;
+            border-color: var(--card-border, #ddd);
+            box-shadow: var(--card-shadow);
+            border-radius: var(--portal-pane-radius, 4px);
+            z-index:999;
         }
+        #TOC-header{
+            display:grid;
+            grid-template-columns:3fr 1fr;
+            align-items:center;
+        }
+        #TOC-container{
+            display:grid;
+        }
+        #TOC-show::before{
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            padding-left: 0.625rem;
+            content: "\f078";
+        }
+        #TOC-show.TOC-hidden::before{
+            content: "\f054";
+        }
+        #backToTop{
+            display:none !important;
+        }
+        .bg_blockhdr h3 {
+            scroll-margin-top: 2.5rem;
+          }
     </style>
-    <div id="TOCDiv">
-        <h4>Table of Contents</h4>
+    <div id="TOC-div">
+        <div id="TOC-header">
+            <h5>Table of Contents</h5>
+            <div><a id="TOC-show" href="#"></a></div>
+        </div>
+        <div id="TOC-container"></div>
     </div>
 
     <script xmlns="http://www.w3.org/1999/xhtml">
     <![CDATA[ 
     jQuery('.bg_blockhdr h3').each(function () {
         let header = jQuery(this).text();
-        let headerVal=header.replace(/ /g,'-')
+        let headerVal=header.replace(/(\s)/g,'-');
         jQuery(this).attr('id', `${headerVal}`);
-        let tocItem = `<a val=${headerVal} class="toc-item" href="#">${header}</a>`;
-        jQuery('#TOCDiv').append(tocItem);
+        let tocItem = `<a val="${headerVal}" class="toc-item" href="#">${header}</a>`;
+        jQuery('#TOC-container').append(tocItem);
     });
     
-    jQuery('#TOCDiv').on('click', '.toc-item', function () {
+    jQuery('#TOC-div').on('click', '.toc-item', function () {
         let scrollItem = jQuery(this).attr('val');
-        jQuery(`#${scrollItem}`)[0].scrollIntoView();
+        jQuery(`#${scrollItem}`)[0].scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     });
+    
+    jQuery('#TOC-div').on('click', '#TOC-show', function () {
+        let hasClass = jQuery(`#TOC-show`).hasClass('TOC-hidden');
+        hasClass === true ? jQuery(`#TOC-show`).removeClass('TOC-hidden') : jQuery(`#TOC-show`).addClass('TOC-hidden');
+        jQuery(`#TOC-container`).toggle();
+    });
+    
     ]]>
     </script>
 

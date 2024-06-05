@@ -11,7 +11,7 @@
     --anchor-color: var(--accent-color);
     --anchor-color-hover: #014073;
     --button-color: #c7d3df; // fallback to primary accent or you can change to your preference
-    --button-color-hover: #e3e9ef;
+    --button-color-hover: #d5dfe9;
     --button-text-color: #242a30; //change here as well
     --background-color: #f9fafc; //background color for TeamConnect
     --text-field-labels: #001a35; //text-fields labels color
@@ -19,7 +19,7 @@
     --card-header: #fff; //card header color
     --card-header-text: #001a35;
     --card-body: #fff; //card body color
-    --card-border: #e3e9ef; //card border color
+    --card-border: #d5dfe9; //card border color
     --global-nav-color: #fff; //global navigation color
     --global-nav-icons: #6b7d8f; // global nav icons color
     --global-nav-icons-text: #47535f; //global nav icons text color
@@ -443,6 +443,10 @@ html,
   font-family: var(--font-family) !important;
 }
 
+.dtree{
+  color: var(--text-field) !important;
+}
+
 .gwt-ScrollTable {
   border: 0 !important;
 }
@@ -485,8 +489,8 @@ table.list th,
   }
 }
 
-table.list th.order1 a {
-  color: var(--table-header) !important;
+table.list th.order1.order1 a, table.list th.order2.order2 a{
+  color: var(--anchor-color) !important;
 }
 
 table.list tr:nth-child(even),
@@ -511,15 +515,26 @@ table.list tr:nth-child(odd),
   border-bottom: 1px solid var(--table-border-color) !important;
 }
 
-.bootstrap-table .fixed-table-container .list th,
-.bootstrap-table .fixed-table-container .list td {
-  color: var(--table-text) !important;
-  border: 1px solid var(--table-border-color) !important;
+.bootstrap-table .fixed-table-container .list.list  {
+  th,td {
+    color: var(--table-text) !important;
+    border: 1px solid var(--table-border-color) !important;
+  }
 }
 
-.bootstrap-table .fixed-table-container .list thead tr th div.th-inner {
-  color: var(--table-header) !important;
+th.reorderable:has(.asc),th.reorderable:has(.desc){
+  background-color: var(--left-nav-selected-background) !important;
 }
+
+.bootstrap-table .fixed-table-container .list thead tr th {
+  div.th-inner {
+    color: var(--table-header) !important;
+  }
+  div.th-inner.asc,  div.th-inner.desc{
+    color: var(--anchor-color) !important;
+  }
+}
+
 
 table.list td {
   overflow-wrap: anywhere !important;
@@ -882,6 +897,13 @@ header#top-nav {
   background-color: var(--left-nav-static-top-color) !important;
   box-shadow: none !important;
   border-bottom: 1px solid var(--left-nav-border) !important;
+  #leftNavTopRightItems #manageContainer{
+    display: flex !important;
+    #navbarManageBtn{
+      padding: 0 !important;
+      font-size: 1rem !important;
+    }
+  }
 }
 
 #leftNavFloatContainer {
@@ -1860,7 +1882,7 @@ select[multiple] {
   max-width: -moz-available !important;
   max-width: fill-available !important;
 }
-
+//important because it applies for tables
 td {
   .chosen-container {
     width: -webkit-fill-available !important;
@@ -1869,17 +1891,28 @@ td {
   }
 }
 
-.chosen-container .chosen-results li {
-  max-width: 100%;
-  overflow: hidden;
-  word-wrap: normal !important;
-  white-space: normal;
-}
-
 .chosen-container-single {
   background-color: var(--background-color) !important;
   border: 1px solid var(--card-border) !important;
   color: var(--body-text-color) !important;
+  .chosen-drop{
+    background-color: var(--background-color) !important;
+    border-color: var(--card-border) !important;
+    .chosen-results {
+    color: var(--body-text-color) !important;
+      li {
+        max-width: 100%;
+        overflow: hidden;
+        word-wrap: normal !important;
+        white-space: normal;
+      }
+      li.highlighted{
+      background-color: var(--accent-color) !important;
+      color: var(--background-color) !important;
+      background-image: none !important;
+      }
+    }
+  }
   .chosen-single {
     background-color: var(--background-color) !important;
     border-color: transparent !important;
@@ -1896,6 +1929,9 @@ td {
       background-color: var(--background-color) !important;
       border-color: var(--card-border) !important;
       color: var(--body-text-color) !important;
+    }
+    input[type="text"]:focus {
+      border-color: var(--accent-color) !important;
     }
   }
 }
@@ -2102,9 +2138,10 @@ a:has(
     #gs-help-icon,
     #setup-designer-icon
   )::before,
-#userDropdown a::before {
+#userDropdown a::before,
+#navbarManageBtn::before {
   font-family: "Font Awesome 5 Pro";
-  color: var(--anchor-color) !important;
+  color: var(--anchor-color) !important; //color: inherit to inherit parent's color
   font-weight: 900;
 }
 
@@ -2118,7 +2155,8 @@ a:has(
 #global-help-icon,
 #gs-help-icon,
 #setup-designer-icon,
-#userDropdown a svg {
+#userDropdown a svg,
+#navbarManageBtn svg {
   display: none;
 }
 
@@ -2148,10 +2186,12 @@ a:has(#global-help-icon)::before {
   content: "\\f059";
 }
 
+//setup icon
 a:has(#setup-designer-icon)::before {
-  content: "\\f013";
+  content: "\\f552";
 }
 
+//user icon
 #userDropdown a::before {
   content: "\\f007";
 }
@@ -2160,6 +2200,11 @@ a:has(#setup-designer-icon)::before {
 a:has(.editIcon)::before,
 a:has(.blockEditIcon)::before {
   content: "\\f304";
+}
+
+//object collection icon
+#navbarManageBtn::before {
+  content: "\\f013";
 }
 
 //-------------------button icons-------------------
@@ -2183,14 +2228,16 @@ img[src="images/new-account-icon.png"] + span::before,
 img[src="images/mass-edit-icon.png"] + span::before,
 img[src="images/upload-file-icon.png"] + span::before,
 img[src="images/new-folder-icon.png"] + span::before,
-img[src="images/new-url-icon.png"] + span::before {
+img[src="images/new-url-icon.png"] + span::before,
+img[src="images/more-actions-icon.png"] + span::before,
+img[src="images/change-phase-icon.png"] + span::before {
   font-family: "Font Awesome 5 Pro";
   color: var(--button-text-color) !important;
   font-weight: 900;
   padding-right: 0.4rem;
 }
 
-//help icon in button
+//help icon in the button element
 img[src="images/help-icon.png"] {
   display: none;
 }
@@ -2198,7 +2245,7 @@ img[src="images/help-icon.png"] + span::before {
   content: "\\f059";
 }
 
-//save icon in button
+//save icon in the button element
 img[src="images/save-icon.png"] {
   display: none;
 }
@@ -2207,7 +2254,7 @@ img[src="images/save-icon.png"] + span::before {
   content: "\\f0c7";
 }
 
-//new icon in button
+//new icon in the button element
 img[src="images/new-dispute-icon.png"] {
   display: none;
 }
@@ -2216,7 +2263,7 @@ img[src="images/new-dispute-icon.png"] + span::before {
   content: "\\f055";
 }
 
-//print icon in button
+//print icon in the button element
 img[src="images/print-icon.png"] {
   display: none;
 }
@@ -2225,7 +2272,7 @@ img[src="images/print-icon.png"] + span::before {
   content: "\\f02f";
 }
 
-//edit icon in button
+//edit icon in the button element
 img[src="images/edit-icon-buttonBar.png"] {
   display: none;
 }
@@ -2234,7 +2281,7 @@ img[src="images/edit-icon-buttonBar.png"] + span::before {
   content: "\\f304";
 }
 
-//copy icon in button
+//copy icon in the button element
 img[src="images/create-copy-icon.png"] {
   display: none;
 }
@@ -2243,7 +2290,7 @@ img[src="images/create-copy-icon.png"] + span::before {
   content: "\\f0c5";
 }
 
-//delete icon in button
+//delete icon in the button element
 img[src="images/delete-icon.png"] {
   display: none;
 }
@@ -2252,7 +2299,7 @@ img[src="images/delete-icon.png"] + span::before {
   content: "\\f2ed";
 }
 
-//share icon in button
+//share icon in the button element
 img[src="images/share-icon.png"] {
   display: none;
 }
@@ -2261,7 +2308,7 @@ img[src="images/share-icon.png"] + span::before {
   content: "\\f1e0";
 }
 
-//bookmark icon in button
+//bookmark icon in the button element
 img[src="images/bookmark-icon.png"] {
   display: none;
 }
@@ -2270,7 +2317,7 @@ img[src="images/bookmark-icon.png"] + span::before {
   content: "\\f005";
 }
 
-//cancel icon in button
+//cancel icon in the button element
 img[src="images/cancel-icon.png"] {
   display: none;
 }
@@ -2279,7 +2326,7 @@ img[src="images/cancel-icon.png"] + span::before {
   content: "\\f05e";
 }
 
-//approve icon in button
+//approve icon in the button element
 img[src="images/approve-icon.png"] {
   display: none;
 }
@@ -2288,7 +2335,7 @@ img[src="images/approve-icon.png"] + span::before {
   content: "\\f058";
 }
 
-//reject icon in button
+//reject icon in the button element
 img[src="images/reject-icon.png"] {
   display: none;
 }
@@ -2297,7 +2344,7 @@ img[src="images/reject-icon.png"] + span::before {
   content: "\\f057";
 }
 
-//send for approval icon in button
+//send for approval icon in the button element
 img[src="images/send-for-approval-icon.png"] {
   display: none;
 }
@@ -2306,7 +2353,7 @@ img[src="images/send-for-approval-icon.png"] + span::before {
   content: "\\f4fc";
 }
 
-//new expense icon in button
+//new expense icon in the button element
 img[src="images/new-expense-icon.png"] {
   display: none;
 }
@@ -2315,7 +2362,7 @@ img[src="images/new-expense-icon.png"] + span::before {
   content: "\\f571";
 }
 
-//expense entry icon in button
+//expense entry icon in the button element
 img[src="images/expense-entry-tool-icon.png"] {
   display: none;
 }
@@ -2324,7 +2371,7 @@ img[src="images/expense-entry-tool-icon.png"] + span::before {
   content: "\\f4b9";
 }
 
-//new account icon in button
+//new account icon in the button element
 img[src="images/new-account-icon.png"] {
   display: none;
 }
@@ -2333,7 +2380,7 @@ img[src="images/new-account-icon.png"] + span::before {
   content: "\\f1ec";
 }
 
-//mass edit icon in button
+//mass edit icon in the button element
 img[src="images/mass-edit-icon.png"] {
   display: none;
 }
@@ -2342,7 +2389,7 @@ img[src="images/mass-edit-icon.png"] + span::before {
   content: "\\f044";
 }
 
-//upload file icon in button
+//upload file icon in the button element
 img[src="images/upload-file-icon.png"] {
   display: none;
 }
@@ -2351,7 +2398,7 @@ img[src="images/upload-file-icon.png"] + span::before {
   content: "\\f574";
 }
 
-//new folder icon in button
+//new folder icon in the button element
 img[src="images/new-folder-icon.png"] {
   display: none;
 }
@@ -2360,13 +2407,31 @@ img[src="images/new-folder-icon.png"] + span::before {
   content: "\\f65e";
 }
 
-//new URL icon in button
+//new URL icon in the button element
 img[src="images/new-url-icon.png"] {
   display: none;
 }
 
 img[src="images/new-url-icon.png"] + span::before {
   content: "\\f0c1";
+}
+
+//more icon in the button element
+img[src="images/more-actions-icon.png"] {
+  display: none;
+}
+
+img[src="images/more-actions-icon.png"] + span::before {
+  content: "\\f141";
+}
+
+//change phase icon in the button element
+img[src="images/change-phase-icon.png"] {
+  display: none;
+}
+
+img[src="images/change-phase-icon.png"] + span::before {
+  content: "\\f5fd";
 }
 
 //-------------------message icons-------------------
@@ -2381,7 +2446,7 @@ img[src="images/error-icon.png"] + .label::before{
   padding-right: 0.4rem;
 }
 
-//notification icon in button
+//notification icon in the button element
 img[src="images/notification-icon.png"] {
   display: none;
 }
@@ -2390,7 +2455,7 @@ img[src="images/notification-icon.png"] + .label::before {
   content: "\\f0f3";
 }
 
-//warning icon in button
+//warning icon in the button element
 img[src="images/warning-icon.png"] {
   display: none;
 }
@@ -2399,7 +2464,7 @@ img[src="images/warning-icon.png"] + .label::before {
   content: "\\f071";
 }
 
-//error icon in button
+//error icon in the button element
 img[src="images/error-icon.png"] {
   display: none;
 }
