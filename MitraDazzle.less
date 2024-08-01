@@ -3,7 +3,8 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * MitraDazzle v1.1 - updated May 20, 2024
+ * Current: MitraDazzle v1.2 - updated August 1, 2024 - Fixed issues with Legacy Reporting
+ * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
  */
 :root {
   --anchor-color: #0067d2;
@@ -326,6 +327,8 @@ body {
   color: @body-text-color !important;
 }
 
+//table and grids here
+
 table.list {
   border-color: var(--table-border-color) !important;
 }
@@ -388,6 +391,12 @@ table.list td {
   td{
     background-color: var(--table-background-color-odd) !important;
   }
+}
+
+
+//legacy reporting table
+.reportTitleClass{
+  width: auto !important;
 }
 
 

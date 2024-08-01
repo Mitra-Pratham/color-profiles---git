@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
+    <tc:blockTemplate id="New-Tax">
+        <div class="row">
+            <div class="column grid-50">
+                <div class="field-cell">
+                    <span class="label">
+                        <tc:label name="command_taxRate"
+                            key="invoice.taxRate" category="INVC"/>
+                    </span>
+                    <span class="field">
+                        <tc:field name="command_taxRate" category="INVC"/>
+                    </span>
+                </div>
+            </div>
+            <div class="column grid-50">
+                <div class="field-cell">
+                    <span class="label">
+                        <tc:label name="IRNumber"
+                            key="objdef.INVC.customfield.IRNumber" category="INVC"/>
+                    </span>
+                    <span class="field">
+                        <tc:field name="IRNumber" category="INVC" format="DECIMAL" minimumFractionDigits="10" maximumFractionDigits="10"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </tc:blockTemplate>
+</tc:transform>
