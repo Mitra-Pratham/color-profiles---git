@@ -109,6 +109,7 @@
     --dropdown-border-color-hover: #ed5b3e;
     --button-icon: invert(1);
     --image-filter: invert(0);
+    --width-wrap: none;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -228,6 +229,7 @@
     --dropdown-border-color-hover: var(--accent-color);
     --button-icon: invert(1);
     --image-filter: invert(1);
+    --width-wrap: none;
   }
 }
 
@@ -555,6 +557,10 @@ table.list td {
     }
   }
 }
+//legacy reporting table
+.reportTitleClass {
+  width: auto !important;
+}
 
 #AboutVersionTable {
   border-color: var(--table-border-color) !important;
@@ -648,7 +654,8 @@ table.list td {
   background-color: var(--portal-pane-background) !important;
   padding: var(--portal-pane-padding) !important;
   border-radius: var(--portal-pane-radius) !important;
-  h1,h3 {
+  h1,
+  h3 {
     color: var(--portal-pane-header-color) !important;
   }
 }
@@ -1253,6 +1260,16 @@ button .buttonbar-img {
 
 // cards block
 
+//fix for budgets wrap
+
+div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbBudgetSettings.scr"] {
+  span.label {
+    .texthdr {
+      white-space: pre-wrap !important;
+    }
+  }
+}
+
 .tcblock,
 .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
@@ -1410,6 +1427,7 @@ button .buttonbar-img {
       top: 0 !important;
       bottom: 0 !important;
       width: 100% !important;
+      max-width: calc(50vw - 22rem) !important;
     }
     .field:only-child,
     .memo_field:only-child {
@@ -1888,19 +1906,14 @@ select[multiple] {
   max-width: fill-available !important;
 }
 
+td .chosen-container,
 .chosen-container {
-  width: inherit !important;
+  min-width: 145px !important;
+  display: block !important;
+  width: var(--width-wrap) !important;
   max-width: -webkit-fill-available !important;
   max-width: -moz-available !important;
   max-width: fill-available !important;
-}
-//important because it applies for tables
-td {
-  .chosen-container {
-    width: -webkit-fill-available !important;
-    width: -moz-available !important;
-    width: fill-available !important;
-  }
 }
 
 .chosen-container-single {

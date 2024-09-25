@@ -3,7 +3,7 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.2 - updated August 1, 2024 - Fixed issues with Legacy Reporting
+ * Current: MitraDazzle v1.2 - updated September 25, 2024 - Fixed issues with Legacy Reporting, dropdown minimum width and added a variable for dropdown wrapping
  * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
  */
 :root {
@@ -296,6 +296,12 @@
 @dropdown-textcolor: #07080a;
 @dropdown-textcolor-hover: #0067d2;
 @dropdown-background-color: #fff;
+//dropdown toggle between full length and auto
+@width-wrap: none; //"inherit" to allow for full length wrapping
+//-webkit-fill-available
+//-moz-available
+//fill-available
+//7.0 variables
 @darkened-border-color: #c0c0c0;
 @chart-border: #efefef;
 
@@ -311,7 +317,6 @@ html,
 .dtree {
   font-family: @font-family !important;
 }
-
 
 .gwt-ScrollTable {
   border: 0 !important;
@@ -340,7 +345,8 @@ table.list td {
   vertical-align: top;
 }
 
-table.list th, .gwt-ScrollTable .headerTable tr:nth-child(2) > td {
+table.list th,
+.gwt-ScrollTable .headerTable tr:nth-child(2) > td {
   color: var(--table-header) !important;
   background: var(--table-background-color-header) !important;
   padding: 8px 6px !important;
@@ -352,19 +358,21 @@ table.list th, .gwt-ScrollTable .headerTable tr:nth-child(2) > td {
   }
 }
 
-table.list th.order1 a{
+table.list th.order1 a {
   color: var(--table-header) !important;
 }
 
-table.list tr:nth-child(even), .gwt-ScrollTable .dataTable > tbody > tr:nth-child(even){
+table.list tr:nth-child(even),
+.gwt-ScrollTable .dataTable > tbody > tr:nth-child(even) {
   background-color: var(--table-background-color-even) !important;
 }
 
-table.list tr:nth-child(odd), .gwt-ScrollTable .dataTable > tbody > tr:nth-child(odd) {
+table.list tr:nth-child(odd),
+.gwt-ScrollTable .dataTable > tbody > tr:nth-child(odd) {
   background-color: var(--table-background-color-odd) !important;
 }
 
-.gwt-ScrollTable .dataTable > tbody > tr > td{
+.gwt-ScrollTable .dataTable > tbody > tr > td {
   border-right: 1px solid var(--table-border-color) !important;
   border-bottom: 1px solid var(--table-border-color) !important;
 }
@@ -387,18 +395,16 @@ table.list td {
   overflow-wrap: normal !important;
 }
 
-#lineItemsViewDiv .minimalCenter tbody{
-  td{
+#lineItemsViewDiv .minimalCenter tbody {
+  td {
     background-color: var(--table-background-color-odd) !important;
   }
 }
 
-
 //legacy reporting table
-.reportTitleClass{
+.reportTitleClass {
   width: auto !important;
 }
-
 
 // error messages
 
@@ -503,7 +509,7 @@ header#top-nav {
   background-color: var(--global-nav-color) !important;
   @media screen and (max-width: 1280px) {
     display: grid !important;
-  grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
     height: auto !important;
     height: auto !important;
     max-height: none !important;
@@ -511,7 +517,6 @@ header#top-nav {
   @media screen and (max-width: 1200px) {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    
   }
 
   //set nav-icons to the right
@@ -728,7 +733,8 @@ header#top-nav {
   }
 
   .item {
-    li[class=" adhocSearch"], li[class="adhocSearch"]{
+    li[class=" adhocSearch"],
+    li[class="adhocSearch"] {
       padding: 6px 1px 6px 46px !important;
     }
 
@@ -933,12 +939,22 @@ button .buttonbar-img {
 
 // cards block
 
+//fix for budgets wrap
+
+div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbBudgetSettings.scr"] {
+  span.label {
+    .texthdr {
+      white-space: pre-wrap !important;
+    }
+  }
+}
+
 .tcblock,
 .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #collectionSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #objdef_CONT_block_Contact_PhoneFaxNumbers_block,
-#objdef_CONT_block_Contact_EmailWebAddresses_block{
+#objdef_CONT_block_Contact_EmailWebAddresses_block {
   padding: 0.6em 1em;
 
   .bg_blockhdr {
@@ -1013,19 +1029,25 @@ button .buttonbar-img {
         grid-column: span 1 !important;
       }
     }
-    .budgetRow{
+    .budgetRow {
       display: inline-grid !important;
       grid-template-columns: 1fr 1fr !important;
     }
   }
-  
-.form-row[style*="display: none"],.row[style*="display: none"], .column[style*="display: none"], .field-cell[style*="display: none"] {
-  display: none !important;
-}
 
-.form-row[style*="display:none"],.row[style*="display:none"], .column[style*="display:none"], .field-cell[style*="display:none"] {
-  display: none !important;
-}
+  .form-row[style*="display: none"],
+  .row[style*="display: none"],
+  .column[style*="display: none"],
+  .field-cell[style*="display: none"] {
+    display: none !important;
+  }
+
+  .form-row[style*="display:none"],
+  .row[style*="display:none"],
+  .column[style*="display:none"],
+  .field-cell[style*="display:none"] {
+    display: none !important;
+  }
 
   .field-cell {
     padding: 6px 3px !important;
@@ -1042,7 +1064,8 @@ button .buttonbar-img {
 
     .label,
     .memo_label,
-    .texthdr, label {
+    .texthdr,
+    label {
       grid-column: 1;
       text-transform: none !important;
       font-size: inherit !important;
@@ -1070,6 +1093,7 @@ button .buttonbar-img {
       top: 0 !important;
       bottom: 0 !important;
       width: 100% !important;
+      max-width: calc(50vw - 22rem) !important;
     }
     .field:only-child,
     .memo_field:only-child {
@@ -1085,11 +1109,10 @@ button .buttonbar-img {
   }
 }
 
-.labelcell{
+.labelcell {
   color: var(--text-field-labels) !important;
   font-weight: 500 !important;
 }
-
 
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
   .bg_blockcolor + .bg_blockhdr {
@@ -1108,13 +1131,17 @@ button .buttonbar-img {
   }
   .bg_blockcolor:has(#BatchDisplay0) {
     border: 0 !important;
-    #BatchDisplay0{
+    #BatchDisplay0 {
       border: 0 !important;
     }
   }
 }
 
-#mainContentDiv > .bg_blockhdr, #mainContentDiv2 > .bg_blockhdr, #mainContentDiv3 > .bg_blockhdr, #objdef_SYST_block_System_Region_block > .bg_blockhdr, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
+#mainContentDiv > .bg_blockhdr,
+#mainContentDiv2 > .bg_blockhdr,
+#mainContentDiv3 > .bg_blockhdr,
+#objdef_SYST_block_System_Region_block > .bg_blockhdr,
+#objdef_SYST_block_System_OfficeSuite_block > .bg_blockhdr {
   margin: 0 1em 0 1em;
   background: var(--card-header) !important;
   border-bottom: none !important;
@@ -1127,7 +1154,11 @@ button .buttonbar-img {
   }
 }
 
-#mainContentDiv > .bg_blockcolor, #mainContentDiv2 > .bg_blockcolor, #mainContentDiv3 > .bg_blockcolor,#objdef_SYST_block_System_Region_block > .bg_blockcolor, #objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
+#mainContentDiv > .bg_blockcolor,
+#mainContentDiv2 > .bg_blockcolor,
+#mainContentDiv3 > .bg_blockcolor,
+#objdef_SYST_block_System_Region_block > .bg_blockcolor,
+#objdef_SYST_block_System_OfficeSuite_block > .bg_blockcolor {
   margin: 0 1em 1.2em 1em;
 
   box-shadow: @card-shadow !important;
@@ -1194,22 +1225,22 @@ button .buttonbar-img {
       gap: 10px !important;
 
       .label,
-    .memo_label,
-    .texthdr {
-      grid-column: auto;
-      grid-row:auto;
-      width: 100% !important;
-    }
-  
+      .memo_label,
+      .texthdr {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100% !important;
+      }
+
       .field,
       .memo_field {
         grid-column: 1;
-        grid-row:1;
-      width: 100% !important;
+        grid-row: 1;
+        width: 100% !important;
       }
     }
   }
-} 
+}
 
 // .row .grid-100{
 //   .field-cell{
@@ -1367,25 +1398,20 @@ option {
   white-space: normal;
 }
 
-select[multiple]{
+select[multiple] {
   max-width: -webkit-fill-available !important;
   max-width: -moz-available !important;
   max-width: fill-available !important;
 }
 
+td .chosen-container,
 .chosen-container {
-  width: inherit !important;
+  min-width: 145px !important;
+  display: block !important;
+  width: @width-wrap !important;
   max-width: -webkit-fill-available !important;
   max-width: -moz-available !important;
   max-width: fill-available !important;
-}
-
-td{
-  .chosen-container {
-    width: -webkit-fill-available !important;
-    width: -moz-available !important;
-    width: fill-available !important;
-  }
 }
 
 .chosen-container .chosen-results li {
