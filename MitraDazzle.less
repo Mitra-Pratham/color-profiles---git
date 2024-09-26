@@ -3,7 +3,7 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.2 - updated September 25, 2024 - Fixed issues with Legacy Reporting, dropdown minimum width and added a variable for dropdown wrapping
+ * Current: MitraDazzle v1.2 - updated September 26, 2024 - Fixed issues with Legacy Reporting, dropdown minimum width, added a variable for dropdown wrapping and fixed focus on file types - Input, Checkbox and Radio
  * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
  */
 :root {
@@ -1419,4 +1419,9 @@ td .chosen-container,
   overflow: hidden;
   word-wrap: normal !important;
   white-space: normal;
+}
+
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+  outline: 5px auto black !important;
+  outline-offset: 2px !important;
 }
