@@ -3,7 +3,11 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.2 - updated September 26, 2024 - Fixed issues with Legacy Reporting, dropdown minimum width, added a variable for dropdown wrapping and fixed focus on file types - Input, Checkbox and Radio
+ * Current: MitraDazzle v1.2 - updated October 14, 2024 - 
+ --Fixed issues with Legacy Reporting, dropdown minimum width, 
+ --added a variable for dropdown wrapping and 
+ --fixed focus on file types - Input, Checkbox and Radio
+ --Fixed Table highlighting and introduce a table highlight background variable
  * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
  */
 :root {
@@ -60,6 +64,7 @@
   --table-border-color: #c7d3df; //table border color
   --table-text: #001a35; // text in the table
   --table-header: #001a35; // table header text
+  --table-highlight: #c8e5f8; // table highlight background
   --page-header-color: #001a35; // page header color
   --scroll-bar-color: #e3e9ef; //scroll bar color
 }
@@ -198,7 +203,7 @@
  * Color of:
  *	- table header with "sorted by" active
  */
-@table-highlight: #dee5f0;
+@table-highlight: var(--table-highlight);
 
 /*
  * Color of:
@@ -358,8 +363,15 @@ table.list th,
   }
 }
 
-table.list th.order1 a {
-  color: var(--table-header) !important;
+//highlight name for sorted
+table.list th.order1.order1 a,
+table.list th.order2.order2 a {
+  color: var(--anchor-color) !important;
+}
+
+//higlight background
+table.list th.sorted{
+  background-color: var(--table-highlight) !important;
 }
 
 table.list tr:nth-child(even),
@@ -377,10 +389,18 @@ table.list tr:nth-child(odd),
   border-bottom: 1px solid var(--table-border-color) !important;
 }
 
-.bootstrap-table .fixed-table-container .list.list th,
-.bootstrap-table .fixed-table-container .list.list td {
-  color: var(--table-text) !important;
-  border: 1px solid var(--table-border-color) !important;
+.bootstrap-table .fixed-table-container .list.list {
+  th,
+  td {
+    color: var(--table-text) !important;
+    border: 1px solid var(--table-border-color) !important;
+  }
+}
+
+//highlights for interactive
+th.reorderable:has(.asc),
+th.reorderable:has(.desc) {
+  background-color: var(--table-highlight) !important;
 }
 
 .bootstrap-table .fixed-table-container .list thead tr th div.th-inner {

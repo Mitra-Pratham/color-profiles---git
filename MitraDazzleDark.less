@@ -109,7 +109,7 @@
     --dropdown-border-color-hover: #ed5b3e;
     --button-icon: invert(1);
     --image-filter: invert(0);
-    --width-wrap: none;
+    --width-wrap: inherit !important;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -229,7 +229,7 @@
     --dropdown-border-color-hover: var(--accent-color);
     --button-icon: invert(1);
     --image-filter: invert(1);
-    --width-wrap: none;
+    --width-wrap: inherit;
   }
 }
 
@@ -491,9 +491,15 @@ table.list th,
   }
 }
 
+//highlight name for sorted
 table.list th.order1.order1 a,
 table.list th.order2.order2 a {
   color: var(--anchor-color) !important;
+}
+
+//higlight background
+table.list th.sorted{
+  background-color: var(--left-nav-selected-background) !important;
 }
 
 table.list tr:nth-child(even),
@@ -526,6 +532,7 @@ table.list tr:nth-child(odd),
   }
 }
 
+//highlights for interactive
 th.reorderable:has(.asc),
 th.reorderable:has(.desc) {
   background-color: var(--left-nav-selected-background) !important;
@@ -1863,6 +1870,10 @@ textarea:hover {
 input:focus,
 textarea:focus {
   border: 2px solid var(--accent-color) !important;
+}
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus, button:focus {
+  outline: 2px auto var(--accent-color) !important;
+  outline-offset: 2px !important;
 }
 #pageSizeDropdown,
 #perPageSelect,
