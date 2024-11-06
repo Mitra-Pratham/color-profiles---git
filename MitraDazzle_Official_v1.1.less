@@ -3,12 +3,7 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.2 - updated November 5, 2024 - 
- --Fixed issues with Legacy Reporting, dropdown minimum width, 
- --Added a variable for dropdown wrapping and 
- --Fixed focus on file types - Input, Checkbox and Radio
- --Fixed Table highlighting and introduce a table highlight background variable
- * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
+ * MitraDazzle v1.1 - updated May 20, 2024
  */
 :root {
   --anchor-color: #0067d2;
@@ -192,7 +187,7 @@
  * Color of:
  *	- table header with "sorted by" active
  */
-@table-highlight: #c8e5f8;
+@table-highlight: #dee5f0;
 
 /*
  * Color of:
@@ -290,9 +285,6 @@
 @dropdown-textcolor: #07080a;
 @dropdown-textcolor-hover: #0067d2;
 @dropdown-background-color: #fff;
-//dropdown toggle between full length and auto
-@width-wrap: none; //"inherit" to allow for full length wrapping
-//7.0 variables
 @darkened-border-color: #c0c0c0;
 @chart-border: #efefef;
 
@@ -309,6 +301,7 @@ html,
   font-family: @font-family !important;
 }
 
+
 .gwt-ScrollTable {
   border: 0 !important;
 }
@@ -322,8 +315,6 @@ body {
   font-family: var(--font-family) !important;
   color: @body-text-color !important;
 }
-
-//table and grids here
 
 table.list {
   border-color: var(--table-border-color) !important;
@@ -349,15 +340,8 @@ table.list th,
   }
 }
 
-//highlight name for sorted
-table.list th.order1.order1 a,
-table.list th.order2.order2 a {
-  color: var(--anchor-color) !important;
-}
-
-//higlight background
-table.list th.sorted {
-  background-color: @table-highlight !important;
+table.list th.order1 a {
+  color: var(--table-header) !important;
 }
 
 table.list tr:nth-child(even),
@@ -375,19 +359,10 @@ table.list tr:nth-child(odd),
   border-bottom: 1px solid var(--table-border-color) !important;
 }
 
-.bootstrap-table .fixed-table-container .list.list {
-
-  th,
-  td {
-    color: var(--table-text) !important;
-    border: 1px solid var(--table-border-color) !important;
-  }
-}
-
-//highlights for interactive
-th.reorderable:has(.asc),
-th.reorderable:has(.desc) {
-  background-color: @table-highlight !important;
+.bootstrap-table .fixed-table-container .list.list th,
+.bootstrap-table .fixed-table-container .list.list td {
+  color: var(--table-text) !important;
+  border: 1px solid var(--table-border-color) !important;
 }
 
 .bootstrap-table .fixed-table-container .list thead tr th div.th-inner {
@@ -408,18 +383,6 @@ table.list td {
   }
 }
 
-//legacy reporting table
-.reportTitleClass {
-  width: auto !important;
-}
-
-table {
-  tr.groupedHeading td {
-    span.titlehdr0 {
-      overflow-wrap: normal !important;
-    }
-  }
-}
 
 // error messages
 
@@ -540,6 +503,7 @@ header#top-nav {
   @media screen and (max-width: 1200px) {
     display: grid !important;
     grid-template-columns: 1fr !important;
+
   }
 
   //set nav-icons to the right
@@ -955,16 +919,6 @@ button .buttonbar-img {
 
 // cards block
 
-//fix for budgets wrap
-
-div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbBudgetSettings.scr"] {
-  span.label {
-    .texthdr {
-      white-space: pre-wrap !important;
-    }
-  }
-}
-
 .tcblock,
 .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
@@ -1017,46 +971,6 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
 
     .form-row:has(> .bootstrap-table) {
       grid-template-columns: 1fr !important;
-    }
-
-    //1 column layout for side by side
-    .row:has(.grid-100) {
-      grid-template-columns: 1fr !important;
-
-      .chosen-container.chosen-container-single {
-        width: auto !important;
-      }
-
-      .grid-100 {
-        .field-cell {
-          .field {
-            max-width: inherit !important;
-
-            input {
-              width: inherit !important;
-            }
-          }
-
-          .memo_field {
-            max-width: inherit !important;
-            div{
-              max-width: 70vw;
-            }
-            textarea {
-              width: inherit !important;
-            }
-          }
-        }
-      }
-    }
-
-    //3 column layout for side by side
-    .row:has(.grid-33) {
-      grid-template-columns: 1fr 1fr 1fr !important;
-
-      .chosen-container.chosen-container-single {
-        width: auto !important;
-      }
     }
 
     .form-row,
@@ -1123,7 +1037,7 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
     grid-auto-columns: 1fr 7fr !important;
     gap: 6px !important;
     width: 100% !important;
-    // overflow-wrap: anywhere;
+    overflow-wrap: anywhere;
 
     // @media screen and (max-width: 1500px) {
     //   flex-flow: column nowrap !important;
@@ -1160,7 +1074,6 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
       top: 0 !important;
       bottom: 0 !important;
       width: 100% !important;
-      max-width: calc(50vw - 22rem) !important;
     }
 
     .field:only-child,
@@ -1173,7 +1086,6 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
       top: 0 !important;
       bottom: 0 !important;
       width: 100% !important;
-      max-width: none !important;
     }
   }
 }
@@ -1182,6 +1094,7 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
   color: var(--text-field-labels) !important;
   font-weight: 500 !important;
 }
+
 
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
   .bg_blockcolor+.bg_blockhdr {
@@ -1258,46 +1171,6 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
 
   .row .grid-75 {
     max-width: 50% !important;
-  }
-
-  //1 column layout for side by side
-  .row:has(.grid-100) {
-    grid-template-columns: 1fr !important;
-
-    .chosen-container.chosen-container-single {
-      width: auto !important;
-    }
-
-    .grid-100 {
-      .field-cell {
-        .field {
-          max-width: inherit !important;
-
-          input {
-            width: inherit !important;
-          }
-        }
-
-        .memo_field {
-          max-width: inherit !important;
-          div{
-            max-width: 70vw;
-          }
-          textarea {
-            width: inherit !important;
-          }
-        }
-      }
-    }
-  }
-
-  //3 column layout for side by side
-  .row:has(.grid-33) {
-    grid-template-columns: 1fr 1fr 1fr !important;
-
-    .chosen-container.chosen-container-single {
-      width: auto !important;
-    }
   }
 
   .form-row,
@@ -1525,14 +1398,19 @@ select[multiple] {
   max-width: fill-available !important;
 }
 
-td .chosen-container,
 .chosen-container {
-  min-width: 145px !important;
-  display: block !important;
-  width: @width-wrap !important;
+  width: inherit !important;
   max-width: -webkit-fill-available !important;
   max-width: -moz-available !important;
   max-width: fill-available !important;
+}
+
+td {
+  .chosen-container {
+    width: -webkit-fill-available !important;
+    width: -moz-available !important;
+    width: fill-available !important;
+  }
 }
 
 .chosen-container .chosen-results li {
@@ -1540,11 +1418,4 @@ td .chosen-container,
   overflow: hidden;
   word-wrap: normal !important;
   white-space: normal;
-}
-
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
-  outline: 5px auto black !important;
-  outline-offset: 2px !important;
 }
