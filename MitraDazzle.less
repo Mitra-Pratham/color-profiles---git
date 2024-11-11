@@ -295,6 +295,7 @@
 //7.0 variables
 @darkened-border-color: #c0c0c0;
 @chart-border: #efefef;
+@layout-type: SideSide; //layout type to switch between TopDown and SideSide (side by side label-fields or top down label-fields)
 
 //font application
 html,
@@ -998,10 +999,16 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
       box-shadow: none !important;
 
       .texthdr {
-        text-transform: none !important;
-        font-size: inherit !important;
-        font-weight: 500 !important;
-        width: 10vw;
+        & when (@layout-type =SideSide) {
+          width: 10vw;
+          text-transform: none !important;
+          font-size: inherit !important;
+          font-weight: 500 !important;
+        }
+
+        & when (@layout-type =TopDown) {
+        font-weight: bold !important;
+        }
         overflow-wrap: break-word;
         color: var(--text-field-labels) !important;
 
@@ -1011,12 +1018,322 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
       }
     }
 
-    .row .grid-75 {
-      max-width: 50% !important;
+    & when (@layout-type =SideSide) {
+      .row .grid-75 {
+        max-width: 50% !important;
+      }
+
+      .form-row:has(> .bootstrap-table) {
+        grid-template-columns: 1fr !important;
+      }
+
+      //1 column layout for side by side
+      .row:has(.grid-100) {
+        grid-template-columns: 1fr !important;
+
+        .chosen-container.chosen-container-single {
+          width: auto !important;
+        }
+
+        .grid-100 {
+          .field-cell {
+            .field {
+              max-width: inherit !important;
+
+              input {
+                width: inherit !important;
+              }
+            }
+
+            .memo_field {
+              max-width: inherit !important;
+
+              div {
+                max-width: 70vw;
+              }
+
+              textarea {
+                width: inherit !important;
+              }
+            }
+          }
+        }
+      }
+
+      //3 column layout for side by side
+      .row:has(.grid-33) {
+        grid-template-columns: 1fr 1fr 1fr !important;
+
+        .chosen-container.chosen-container-single {
+          width: auto !important;
+        }
+      }
+
+      .form-row,
+      .row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+
+        .grid-50 {
+          max-width: 100% !important;
+        }
+
+        .grid-33 {
+          max-width: 100% !important;
+        }
+
+        .grid-25 {
+          max-width: 100% !important;
+        }
+      }
+
+      .column:only-child {
+        /* -or- li:only-child { */
+        grid-column: span 2 !important;
+      }
+
+      @media screen and (max-width: 1200px) {
+
+        .form-row,
+        .row {
+          /* -or- li:only-child { */
+          grid-template-columns: 1fr !important;
+        }
+
+        .column:only-child {
+          /* -or- li:only-child { */
+          grid-column: span 1 !important;
+        }
+      }
+
+      .budgetRow {
+        display: inline-grid !important;
+        grid-template-columns: 1fr 1fr !important;
+      }
+    }
+  }
+
+  .form-row[style*="display: none"],
+  .row[style*="display: none"],
+  .column[style*="display: none"],
+  .field-cell[style*="display: none"] {
+    display: none !important;
+  }
+
+  .form-row[style*="display:none"],
+  .row[style*="display:none"],
+  .column[style*="display:none"],
+  .field-cell[style*="display:none"] {
+    display: none !important;
+  }
+
+  & when (@layout-type =SideSide) {
+    .field-cell {
+      padding: 6px 3px !important;
+      font-size: 16px !important;
+      display: grid !important;
+      grid-auto-columns: 1fr 7fr !important;
+      gap: 6px !important;
+      width: 100% !important;
+      // overflow-wrap: anywhere;
+
+      // @media screen and (max-width: 1500px) {
+      //   flex-flow: column nowrap !important;
+      // }
+
+      .label,
+      .memo_label,
+      .texthdr,
+      label {
+        grid-column: 1;
+        text-transform: none !important;
+        font-size: inherit !important;
+        font-weight: 500 !important;
+        width: 10vw !important;
+        overflow-wrap: break-word;
+        color: var(--text-field-labels) !important;
+
+        // @media screen and (max-width: 1500px) {
+        //   width: auto;
+        // }
+      }
+
+      .texthdr {
+        display: block !important;
+      }
+
+      .field,
+      .memo_field {
+        grid-column: 2;
+        color: var(--text-field) !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        max-width: calc(50vw - 22rem) !important;
+      }
+
+      .field:only-child,
+      .memo_field:only-child {
+        grid-column: 1;
+        color: var(--text-field) !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+      }
+    }
+  }
+
+  .field-cell {
+    padding: 6px 3px !important;
+    font-size: 16px !important;
+
+    & when (@layout-type =TopDown) {
+      overflow-wrap: anywhere;
     }
 
-    .form-row:has(> .bootstrap-table) {
-      grid-template-columns: 1fr !important;
+    // @media screen and (max-width: 1500px) {
+    //   flex-flow: column nowrap !important;
+    // }
+
+    .label,
+    .memo_label,
+    .texthdr,
+    label {
+      overflow-wrap: break-word;
+      color: var(--text-field-labels) !important;
+      
+
+      // @media screen and (max-width: 1500px) {
+      //   width: auto;
+      // }
+    }
+    .label,
+    .memo_label,
+    .texthdr{
+      & when (@layout-type =TopDown) {
+        font-weight: bold !important;
+      }
+    }
+    label{
+      & when (@layout-type =TopDown) {
+        font-weight: 500 !important;
+      }
+    }
+
+    .field,
+    .memo_field {
+      color: var(--text-field) !important;
+    }
+
+    .field:only-child,
+    .memo_field:only-child {
+      color: var(--text-field) !important;
+    }
+  }
+
+}
+
+.labelcell {
+  color: var(--text-field-labels) !important;
+  font-weight: 500 !important;
+}
+
+#adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
+  .bg_blockcolor+.bg_blockhdr {
+    margin-top: 1.25rem !important;
+  }
+}
+
+.bg_blockcolor {
+  table td .texthdr {
+    overflow-wrap: break-word;
+    color: var(--text-field-labels) !important;
+    & when (@layout-type =TopDown) {
+    font-weight: bold !important;
+    }
+
+    & when (@layout-type =SideSide) {
+      text-transform: none !important;
+      font-size: inherit !important;
+      font-weight: 500 !important;
+      width: 10vw !important;
+    }
+  }
+
+  .bg_blockcolor:has(#BatchDisplay0) {
+    border: 0 !important;
+
+    #BatchDisplay0 {
+      border: 0 !important;
+    }
+  }
+}
+
+#mainContentDiv>.bg_blockhdr,
+#mainContentDiv2>.bg_blockhdr,
+#mainContentDiv3>.bg_blockhdr,
+#objdef_SYST_block_System_Region_block>.bg_blockhdr,
+#objdef_SYST_block_System_OfficeSuite_block>.bg_blockhdr {
+  margin: 0 1em 0 1em;
+  background: var(--card-header) !important;
+  border-bottom: none !important;
+  border-radius: 4px 4px 0 0 !important;
+  border-left: 1px solid var(--card-border) !important;
+  border-top: 1px solid var(--card-border) !important;
+  border-right: 1px solid var(--card-border) !important;
+
+  h3 {
+    color: var(--card-header-text);
+  }
+}
+
+#mainContentDiv>.bg_blockcolor,
+#mainContentDiv2>.bg_blockcolor,
+#mainContentDiv3>.bg_blockcolor,
+#objdef_SYST_block_System_Region_block>.bg_blockcolor,
+#objdef_SYST_block_System_OfficeSuite_block>.bg_blockcolor {
+  margin: 0 1em 1.2em 1em;
+
+  box-shadow: @card-shadow !important;
+  border-radius: @card-radius !important;
+  border: 1px solid var(--card-border);
+  background-color: var(--card-body);
+  overflow-wrap: break-word;
+
+  .bg_blockcolor {
+    box-shadow: none !important;
+
+    .texthdr {
+      overflow-wrap: break-word;
+      color: var(--text-field-labels) !important;
+      & when (@layout-type =TopDown) {
+      font-weight: bold !important;
+      }
+
+      & when (@layout-type =SideSide) {
+        text-transform: none !important;
+        font-size: inherit !important;
+        font-weight: 500 !important;
+        width: 10vw;
+      }
+
+
+      @media screen and (max-width: 1500px) {
+        width: auto;
+      }
+    }
+  }
+
+  & when (@layout-type =SideSide) {
+    .row .grid-75 {
+      max-width: 50% !important;
     }
 
     //1 column layout for side by side
@@ -1039,9 +1356,11 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
 
           .memo_field {
             max-width: inherit !important;
-            div{
+
+            div {
               max-width: 70vw;
             }
+
             textarea {
               width: inherit !important;
             }
@@ -1094,246 +1413,6 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
         /* -or- li:only-child { */
         grid-column: span 1 !important;
       }
-    }
-
-    .budgetRow {
-      display: inline-grid !important;
-      grid-template-columns: 1fr 1fr !important;
-    }
-  }
-
-  .form-row[style*="display: none"],
-  .row[style*="display: none"],
-  .column[style*="display: none"],
-  .field-cell[style*="display: none"] {
-    display: none !important;
-  }
-
-  .form-row[style*="display:none"],
-  .row[style*="display:none"],
-  .column[style*="display:none"],
-  .field-cell[style*="display:none"] {
-    display: none !important;
-  }
-
-  .field-cell {
-    padding: 6px 3px !important;
-    font-size: 16px !important;
-    display: grid !important;
-    grid-auto-columns: 1fr 7fr !important;
-    gap: 6px !important;
-    width: 100% !important;
-    // overflow-wrap: anywhere;
-
-    // @media screen and (max-width: 1500px) {
-    //   flex-flow: column nowrap !important;
-    // }
-
-    .label,
-    .memo_label,
-    .texthdr,
-    label {
-      grid-column: 1;
-      text-transform: none !important;
-      font-size: inherit !important;
-      font-weight: 500 !important;
-      width: 10vw !important;
-      overflow-wrap: break-word;
-      color: var(--text-field-labels) !important;
-
-      // @media screen and (max-width: 1500px) {
-      //   width: auto;
-      // }
-    }
-
-    .texthdr {
-      display: block !important;
-    }
-
-    .field,
-    .memo_field {
-      grid-column: 2;
-      color: var(--text-field) !important;
-      position: relative !important;
-      left: 0 !important;
-      right: 0 !important;
-      top: 0 !important;
-      bottom: 0 !important;
-      width: 100% !important;
-      max-width: calc(50vw - 22rem) !important;
-    }
-
-    .field:only-child,
-    .memo_field:only-child {
-      grid-column: 1;
-      color: var(--text-field) !important;
-      position: relative !important;
-      left: 0 !important;
-      right: 0 !important;
-      top: 0 !important;
-      bottom: 0 !important;
-      width: 100% !important;
-      max-width: none !important;
-    }
-  }
-}
-
-.labelcell {
-  color: var(--text-field-labels) !important;
-  font-weight: 500 !important;
-}
-
-#adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor) {
-  .bg_blockcolor+.bg_blockhdr {
-    margin-top: 1.25rem !important;
-  }
-}
-
-.bg_blockcolor {
-  table td .texthdr {
-    text-transform: none !important;
-    font-size: inherit !important;
-    font-weight: 500 !important;
-    width: 10vw !important;
-    overflow-wrap: break-word;
-    color: var(--text-field-labels) !important;
-  }
-
-  .bg_blockcolor:has(#BatchDisplay0) {
-    border: 0 !important;
-
-    #BatchDisplay0 {
-      border: 0 !important;
-    }
-  }
-}
-
-#mainContentDiv>.bg_blockhdr,
-#mainContentDiv2>.bg_blockhdr,
-#mainContentDiv3>.bg_blockhdr,
-#objdef_SYST_block_System_Region_block>.bg_blockhdr,
-#objdef_SYST_block_System_OfficeSuite_block>.bg_blockhdr {
-  margin: 0 1em 0 1em;
-  background: var(--card-header) !important;
-  border-bottom: none !important;
-  border-radius: 4px 4px 0 0 !important;
-  border-left: 1px solid var(--card-border) !important;
-  border-top: 1px solid var(--card-border) !important;
-  border-right: 1px solid var(--card-border) !important;
-
-  h3 {
-    color: var(--card-header-text);
-  }
-}
-
-#mainContentDiv>.bg_blockcolor,
-#mainContentDiv2>.bg_blockcolor,
-#mainContentDiv3>.bg_blockcolor,
-#objdef_SYST_block_System_Region_block>.bg_blockcolor,
-#objdef_SYST_block_System_OfficeSuite_block>.bg_blockcolor {
-  margin: 0 1em 1.2em 1em;
-
-  box-shadow: @card-shadow !important;
-  border-radius: @card-radius !important;
-  border: 1px solid var(--card-border);
-  background-color: var(--card-body);
-  overflow-wrap: break-word;
-
-  .bg_blockcolor {
-    box-shadow: none !important;
-
-    .texthdr {
-      text-transform: none !important;
-      font-size: inherit !important;
-      font-weight: 500 !important;
-      width: 10vw;
-      overflow-wrap: break-word;
-      color: var(--text-field-labels) !important;
-
-      @media screen and (max-width: 1500px) {
-        width: auto;
-      }
-    }
-  }
-
-  .row .grid-75 {
-    max-width: 50% !important;
-  }
-
-  //1 column layout for side by side
-  .row:has(.grid-100) {
-    grid-template-columns: 1fr !important;
-
-    .chosen-container.chosen-container-single {
-      width: auto !important;
-    }
-
-    .grid-100 {
-      .field-cell {
-        .field {
-          max-width: inherit !important;
-
-          input {
-            width: inherit !important;
-          }
-        }
-
-        .memo_field {
-          max-width: inherit !important;
-          div{
-            max-width: 70vw;
-          }
-          textarea {
-            width: inherit !important;
-          }
-        }
-      }
-    }
-  }
-
-  //3 column layout for side by side
-  .row:has(.grid-33) {
-    grid-template-columns: 1fr 1fr 1fr !important;
-
-    .chosen-container.chosen-container-single {
-      width: auto !important;
-    }
-  }
-
-  .form-row,
-  .row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-
-    .grid-50 {
-      max-width: 100% !important;
-    }
-
-    .grid-33 {
-      max-width: 100% !important;
-    }
-
-    .grid-25 {
-      max-width: 100% !important;
-    }
-  }
-
-  .column:only-child {
-    /* -or- li:only-child { */
-    grid-column: span 2 !important;
-  }
-
-  @media screen and (max-width: 1200px) {
-
-    .form-row,
-    .row {
-      /* -or- li:only-child { */
-      grid-template-columns: 1fr !important;
-    }
-
-    .column:only-child {
-      /* -or- li:only-child { */
-      grid-column: span 1 !important;
     }
   }
 }

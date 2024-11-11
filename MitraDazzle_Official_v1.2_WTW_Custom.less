@@ -3,14 +3,14 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.2 - updated October 14, 2024 - 
+ * Current: MitraDazzle v1.2 - updated November 5, 2024 - 
  --Fixed issues with Legacy Reporting, dropdown minimum width, 
- --added a variable for dropdown wrapping and 
- --fixed focus on file types - Input, Checkbox and Radio
+ --Added a variable for dropdown wrapping and 
+ --Fixed focus on file types - Input, Checkbox and Radio
  --Fixed Table highlighting and introduce a table highlight background variable
  * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
  */
-:root {
+ :root {
   --anchor-color: #0067d2;
   --anchor-color-hover: #014073;
   --button-color: #702082; // fallback to primary accent or you can change to your preference
@@ -295,8 +295,8 @@
  //7.0 variables
  @darkened-border-color: #c0c0c0;
  @chart-border: #efefef;
- 
- //font application
+
+//font application
 html,
 .tooltip,
 .popover,
@@ -1019,6 +1019,37 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
       grid-template-columns: 1fr !important;
     }
 
+    //1 column layout for side by side
+    .row:has(.grid-100) {
+      grid-template-columns: 1fr !important;
+
+      .chosen-container.chosen-container-single {
+        width: auto !important;
+      }
+
+      .grid-100 {
+        .field-cell {
+          .field {
+            max-width: inherit !important;
+
+            input {
+              width: inherit !important;
+            }
+          }
+
+          .memo_field {
+            max-width: inherit !important;
+            div{
+              max-width: 70vw;
+            }
+            textarea {
+              width: inherit !important;
+            }
+          }
+        }
+      }
+    }
+
     //3 column layout for side by side
     .row:has(.grid-33) {
       grid-template-columns: 1fr 1fr 1fr !important;
@@ -1227,6 +1258,37 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
 
   .row .grid-75 {
     max-width: 50% !important;
+  }
+
+  //1 column layout for side by side
+  .row:has(.grid-100) {
+    grid-template-columns: 1fr !important;
+
+    .chosen-container.chosen-container-single {
+      width: auto !important;
+    }
+
+    .grid-100 {
+      .field-cell {
+        .field {
+          max-width: inherit !important;
+
+          input {
+            width: inherit !important;
+          }
+        }
+
+        .memo_field {
+          max-width: inherit !important;
+          div{
+            max-width: 70vw;
+          }
+          textarea {
+            width: inherit !important;
+          }
+        }
+      }
+    }
   }
 
   //3 column layout for side by side
