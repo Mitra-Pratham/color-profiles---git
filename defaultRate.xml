@@ -5,12 +5,46 @@
     </Authentication>
     <Contact op="update" Name="Sethi"
         OverrideDuplicateCheck="true">
-        
+
         <!-- <DefaultRate>
             <RateAmount>75</RateAmount>
             <EffectiveFrom>2005-01-01</EffectiveFrom>
             <EffectiveTo>2005-06-30</EffectiveTo>
         </DefaultRate> -->
-                <DefaultRateValue>100.00</DefaultRateValue>
+        <DefaultRateValue>100.00</DefaultRateValue>
     </Contact>
 </TeamConnectRequest>
+
+
+<TeamConnectRequest>
+    <Authentication>
+        <Username>prat</Username>
+        <Password>prat</Password>
+    </Authentication>
+    <Search>
+        <Query>
+            <Entity>Contact</Entity>
+            <Criteria>
+                <Name is="equals">Sethi</Name>
+            </Criteria>
+        </Query>
+        <SearchResults>
+            <Contact>
+                <FirstName />
+                <CreatedOn />
+            </Contact>
+        </SearchResults>
+    </Search>
+
+</TeamConnectRequest>
+
+<TeamConnectRequest>
+    <Authentication>
+        <Username>ps</Username>
+        <Password>ps</Password>
+    </Authentication>
+    <Import key="CATE" name="detailTable" type="Categories">
+        <Item key="CATE_0000" name="3rd Party Support" order="0"></Item>
+        </Import>
+
+    </TeamConnectRequest>
