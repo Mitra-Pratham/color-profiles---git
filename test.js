@@ -18,7 +18,6 @@ jQuery(`#embeddedObject td:nth-child(${auditIndex})`).each(function () {
     }
 });
 
-
 //table of contents
 
 jQuery('.bg_blockhdr h3').each(function () {

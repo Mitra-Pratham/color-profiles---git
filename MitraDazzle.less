@@ -3,11 +3,18 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.2 - updated November 5, 2024 - 
+ * Current: MitraDazzle v1.3 - updated November 27, 2024 - 
+ --Fixed Padding issue with Document block icons
+ --Fixed Layout issue in the Admin Settings > Reporting > Default Page Settings for SideSide
+ --Fixed Layout issue in Admin Settings > Approvals > Expiration Reminders for TopDown
+ --Fixed Checkbox width issue in Create/Edit Budget when selecting vendor
+
+ * MitraDazzle v1.2 - updated November 5, 2024 - 
  --Fixed issues with Legacy Reporting, dropdown minimum width, 
  --Added a variable for dropdown wrapping and 
  --Fixed focus on file types - Input, Checkbox and Radio
  --Fixed Table highlighting and introduce a table highlight background variable
+
  * MitraDazzle v1.1 - updated May 20, 2024 - Fixed issues with dropdowns and wrapping content for large lookup fields
  */
 :root {
@@ -972,6 +979,41 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
   }
 }
 
+#objdef_SYST_block_System_Reporting_block {
+
+  //3 column layout for side by side
+  .tcblock .tcblock .form-row:has(.grid-25) {
+    grid-template-columns: auto !important;
+  }
+
+  .tcblock:nth-child(3) {
+
+    padding: 1em 0;
+
+    .tcblock .form-row:has(.grid-25) {
+      .column:nth-child(1) {
+        grid-area: 1;
+      }
+
+      .column:nth-child(2) {
+        grid-area: 2;
+      }
+
+      .column:nth-child(3) {
+        grid-area: 2;
+      }
+
+      .column:nth-child(4) {
+        grid-area: 2;
+      }
+
+      .column:nth-child(5) {
+        grid-area: 3;
+      }
+    }
+  }
+}
+
 .tcblock,
 .blockDiv:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
 #adhocSearchBlock:has(.bg_blockhdr, .blockTitleDiv, .bg_blockcolor),
@@ -1013,8 +1055,9 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
         }
 
         & when (@layout-type =TopDown) {
-        font-weight: bold !important;
+          font-weight: bold !important;
         }
+
         overflow-wrap: break-word;
         color: var(--text-field-labels) !important;
 
@@ -1214,20 +1257,22 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
     label {
       overflow-wrap: break-word;
       color: var(--text-field-labels) !important;
-      
+
 
       // @media screen and (max-width: 1500px) {
       //   width: auto;
       // }
     }
+
     .label,
     .memo_label,
-    .texthdr{
+    .texthdr {
       & when (@layout-type =TopDown) {
         font-weight: bold !important;
       }
     }
-    label{
+
+    label {
       & when (@layout-type =TopDown) {
         font-weight: 500 !important;
       }
@@ -1261,8 +1306,9 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
   table td .texthdr {
     overflow-wrap: break-word;
     color: var(--text-field-labels) !important;
+
     & when (@layout-type =TopDown) {
-    font-weight: bold !important;
+      font-weight: bold !important;
     }
 
     & when (@layout-type =SideSide) {
@@ -1319,8 +1365,9 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
     .texthdr {
       overflow-wrap: break-word;
       color: var(--text-field-labels) !important;
+
       & when (@layout-type =TopDown) {
-      font-weight: bold !important;
+        font-weight: bold !important;
       }
 
       & when (@layout-type =SideSide) {
@@ -1424,25 +1471,34 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
 }
 
 #objdef_SYST_block_System_Approvals_block {
+
   .tcblock:nth-child(2) {
-    .field-cell {
-      grid-template-columns: 30px 120px 120px 1fr !important;
-      align-items: center;
-      gap: 10px !important;
+    .form-row {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      .column {
+        grid-column: span 2 !important;
+        .field-cell {
+          display: grid !important;
+          grid-template-columns: 30px 120px 120px 1fr !important;
+          align-items: center;
+          gap: 10px !important;
 
-      .label,
-      .memo_label,
-      .texthdr {
-        grid-column: auto;
-        grid-row: auto;
-        width: 100% !important;
-      }
+          .label,
+          .memo_label,
+          .texthdr {
+            grid-column: auto;
+            grid-row: auto;
+            width: 100% !important;
+          }
 
-      .field,
-      .memo_field {
-        grid-column: 1;
-        grid-row: 1;
-        width: 100% !important;
+          .field,
+          .memo_field {
+            grid-column: 1;
+            grid-row: 1;
+            width: 100% !important;
+          }
+        }
       }
     }
   }
@@ -1595,6 +1651,8 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
   text-decoration: none !important;
 }
 
+// -----------Input Fields--------------------------------------------
+
 //quick dropdown fixes for lookup increase
 
 option {
@@ -1627,9 +1685,17 @@ td .chosen-container,
   white-space: normal;
 }
 
+//outline for focusing input fields
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
   outline: 5px auto black !important;
   outline-offset: 2px !important;
+}
+
+//budget and vendor selection input fix
+.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsEditBudget.scr"]{
+  .field:has(.vendorCheck){
+  width: auto !important;
+  }
 }

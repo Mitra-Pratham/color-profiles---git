@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
+    <style>
+        #comments-parent{
+            display:grid;
+            grid-template-columns: 1fr;
+            gap:.5rem;
+        }
+        .comments-card{
+            padding:.75rem;
+            border: 1px solid var(--card-border, #ddd);
+            border-radius: 8px;
+        }
+        .comments-item{
+            font-size:1rem;
+            padding-bottom:.25rem;
+            margin:0;
+            color: var(--text-field, #242a30);
+        }
+        .author-item{
+            font-size:.75rem;
+            font-style: italic;
+            margin:0;
+            color: var(--global-nav-icons-text, #47535f);
+        }
+    </style>
+
+    <script xmlns="http://www.w3.org/1999/xhtml">
+    <![CDATA[ 
+
+             // comments creator
+                jQuery(document).ready(function(){
+                let commentIndex, authorIndex;
+                let commentArayObject = [];
+
+                jQuery('#search_ELMC_block #embeddedObject th').each(function () {
+                    if (jQuery(this).text().includes('Comments')) {
+                        commentIndex = Number(jQuery(this).index());
+                    }
+                    else if(jQuery(this).text().includes('Author')){
+                        authorIndex = Number(jQuery(this).index());
+                    }
+                });
+
+                jQuery(`#search_ELMC_block #embeddedObject tbody tr`).each(function () {
+                    let tempObj = {
+                        comments: '',
+                        author: ''
+                    }
+                    jQuery(this).children('td').each(function(index) {
+                        
+                        if(index === commentIndex){
+                            tempObj.comments = jQuery(this).text();
+                        }
+                        else if(index === authorIndex){
+                            tempObj.author = jQuery(this).text();
+                        }
+                    
+                    });
+                    commentArayObject.push(tempObj);  
+                });
+
+                jQuery('#search_ELMC_block #embeddedObject').hide();
+                jQuery('#search_ELMC_block #pagingTopBar').hide();
+                jQuery('#search_ELMC_block #pagingBottomBar').hide();
+                jQuery('#BatchDisplay0 .gwt-ScrollTable').hide();
+                jQuery('#BatchDisplay0 .tcg-ButtonPanel').hide();
+
+                function commentsElement() {
+                    return `
+                            <div id="comments-parent">
+                            ${createComments(commentArayObject)}
+                            </div>
+                            `
+                } 
+
+                function createComments(arr){
+                    return arr.map(el=>{
+                        return `
+                        <div class="comments-card">
+                            <p class="comments-item">${el.comments}</p>
+                            <p class="author-item">${el.author}</p>
+                        </div>`
+                    }).join('');
+                }
+
+                jQuery('#search_ELMC_block').append(commentsElement());
+                jQuery('#BatchDisplay0').append(commentsElement());
+                });
+    
+    ]]>
+    </script>
+
+</tc:transform>

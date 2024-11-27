@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tc:transform xmlns:tc="http://www.mitratech.com/schemas/2008/custom" version="3.0">
+    <style>
+        #comments-container, .replies-container{
+        display: flex;
+        flex-flow: column;
+        gap:.5rem;
+        }
+        .replies-container{
+            margin-top:10px;
+        }
+        .input-box,.replies-input-box{
+        display: flex;
+        flex-flow: column;
+        gap: .5rem;
+        margin: 0.5rem 0 .5rem 0;
+        justify-content: start;
+        }
+        .comments-card, .replies-card{
+        padding:.75rem;
+        border: 1px solid var(--card-border, #ddd);
+        border-radius: 8px;
+        }
+        .comments-item, .replies-item{
+        font-size:1rem;
+        padding-bottom:.25rem;
+        margin:0;
+        color: var(--text-field, #242a30);
+        }
+        .author-item{
+        font-size:.75rem;
+        font-style: italic;
+        margin:0;
+        color: var(--global-nav-icons-text, #47535f);
+        }
+        .replies-container{
+        margin-left:10px;
+        }
+        #new-comment,.reply-text{
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+    </style>
+    <tc:blockTemplate id="ELM-Comments-Block">
+        <div class="row" style="display:none;">
+            <div class="column grid-50">
+                <div class="field-cell">
+                    <span class="label">
+                        <tc:label name="CommentString" category="ELMP"
+                            key="objdef.ELMP.customfield.CommentString" />
+                    </span>
+                    <span
+                        class="field" id="comment-string">
+                        <tc:note name="CommentString" category="ELMP" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="comments-container">
+        </div>
+        
+    </tc:blockTemplate>
+    <script xmlns="http://www.w3.org/1999/xhtml">
+        <![CDATA[ 
+    
+                      //comments Creator w/ Custom Field - Memo
+
+jQuery(document).ready(function () {
+
+    let editMode = jQuery('#comment-string textarea').length; //for edit mode, it should be greater than 0
+
+    let isComments;
+
+    let commentsData = [];
+
+    let commentsTextAreaHTML = `
+    <div class="input-box">
+            <textarea id="new-comment" placeholder="Write a comment" rows="1"></textarea>
+            <div>
+            <button id="add-comment" class="btn">
+                Add Comment
+            </button>
+            </div>
+        </div>
+    `
+    if(editMode > 0) {
+        jQuery('#ELM-Comments-Block').append(commentsTextAreaHTML);
+        isComments = jQuery('#comment-string textarea').val();
+    }
+    else if (editMode <=0){
+        isComments = jQuery('#comment-string div').text();
+    }
+
+    if (isComments != '') {
+        commentsData = JSON.parse(isComments);
+        renderComments(commentsData);
+    }
+    else {
+        commentsData = [];
+        renderComments(commentsData);
+    }
+
+
+    //render comments container function
+    function renderComments(data) {
+        jQuery('#comments-container').empty();
+        let tempHTML = data.map(function (el) {
+            
+            return `
+            <div id=${el.id} class="comments-card">
+                <p class="comments-item">${el.comment}</p>
+                <p class="author-item">${el.author} - ${el.date}</p>
+                ${el.replies.length > 0 ? `
+                    <div class="replies-container">
+                ${el.replies.map(renderReplies).join("")}
+                <div>` : ''}
+                ${editMode > 0 ? `
+                    <div class="replies-input-box" value=${el.id}>
+                    <textarea class="reply-text" placeholder="Write a reply" rows="1"></textarea>
+                    <div>
+                        <button class="add-reply-btn btn">Add Reply</button>
+                    </div>
+                </div>` : ''}
+            </div>`
+        });
+        jQuery('#comments-container').append(tempHTML);
+        saveCommentsToDB(data);
+    }
+
+    //render replies function
+    function renderReplies(element) {
+        
+        return `
+            <div id=${element.id}.id} class="replies-card">
+                <p class="replies-item">${element.reply}</p>
+                <p class="author-item">${element.author} - ${element.date}</p>
+            </div>`
+    }
+
+    function saveCommentsToDB(data){
+        let newData = JSON.stringify(data);
+        jQuery('#comment-string textarea').val(newData);
+    }
+
+    //add comment button function
+    jQuery('.input-box').on('click', '#add-comment', function () {
+        let newComment = jQuery('#new-comment').val().trim();
+        let ELMID = jQuery('#command_idNumber').val().trim();
+        let commentAuthor = jQuery('#userDropdown .iconText').text().trim();
+        let currentDate = new Date();
+        let commentDate = currentDate.toLocaleString();
+        if (newComment) {
+            let tempObj = {
+                id: ELMID + '-' + commentsData.length,
+                comment: newComment,
+                author: commentAuthor,
+                date: commentDate,
+                replies: []
+            }
+            commentsData.push(tempObj);
+            jQuery('#new-comment').val('');
+            renderComments(commentsData);
+        }
+    })
+
+
+    //reply button click function
+    jQuery('#comments-container').on('click', '.add-reply-btn', function () {
+        
+        
+        let replyText = jQuery(this).parent().siblings('.reply-text').val().trim();
+        let commentID = jQuery(this).closest('.replies-input-box').attr('value');
+        let replyAuthor = jQuery('#userDropdown .iconText').text().trim();
+        let currentDate = new Date();
+        let replyDate = currentDate.toLocaleString();
+
+        if (replyText) {
+            let newData = commentsData.map(function (el) {
+                if (el.id === commentID) {
+                    let tempObj = {
+                        id: el.id + '-reply-' + el.replies.length,
+                        reply: replyText,
+                        author: replyAuthor,
+                        date: replyDate
+                    }
+                    el.replies.push(tempObj);
+                }
+                return el;
+            });
+            jQuery(this).siblings('.reply-text').val('');
+            
+            renderComments(newData);
+            
+        }
+    });
+
+
+});
+        
+        ]]>
+        </script>
+</tc:transform>
