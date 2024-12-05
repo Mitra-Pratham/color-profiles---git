@@ -3,7 +3,9 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.3 - updated November 27, 2024 - 
+ * Current: MitraDazzle v1.3 - updated December 5, 2024 - 
+ --Fixed add fiscal year layout
+ --Fixed budgets template when creating new template
  --Fixed Padding issue with Document block icons
  --Fixed Layout issue in the Admin Settings > Reporting > Default Page Settings for SideSide
  --Fixed Layout issue in Admin Settings > Approvals > Expiration Reminders for TopDown
@@ -979,6 +981,21 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
   }
 }
 
+//fix for budgets template when creating new
+div[data-block-path="Root/System/Object Definitions/Budget Template/Screens/CjbBudgetTemplateSettings.scr"] {
+  & when (@layout-type =TopDown){
+    .row .grid-50:nth-child(2){
+      .field-cell{
+        .field{
+          position: relative !important;
+          bottom: auto !important;
+          left: auto !important;
+        }
+      }
+    }
+  }
+}
+
 #objdef_SYST_block_System_Reporting_block {
 
   //3 column layout for side by side
@@ -1697,5 +1714,20 @@ input[type="checkbox"]:focus {
 .blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsEditBudget.scr"], .blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsNewBudget.scr"]{
   .field:has(.vendorCheck){
   width: auto !important;
+  }
+}
+
+//add fiscal year layout fix
+.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectBudgetTemplateAddFiscalYear.scr"]{
+  .row .grid-100:nth-child(1){
+    .field-cell{
+      display: flex !important;
+      flex-flow: row !important;
+      gap: .2rem !important;
+      align-items: center !important;
+      .texthdr{
+        width: auto !important;
+      }
+    }
   }
 }
