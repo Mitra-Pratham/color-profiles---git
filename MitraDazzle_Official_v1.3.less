@@ -3,25 +3,17 @@
  * 
  * Variables representing every customizable color within TeamConnect.
  *
- * Current: MitraDazzle v1.4 - updated April 10, 2025 - 
- --Added a variable "@table-cell-wrap" for changing table cell wrapping
- --Changed "--top-nav-text" to "--top-nav-text-color" to account for Widgets variable converter
- --Changed "--left-nav-text" to "--left-nav-text-color" to account for Widgets variable converter
- --Fixed .dropdown-menu li:hover issue
- --Fixed overflow-wrap issue with GWT tables
-
- MitraDazzle v1.3 - updated January 2, 2025 - 
+ * Current: MitraDazzle v1.3 - updated January 2, 2025 - 
  --Fixed add fiscal year layout
  --Fixed budgets template when creating new template
  --Fixed Padding issue with Document block icons
  --Fixed Layout issue in the Admin Settings > Reporting > Default Page Settings for SideSide
  --Fixed Layout issue in Admin Settings > Approvals > Expiration Reminders for TopDown
  --Fixed Checkbox width issue in Create/Edit Budget when selecting vendor
- --Added a variable "@layout-type" for changing label orientation between side-side or top-down
 
  * MitraDazzle v1.2 - updated November 5, 2024 - 
  --Fixed issues with Legacy Reporting, dropdown minimum width, 
- --Added a variable "@width-wrap" for dropdown wrapping 
+ --Added a variable for dropdown wrapping and 
  --Fixed focus on file types - Input, Checkbox and Radio
  --Fixed Table highlighting and introduce a table highlight background variable
 
@@ -50,13 +42,13 @@
   --hamburger-icon: #fff; //hamburger menu icon color
   --top-nav-menu-border: #c7d3df; // top nav menu border
   --top-nav-menu: #0067d2; //top nav menu color
-  --top-nav-text-color: #fff; //top nav text color
+  --top-nav-text: #fff; //top nav text color
   --top-nav-text-selected: #fff; //top nav text selected color
   --top-nav-bottom-border-selected: #fff; //top selected bottom border color
   --top-nav-hover-color: #ffffff1a;
   --left-nav-border: #c7d3df; //left navigation menu border
   --left-nav: #fff; //left navigation menu color
-  --left-nav-text-color: #242a30; //left navigation menu parent text
+  --left-nav-text: #242a30; //left navigation menu parent text
   --left-nav-text-selected: #003368; //left navigation menu parent text when selected/expanded
   --left-nav-selected-background: #f2f7fd; //left navigation menu parent background when selected/expanded
   --left-nav-selected-border: #ed5b3e; //left navigation selected border color
@@ -313,7 +305,6 @@
 @darkened-border-color: #c0c0c0;
 @chart-border: #efefef;
 @layout-type: SideSide; //layout type to switch between TopDown and SideSide (side by side label-fields or top down label-fields)
-@table-cell-wrap: break-word;
 
 //font application
 html,
@@ -326,6 +317,15 @@ html,
 #ir-work-status-filter label,
 .dtree {
   font-family: @font-family !important;
+}
+
+.gwt-ScrollTable {
+  border: 0 !important;
+}
+
+.gwt-ScrollTable .dataTable td {
+  border-bottom: 0 !important;
+  border-right: 0 !important;
 }
 
 body {
@@ -385,16 +385,6 @@ table.list tr:nth-child(odd),
   border-bottom: 1px solid var(--table-border-color) !important;
 }
 
-.gwt-ScrollTable {
-  border: 0 !important;
-  overflow-wrap:normal !important;
-}
-
-.gwt-ScrollTable .dataTable td {
-  border-bottom: 0 !important;
-  border-right: 0 !important;
-}
-
 .bootstrap-table .fixed-table-container .list.list {
 
   th,
@@ -415,7 +405,7 @@ th.reorderable:has(.desc) {
 }
 
 table.list td {
-  overflow-wrap: @table-cell-wrap !important;
+  overflow-wrap: anywhere !important;
 }
 
 #designChangeItem.list td {
@@ -688,7 +678,7 @@ header#top-nav {
 
     .menuListItem {
       a {
-        color: var(--top-nav-text-color) !important;
+        color: var(--top-nav-text) !important;
       }
 
       .leftNavToggleBtn>svg {
@@ -736,7 +726,7 @@ header#top-nav {
 
       div {
         a {
-          color: var(--left-nav-text-color) !important;
+          color: var(--left-nav-text) !important;
           font-weight: bold !important;
         }
       }
@@ -993,10 +983,10 @@ div[data-block-path="Root/System/Object Definitions/Budget Settings/Screens/CjbB
 
 //fix for budgets template when creating new
 div[data-block-path="Root/System/Object Definitions/Budget Template/Screens/CjbBudgetTemplateSettings.scr"] {
-  & when (@layout-type =TopDown) {
-    .row .grid-50:nth-child(2) {
-      .field-cell {
-        .field {
+  & when (@layout-type =TopDown){
+    .row .grid-50:nth-child(2){
+      .field-cell{
+        .field{
           position: relative !important;
           bottom: auto !important;
           left: auto !important;
@@ -1503,10 +1493,8 @@ div[data-block-path="Root/System/Object Definitions/Budget Template/Screens/CjbB
     .form-row {
       display: grid !important;
       grid-template-columns: 1fr 1fr !important;
-
       .column {
         grid-column: span 2 !important;
-
         .field-cell {
           display: grid !important;
           grid-template-columns: 30px 120px 120px 1fr !important;
@@ -1618,32 +1606,22 @@ div[data-block-path="Root/System/Object Definitions/Budget Template/Screens/CjbB
 
 //Dropdowns
 
+.dropdown-menu li>a:hover,
+.dropdown-menu li .btn-content a:hover {
+  background-color: @dropdown-background-color-hover !important;
+  border-color: @dropdown-border-color-hover !important;
+  color: @dropdown-textcolor-hover !important;
+}
+
+.dropdown-menu>li+li {
+  border-bottom: @dropdown-border-color 1px solid !important;
+  border-top: none !important;
+}
+
 .dropdown-menu {
   background-color: @dropdown-background-color !important;
   color: @dropdown-textcolor !important;
-
-  li:hover {
-    background-color: transparent !important;
-
-    >a:hover {
-      background-color: @dropdown-background-color-hover !important;
-      border-color: @dropdown-border-color-hover !important;
-      color: @dropdown-textcolor-hover !important;
-    }
-  }
-
-  li .btn-content a:hover {
-    background-color: @dropdown-background-color-hover !important;
-    border-color: @dropdown-border-color-hover !important;
-    color: @dropdown-textcolor-hover !important;
-  }
-
-  >li+li {
-    border-bottom: @dropdown-border-color 1px solid !important;
-    border-top: none !important;
-  }
 }
-
 
 //custom search and search view operation buttons
 
@@ -1733,24 +1711,21 @@ input[type="checkbox"]:focus {
 }
 
 //budget and vendor selection input fix
-.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsEditBudget.scr"],
-.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsNewBudget.scr"],
-.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsAddFiscalYear.scr"] {
-  .field:has(.vendorCheck) {
-    width: auto !important;
+.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsEditBudget.scr"], .blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsNewBudget.scr"], .blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectVendorsAddFiscalYear.scr"]{
+  .field:has(.vendorCheck){
+  width: auto !important;
   }
 }
 
 //add fiscal year layout fix
-.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectBudgetTemplateAddFiscalYear.scr"] {
-  .row .grid-100:nth-child(1) {
-    .field-cell {
+.blockDiv[data-block-path="Root/System/Object Definitions/Account/Screens/CjbWzSelectBudgetTemplateAddFiscalYear.scr"]{
+  .row .grid-100:nth-child(1){
+    .field-cell{
       display: flex !important;
       flex-flow: row !important;
       gap: .2rem !important;
       align-items: center !important;
-
-      .texthdr {
+      .texthdr{
         width: auto !important;
       }
     }
