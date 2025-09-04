@@ -5,8 +5,8 @@
  *
  * Current: MitraDazzle v1.4 - updated April 10, 2025 - 
  --Added a variable "@table-cell-wrap" for changing table cell wrapping
-  --Commented "@top-nav-text" to account for Widgets variable converter
- --Commented "@left-nav-text" to account for Widgets variable converter
+ --Changed "--top-nav-text" to "--top-nav-text-color" to account for Widgets variable converter
+ --Changed "--left-nav-text" to "--left-nav-text-color" to account for Widgets variable converter
  --Fixed .dropdown-menu li:hover issue
  --Fixed overflow-wrap issue with GWT tables
 
@@ -50,13 +50,13 @@
   --hamburger-icon: #fff; //hamburger menu icon color
   --top-nav-menu-border: #c7d3df; // top nav menu border
   --top-nav-menu: #0067d2; //top nav menu color
-  --top-nav-text: #fff; //top nav text color
+  --top-nav-text-color: #fff; //top nav text color
   --top-nav-text-selected: #fff; //top nav text selected color
   --top-nav-bottom-border-selected: #fff; //top selected bottom border color
   --top-nav-hover-color: #ffffff1a;
   --left-nav-border: #c7d3df; //left navigation menu border
   --left-nav: #fff; //left navigation menu color
-  --left-nav-text: #242a30; //left navigation menu parent text
+  --left-nav-text-color: #242a30; //left navigation menu parent text
   --left-nav-text-selected: #003368; //left navigation menu parent text when selected/expanded
   --left-nav-selected-background: #f2f7fd; //left navigation menu parent background when selected/expanded
   --left-nav-selected-border: #ed5b3e; //left navigation selected border color
@@ -91,7 +91,7 @@
  * color of: 
  *	- left nav item text
  */
-// @left-nav-text: #222;
+@left-nav-text: #222;
 
 /*
  * background color of: 
@@ -124,7 +124,7 @@
  * color of: 
  *	- top nav unselected tab text
  */
-// @top-nav-text: #444;
+@top-nav-text: #444;
 
 /*
  * color of: 
@@ -688,7 +688,7 @@ header#top-nav {
 
     .menuListItem {
       a {
-        color: var(--top-nav-text) !important;
+        color: var(--top-nav-text-color) !important;
       }
 
       .leftNavToggleBtn>svg {
@@ -736,7 +736,7 @@ header#top-nav {
 
       div {
         a {
-          color: var(--left-nav-text) !important;
+          color: var(--left-nav-text-color) !important;
           font-weight: bold !important;
         }
       }
